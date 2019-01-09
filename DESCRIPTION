@@ -21,7 +21,7 @@ Description: Implementation of chemometrics analysis for bidimensional gas
     baseline correction, smoothing, and peak aligment are available.
     While in multivariate analysis, multiway principal component analysis is
     incorporated.
-License: GPL (>= 2)
+License: MIT + file LICENSE
 Imports: colorRamps (>= 2.3),
      Rdpack (>= 0.7)
 RdMacros: Rdpack
