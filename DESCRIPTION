@@ -1,0 +1,41 @@
+Package: RGCxGC
+Type: Package
+Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
+Version: 1.0.0
+Date: 2019-01-09
+Authors@R: c(
+    person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
+           role = c("aut", "cre")),
+    person("Guilherme", "L. Alexandrino", email = "Alexandrinogl@gmail.com",
+           role = "aut"),
+    person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
+           role = "aut"))
+Author: Cristian Quiroz-Moreno [aut, cre],
+    Guilherme L. Alexandrino [aut],
+    Noroska G.S. Mogollón [aut]
+Maintainer: Cristian Quiroz-Moreno <cristianquirozd1997@gmail.com>
+Description: Implementation of chemometrics analysis for bidimensional gas 
+    chromatography data. This package can handle data for common scientific data
+    format (netCDF) and fold it to 2D chromatogram. Then, it can perform
+    preprocessing and multivariate analysis. In the proprocessing algorithms,
+    baseline correction, smoothing, and peak aligment are available.
+    While in multivariate analysis, multiway principal component analysis is
+    incorporated.
+License: GPL (>= 2)
+Imports: colorRamps (>= 2.3),
+     Rdpack (>= 0.7)
+RdMacros: Rdpack
+Depends:
+     R (>= 3.5.0),
+     stats,
+     methods,
+     graphics,
+     RNetCDF (>= 1.9-1),
+     ptw (>= 1.9-13)
+LazyData: true
+RoxygenNote: 6.1.1
+Encoding: UTF-8
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

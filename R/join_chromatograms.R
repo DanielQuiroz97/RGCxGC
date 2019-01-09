@@ -1,0 +1,107 @@
+setGeneric(name = "base_joinChrom",
+           def = function(x)
+             standardGeneric("base_joinChrom"))
+
+setMethod(f = "base_joinChrom",
+          signature = "raw_GCxGC",
+          definition = function(x){
+            if (!is(x, "batch_2DCOW")) { 
+              chrom_name <- deparse(substitute(x))
+              joinedChrom <- list(x@chromatogram)
+              names(joinedChrom) <- chrom_name
+            } else {
+              chrom_names <- names(x@Batch_2DCOW)
+              joinedChrom <- x@Batch_2DCOW
+              names(joinedChrom) <- chrom_names
+            }
+            return(joinedChrom)
+          })
+
+setGeneric(name = "method_joinChrom",
+           def = function(x, y, groups, xy_names, ...){
+             standardGeneric("method_joinChrom")}
+           )
+
+setMethod(f = "method_joinChrom",
+          signature = "raw_GCxGC",
+          definition = function(x, y, groups, xy_names, ...){
+            all_chrom <- base_joinChrom(x)
+            all_chrom <- c(all_chrom, base_joinChrom(y))
+            if (is(x, "batch_2DCOW") & is(y, "batch_2DCOW"))
+              names(all_chrom) <- xy_names
+            others_chrom <- list(...)
+            if (length(others_chrom)  > 0) {
+              complex_condi <- sapply(others_chrom, is, "batch_2DCOW")
+              if (sum(!complex_condi) > 0 & sum(complex_condi) == 0){
+                others_nm <- names(others_chrom)
+                others_joined <- lapply(others_chrom, base_joinChrom)
+                others_joined <- lapply(rapply(others_joined, enquote,
+                                               how = "unlist"), eval)
+                names(others_joined) <- others_nm
+              } else if (sum(complex_condi) > 0 & sum(!complex_condi) == 0){
+                others_joined <- lapply(others_chrom, base_joinChrom)
+                others_joined <- lapply(rapply(others_joined, enquote,
+                                               how = "unlist"), eval)
+              } else {
+                others_chrom_batch <- others_chrom[complex_condi]
+                others_chrom_basic <- others_chrom[!complex_condi]
+                others_joined_batch <- lapply(others_chrom_batch,
+                                              base_joinChrom)
+                others_batch_nm <- unlist(lapply(others_joined_batch, names))
+                others_basic_nm <- names(others_chrom_basic)
+                other_joined_basic <- lapply(others_chrom_basic, base_joinChrom)
+                others_joined <- c(others_joined_batch, other_joined_basic)
+                others_joined <- lapply(rapply(others_joined, enquote,
+                                               how = "unlist"), eval)
+                names(others_joined) <- c(others_batch_nm, others_basic_nm)
+              }
+              new_nm <- names(others_joined)
+              all_chrom <- c(all_chrom, others_joined)
+              names(all_chrom) <- c(xy_names, new_nm)
+            }
+            joined_chrom <- new("joined_chrom")
+            joined_chrom@chromatograms <- all_chrom
+            if (!missing(groups)) {
+              if (!inherits(groups, "data.frame"))
+                stop("A data frame coitaining groups are requiered")
+              chrom_names <- names(all_chrom)
+              if(length(chrom_names) != nrow(groups))
+                stop("provided chromatograms and groups are
+                     not the same length")
+              metadata <- data.frame(Names = chrom_names)
+              metadata <- merge(metadata, groups, by = "Names")
+              joined_chrom@groups <- metadata
+            }
+            joined_chrom@time <- x@time
+            joined_chrom@mod_time <- x@mod_time
+            return(joined_chrom)
+          })
+#' @title  Join two-dimensional chromatograms into a single R object
+#' 
+#' @description `join_chromatograms` save the chromatograms in a
+#'  named list slot. Also, it saves information like metadata and 
+#'  retention times.
+#' 
+#' @param x,y an GCxGC object, either single or batch chromatogram
+#' @param groups A data.frame containing the metadata. It must have a column
+#'  named as \emph{Name} to merge with the imported chromatograms.
+#' @param ... other GCxGC object to be merged
+#' @importFrom methods is new
+#' @export
+#' @examples 
+#' 
+#' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
+#' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
+#' GB08 <- read_chrom(GB08_fl, 5L)
+#' GB09 <- read_chrom(GB09_fl, 5L)
+#' join_gc <- join_chromatograms(GB08, GB09)
+join_chromatograms <- function(x, y, groups, ...) {
+  
+  if (is(x, "batch_2DCOW") & is(x, "batch_2DCOW")){
+    xy_names <- NULL
+    } else
+      xy_names <- c(deparse(substitute(x)), deparse(substitute(y)))
+  joinedChrom <- method_joinChrom(x = x, y = x, groups = groups,
+                                  xy_names = xy_names, ... = ...)
+  return(joinedChrom)
+}
