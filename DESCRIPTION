@@ -17,13 +17,14 @@ Maintainer: Cristian Quiroz-Moreno <cristianquirozd1997@gmail.com>
 Description: Implementation of chemometrics analysis for bidimensional gas 
     chromatography data. This package can handle data for common scientific data
     format (netCDF) and fold it to 2D chromatogram. Then, it can perform
-    preprocessing and multivariate analysis. In the proprocessing algorithms,
-    baseline correction, smoothing, and peak aligment are available.
+    preprocessing and multivariate analysis. In the preprocessing algorithms,
+    baseline correction, smoothing, and peak alignment are available.
     While in multivariate analysis, multiway principal component analysis is
     incorporated.
-License: GPL (>= 2)
+License: MIT + file LICENSE
 Imports: colorRamps (>= 2.3),
-     Rdpack (>= 0.7)
+     Rdpack (>= 0.7),
+     prettydoc (>= 0.2)
 RdMacros: Rdpack
 Depends:
      R (>= 3.5.0),

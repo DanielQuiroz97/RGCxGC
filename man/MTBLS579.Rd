@@ -28,6 +28,11 @@ MetaboLights database. For the \emph{S. typhi} group the names are:
 34GB, 24GB, 29GB, which has the native name of 34_GB.cdf, 24_GB.cdf and
 29_GB.cdf in MetaboLights database.
 
+Due to large size of chromatograms, this data is a subset of the whole
+chromatograms from 7 min to 18 min of chromatografic run. If you would
+like to acces the whole formated chromatograms, please go to 
+\url{https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda}.
+
 The original study was developed by
  \insertCite{Nasstrom2018;textual}{RGCxGC}.
 }

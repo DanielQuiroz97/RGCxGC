@@ -112,7 +112,10 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
 #' @slot loadings The eigenvectors of each principal component.
 #' @slot summary The summary of the multiway principal component analysis.
 #' @slot groups A data.frame with the experiment metadata. It must have a column
+#' @slot time The time range of chromatographic run
+#' @slot mod_time modulation time of the second dimension
 #'   \emph{Name} to join with chromatograms.
 #' @exportClass MPCA
 setClass("MPCA", slots = c(scores = "matrix", loadings = "list",
+                           time = "vector", mod_time = "integer",
                            summary = "list", groups = "data.frame"))

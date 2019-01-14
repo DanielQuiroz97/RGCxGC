@@ -33,13 +33,15 @@ setGeneric(name = "plot_loading",
 #' # MPCA with mean-centered and scaled data
 #' MTBLS579_mpca <- m_prcomp(MTBLS579)
 #' # Negative loadings of the first principal component
+#' \donttest{
 #' plot_loading(MTBLS579_mpca, type = "n", pc = 1,
 #'              color.palette = matlab.like)
 #' # Positive loadings of the first principal component
 #' plot_loading(MTBLS579_mpca, type = "p", pc = 1,
 #'              color.palette = matlab.like)
+#' }
 setMethod(f = "plot_loading", signature = "MPCA",
-          definition = function(Object, type = "n", pc = 1, ...){
+          definition = function(Object, type = "b", pc = 1, ...){
             if (length(pc) > 1)
               stop("Only on principal component has to be provided")
             npcs <- length(Object@loadings$loadings)
@@ -71,5 +73,14 @@ setMethod(f = "plot_loading", signature = "MPCA",
               mloading <- matrix(loading, nrow = D1,
                                  ncol = D2, byrow = T)
             }
-            filled.contour(t(mloading), ...)
+            labx <- round(seq(Object@time[1], Object@time[2],
+                              length.out = 5), 2)
+            laby <- round(seq(0, Object@mod_time, length.out = 5), 2)
+            filled.contour(t(mloading), 
+                           plot.axes = {
+                             axis(1, at = seq(0, 1, length.out = 5),
+                                  labels = labx)
+                             axis(2, at = seq(0, 1, length.out = 5),
+                                  labels = laby)
+                           }, xlab = "1D min", ylab = "2D sec",...)
           } )

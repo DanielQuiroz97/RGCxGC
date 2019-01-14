@@ -46,6 +46,8 @@ setMethod(f = "method_MPCA",
             MPCA@summary <- MPCA_raw$summ
             if (!is.null(chrom@groups))
               MPCA@groups <- chrom@groups
+            MPCA@time <- chrom@time
+            MPCA@mod_time <- chrom@mod_time
             return(MPCA)
           })
 #' Multiway Principal Component Analysis
@@ -81,10 +83,12 @@ setMethod(f = "method_MPCA",
 #' @examples
 #' 
 #' data(MTBLS579)
+#' \donttest{
 #' MTBLS579_mpca <- m_prcomp(MTBLS579)
 #' print(MTBLS579_mpca)
 #' scores(MTBLS579_mpca)
 #' plot_loading(MTBLS579_mpca)
+#' }
 #' 
 #' @references 
 #'     \insertAllCited{}

@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 bibliography: REFERENCES.bib
 csl: bioinformatics.csl
 output:
+  word_document:
+    toc: true
   prettydoc::html_pretty:
     toc: true
     theme: cayman
@@ -13,8 +15,8 @@ output:
     fig_caption: true
 vignette: >
   %\VignetteIndexEntry{Introduction to RGCxGC package}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 <style>
@@ -131,7 +133,7 @@ a more detailed chromatogram. On the other hand, you can use those
 presented in the *colorRamps* package (matlab.like & matlab.like2)
 for the color palette. 
 
-```{r Chrom plot, message=FALSE, warning=FALSE, paged.print=FALSE, out.width= "80%"}
+```{r Chrom plot, message=FALSE, warning=FALSE, paged.print=FALSE, out.width= "60%"}
 # nlevels: Number of levels
 # color.palette: The color palette to employ
 library(colorRamps)
@@ -152,7 +154,7 @@ For example, contamination of the instrument system injection, column bleeding.
 The baseline correction implemented in this package employs the asymmetric
 least squares algorithm [@Eilers2004].
 
-```{r baseline correction, out.width= "80%"}
+```{r baseline correction, out.width= "60%"}
 MTBLS08_bc <- baseline_corr(MTBLS08)
 plot(MTBLS08_bc, nlevels = 100, color.palette = matlab.like)
 ```
@@ -175,7 +177,7 @@ While the penalty refers to the order to penalize the roughness of the signals,
 $\lambda$ is factor which multiply the rougness signal level.
 Then, greater parameter values will hava a stronger influence of the smmothing.
 
-```{r smoothing, out.width= "80%"}
+```{r smoothing, out.width= "60%"}
 # Linear penalty with lambda equal to 10
 MTBLS08_sm1 <- wsmooth(MTBLS08_bc, penalty = 1, lambda = 1e1)
 plot(MTBLS08_sm1, nlevels = 100, color.palette = matlab.like,
@@ -183,7 +185,7 @@ plot(MTBLS08_sm1, nlevels = 100, color.palette = matlab.like,
 ```
 
 
-```{r smoothing 2, out.width= "80%"}
+```{r smoothing 2, out.width= "60%"}
 # Cuadratic penalty with lambda equal to 10
 MTBLS08_sm2 <- wsmooth(MTBLS08_bc, penalty = 2, lambda = 1e1)
 plot(MTBLS08_sm2, nlevels = 100, color.palette = matlab.like,
@@ -207,7 +209,7 @@ The **TwoDCOW** need four arguments, the sample, and the reference chromatogram,
 the number of segments to split the chromatogram and the maximum
 warping level for both dimensions.
 
-```{r 2DCOW, out.width= "80%"}
+```{r 2DCOW, out.width= "60%"}
 # Raw chromatogram
 chrom_09 <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 MTBLS09 <- read_chrom(chrom_09, mod_time = 5L)
@@ -239,8 +241,9 @@ Then, you must to introduce the same parameters treated above
 to take the first chromatogram as the reference for the alignment.
 
 ```{r batch alignment}
-St_carriege <- batch_2DCOW(chrom_fl, mod_time = 5L, segments = c(10, 40),
-                            max_warp = c(1, 8))
+St_carriege <- batch_2DCOW(chrom_fl, mod_time = 5L,
+                           segments = c(20, 40),
+                           max_warp = c(1, 8))
 ```
 
 ### Get all chromatograms together
@@ -291,7 +294,9 @@ will be aligned. This treated data can be called with the name of **MTBLS579** n
 data(MTBLS579)
 ```
 
-
+**Note**: If you would like to work with the whole chromatograms, dowload the
+*MTBLS.rda* file from this
+[link](https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda).
 
 ```{r MPCA}
 exp_MPCA <- m_prcomp(MTBLS579)
@@ -308,7 +313,7 @@ principal components, and it is related to the
 matrix, you can use the **plot_scores** function. The second argument is the name of
 the factor type column to provide colors between groups.
 
-```{r Scores, out.width= "80%"}
+```{r Scores, out.width= "60%"}
 scores(exp_MPCA)
 ```
 
@@ -317,20 +322,21 @@ While the scores matrix represents the relationship between samples, the loading
 matrix explain the relationship between variables. Then, we obtain a plot similar
 to the input chromatograms. To plot loadings, you can use the **plot_loading**
 function. The type argument refers to positive (type = "p") or negative 
-(type = "n") loading values. The default option of this fucntion is to plot the
+(type = "n") loading values or (type = "b") for both loadings values.
+The default option of this fucntion is to plot the
 firts principal component, even though, you can choose setting the *pc* argument.
 
-```{r positive loadings, out.width= "80%"}
-# Positive loadings
-plot_loading(exp_MPCA, type = "p", nlevels = 100, main = "Positive loadings",
-             color.palette = colorRamps::matlab.like)
-```
-
-```{r negative loadings, out.width= "80%"}
+```{r negative loadings, out.width= "60%"}
 # Negative loadings
-plot_loading(exp_MPCA, type = "n", nlevels = 100, main = "Negative loadings",
-             color.palette = colorRamps::matlab.like)
+plot_loading(exp_MPCA, type = "n", main = "Negative loadings",
+             color.palette = matlab.like)
 ```
 
+
+```{r positive loadings, out.width= "60%"}
+# Negative loadings
+plot_loading(exp_MPCA, type = "p", main = "Positive loadings",
+             color.palette = matlab.like)
+```
 
 # References

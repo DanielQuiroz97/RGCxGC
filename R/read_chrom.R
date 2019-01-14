@@ -11,10 +11,10 @@ setMethod(f = "base_GCxGC",
             raw_1d_chrom <- RNetCDF::open.nc(Object@name)
             scan_time <- RNetCDF::var.get.nc(raw_1d_chrom,
                                              "scan_acquisition_time")
-            scan_first <- scan_time[ seq(length(scan_time) / per_eval) ]
-            scan_floor <- floor(scan_first)
+            scan_first <- scan_time[ seq(length(scan_time) * per_eval) ]
+            scan_floor <- floor(scan_first / 60)
             scan_minut <- table(scan_floor)
-            scan_minut <- scan_minut[-length(scan_minut)]
+            scan_minut <- scan_minut[-c(1, length(scan_minut))]
             homogeneous <- all(scan_minut[1] == scan_minut)
             if (!homogeneous) stop("Sampling rate is not homogeneuous")
             
@@ -68,6 +68,9 @@ setMethod(f = "Mread_GCxGC",
 #' chromatogram). This function is an adaptation of the presented routine
 #' from \insertCite{Skov2008;textual}{RGCxGC}.
 #' 
+#' For unusual retention times, more than 60 seconds, the chemical equipment
+#' converts the measured points per minute in function of sampling rate.
+#' 
 #' @param name A name of the netCDF file to which the data will be retrieved.
 #' @param mod_time The modulation time of the chromatographic run.
 #' @param per_eval An integer with the percentage of the run time to be
@@ -85,7 +88,7 @@ setMethod(f = "Mread_GCxGC",
 #' 
 #' @references
 #'     \insertAllCited{}
-read_chrom <- function(name, mod_time, sam_rate, per_eval = 10){
+read_chrom <- function(name, mod_time, sam_rate, per_eval = .10){
   chromatogram <- new('raw_GCxGC', name = name, mod_time = mod_time)
   chromatogram <- Mread_GCxGC(chromatogram, sam_rate, per_eval)
   return(chromatogram)

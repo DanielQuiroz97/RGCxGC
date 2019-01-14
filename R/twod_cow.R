@@ -210,10 +210,9 @@ setMethod(f = "method_TwoDCOW", signature = c("raw_GCxGC"),
 #' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 #' GB08 <- read_chrom(GB08_fl, 5L)
 #' GB09 <- read_chrom(GB09_fl, 5L)
-#' GB09_al <- twod_cow(GB09, GB08, c(10, 40), c(2, 8))
-#' plot(GB08, nlevels = 150, color.palette = matlab.like, main = "Reference")
-#' plot(GB09, nlevels = 150, color.palette = matlab.like, main = "Sample")
-#' plot(GB09_al, nlevels = 150, color.palette = matlab.like, main = "Aligned")
+#' \donttest{
+#' GB09_al <- twod_cow(GB09, GB08, c(20, 40), c(2, 8))
+#' }
 #' 
 #' @references
 #'     \insertAllCited{}

@@ -40,10 +40,12 @@ This algorithm was first presented by \insertCite{Wold1987}{RGCxGC}.
 \examples{
 
 data(MTBLS579)
+\donttest{
 MTBLS579_mpca <- m_prcomp(MTBLS579)
 print(MTBLS579_mpca)
 scores(MTBLS579_mpca)
 plot_loading(MTBLS579_mpca)
+}
 
 }
 \references{

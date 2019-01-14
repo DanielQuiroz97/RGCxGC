@@ -36,6 +36,8 @@ transformation as well to the first and the second dimension.
 GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 chrom_nm <- c(GB08_fl, GB09_fl)
+\donttest{
 batch_alignment <- batch_2DCOW(chrom_nm, 5L, c(10, 40), c(1, 10))
+}
 
 }

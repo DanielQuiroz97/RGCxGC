@@ -4,7 +4,7 @@
 \alias{read_chrom}
 \title{Read bidimensional total ion current chromatogram.}
 \usage{
-read_chrom(name, mod_time, sam_rate, per_eval = 10)
+read_chrom(name, mod_time, sam_rate, per_eval = 0.1)
 }
 \arguments{
 \item{name}{A name of the netCDF file to which the data will be retrieved.}
@@ -28,6 +28,9 @@ This function reads the netCDF file and retrieve the values in the
 modulation time, it is folded into a numerical matrix (bidimensional
 chromatogram). This function is an adaptation of the presented routine
 from \insertCite{Skov2008;textual}{RGCxGC}.
+
+For unusual retention times, more than 60 seconds, the chemical equipment
+converts the measured points per minute in function of sampling rate.
 }
 \examples{
  

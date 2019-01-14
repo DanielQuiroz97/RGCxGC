@@ -8,7 +8,7 @@
 \usage{
 plot_loading(Object, type = "n", pc = 1, ...)
 
-\S4method{plot_loading}{MPCA}(Object, type = "n", pc = 1, ...)
+\S4method{plot_loading}{MPCA}(Object, type = "b", pc = 1, ...)
 }
 \arguments{
 \item{Object}{a MPCA object}
@@ -38,9 +38,11 @@ data(MTBLS579)
 # MPCA with mean-centered and scaled data
 MTBLS579_mpca <- m_prcomp(MTBLS579)
 # Negative loadings of the first principal component
+\donttest{
 plot_loading(MTBLS579_mpca, type = "n", pc = 1,
              color.palette = matlab.like)
 # Positive loadings of the first principal component
 plot_loading(MTBLS579_mpca, type = "p", pc = 1,
              color.palette = matlab.like)
+}
 }

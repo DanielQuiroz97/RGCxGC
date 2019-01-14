@@ -79,7 +79,9 @@ setMethod(f = "method_batch_2DCOW",
 #' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 #' chrom_nm <- c(GB08_fl, GB09_fl)
+#' \donttest{
 #' batch_alignment <- batch_2DCOW(chrom_nm, 5L, c(10, 40), c(1, 10))
+#' }
 #' 
 batch_2DCOW <- function(chrom_names, mod_time, segments, max_warp) {
   if (length(chrom_names) < 2)

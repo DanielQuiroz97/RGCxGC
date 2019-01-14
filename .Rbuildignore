@@ -3,3 +3,6 @@
 ^.*\.Rproj$
 .Rproj$
 ^\.Rproj\.user$
+\.git
+\.git$
+\.Rhistory
