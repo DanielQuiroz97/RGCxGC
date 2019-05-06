@@ -63,7 +63,7 @@ setMethod(f = "method_joinChrom",
             joined_chrom@chromatograms <- all_chrom
             if (!missing(groups)) {
               if (!inherits(groups, "data.frame"))
-                stop("A data frame coitaining groups are requiered")
+                stop("A data frame containing groups are requiered")
               chrom_names <- names(all_chrom)
               if(length(chrom_names) != nrow(groups))
                 stop("provided chromatograms and groups are
