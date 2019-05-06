@@ -5,8 +5,6 @@ date: "`r Sys.Date()`"
 bibliography: REFERENCES.bib
 csl: bioinformatics.csl
 output:
-  word_document:
-    toc: true
   prettydoc::html_pretty:
     toc: true
     theme: cayman
@@ -309,7 +307,7 @@ variance of the second principal component is 5%.
 ### Scores
 The scores is the projection in the reduced multivariate space spanned by
 principal components, and it is related to the 
-(chromatographic) differences among the sampoles. To plot access the scores
+(chromatographic) differences among the samples. To plot access the scores
 matrix, you can use the **plot_scores** function. The second argument is the name of
 the factor type column to provide colors between groups.
 

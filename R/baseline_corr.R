@@ -1,24 +1,25 @@
 setGeneric(name = "base_baselineCorr",
-           def = function(Object){
+           def = function(Object, ...){
              standardGeneric("base_baselineCorr")
            })
 
 setMethod(f = "base_baselineCorr",
           signature = c("raw_GCxGC"),
-          definition = function(Object){
-            chrom_bc <- apply(Object@chromatogram, MARGIN = 2, baseline.corr)
+          definition = function(Object, ...){
+            chrom_bc <- apply(Object@chromatogram, MARGIN = 2, baseline.corr,
+                              ... = ...)
             return(chrom_bc)
           })
 
 setGeneric(name = "method_baselineCorr",
-           def = function(Object){
+           def = function(Object, ...){
              standardGeneric("method_baselineCorr")
            })
 
 setMethod(f = "method_baselineCorr",
           signature = c("raw_GCxGC"),
-          definition = function(Object){
-            Object@chromatogram <- base_baselineCorr(Object)
+          definition = function(Object, ...){
+            Object@chromatogram <- base_baselineCorr(Object, ...)
             return(Object)
           })
 #' @title  Bidimensional baseline correction
@@ -32,6 +33,7 @@ setMethod(f = "method_baselineCorr",
 #' 
 #' @param chromatogram a \emph{raw_GCxGC} object like with provided
 #'  \emph{name} and \emph{mod_time} slots.
+#' @param ... other parameters passed to asyms function in pwt package.
 #'  
 #' @importFrom ptw baseline.corr
 #' @importFrom methods new
@@ -47,11 +49,11 @@ setMethod(f = "method_baselineCorr",
 #' 
 #' @references 
 #'     \insertAllCited{}
-baseline_corr <- function(chromatogram) {
+baseline_corr <- function(chromatogram, ...) {
   preproc_chrom <- new('preproc_GCxGC', name = chromatogram@name,
                        mod_time = chromatogram@mod_time,
                        time = chromatogram@time)
-  blcorr_chrom <- method_baselineCorr(chromatogram)
+  blcorr_chrom <- method_baselineCorr(chromatogram, ...)
   preproc_chrom@chromatogram <- blcorr_chrom@chromatogram
   return(preproc_chrom)
 }

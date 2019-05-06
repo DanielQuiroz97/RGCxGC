@@ -4,11 +4,13 @@
 \alias{baseline_corr}
 \title{Bidimensional baseline correction}
 \usage{
-baseline_corr(chromatogram)
+baseline_corr(chromatogram, ...)
 }
 \arguments{
 \item{chromatogram}{a \emph{raw_GCxGC} object like with provided
 \emph{name} and \emph{mod_time} slots.}
+
+\item{...}{other parameters passed to asyms function in pwt package.}
 }
 \description{
 `baseline_corr` provides a bidimensional baseline correction
