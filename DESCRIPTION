@@ -22,6 +22,7 @@ Description: Implementation of chemometrics analysis for bidimensional gas
     While in multivariate analysis, multiway principal component analysis is
     incorporated.
 License: MIT + file LICENSE
+BugReports: https://github.com/DanielQuiroz97/RGCxGC/issues
 Imports: colorRamps (>= 2.3),
      Rdpack (>= 0.7),
      prettydoc (>= 0.2)

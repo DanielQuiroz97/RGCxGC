@@ -14,10 +14,10 @@ multiway principal compoment analysis
 \describe{
 \item{\code{chromatograms}}{A named list with all chromatograms.}
 
-\item{\code{groups}}{A data.frame with the metadata. A column \emph{Name} with
-the same name of the chromatograms}
-
 \item{\code{time}}{The time range of chromatographic run}
+
+\item{\code{groups}}{A data.frame containing the experiment metadata with
+a column named as \emph{Name}}
 
 \item{\code{mod_time}}{modulation time of the second dimension}
 }}

@@ -4,14 +4,14 @@
 \alias{batch_2DCOW}
 \title{Two Dimensional COW in batch.}
 \usage{
-batch_2DCOW(chrom_names, mod_time, segments, max_warp)
+batch_2DCOW(reference, sample_chroms, segments, max_warp)
 }
 \arguments{
-\item{chrom_names}{The names of the chromatograms to be aligned,
-the first chromatogram name will be considered as the 
-reference chromatogram.}
+\item{reference}{A GCxGC chromatogram wich will be taken as the reference 
+chromatogram}
 
-\item{mod_time}{The modulation time of the experiment.}
+\item{sample_chroms}{A named list with the sample chromatograms which will
+be aligned to the reference chromatogram}
 
 \item{segments}{A two integer vector with number of segments
 which the first and second dimension will be subdivided, respectively.}

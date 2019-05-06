@@ -1,53 +1,41 @@
 setGeneric(name = "base_batch_2DCOW",
-           def = function(chrom_names, mod_time,
+           def = function(reference, sample_chroms,
                           segments, max_warp){
              standardGeneric("base_batch_2DCOW")
            })
 
 setMethod(f = "base_batch_2DCOW",
-          signature = c("character", "integer"),
-          definition = function(chrom_names, mod_time,
+          signature = c("GCxGC", "list"),
+          definition = function(reference, sample_chroms,
                                 segments, max_warp){
-            reference_chrom <- read_chrom(chrom_names[1],
-                                          mod_time = mod_time)
-            sample_chrom <- lapply(chrom_names[-1], read_chrom,
-                                   mod_time = mod_time)
-            multiple_alig <- lapply(sample_chrom, method_TwoDCOW,
-                                    ref_chrom = reference_chrom,
+            multiple_alig <- lapply(sample_chroms, method_TwoDCOW,
+                                    ref_chrom = reference,
                                     segments = segments,
                                     max_warp = max_warp)
-            file_names  <- sapply(basename(chrom_names), 
-                                  function(x) {strsplit(x,
-                                                        split = "[.]")[[1]][1]})
-            names(multiple_alig) <- file_names[-1]
-            multiple_alig[[length(chrom_names)]] <- reference_chrom
-            names(multiple_alig)[length(chrom_names)] <- file_names[1]
-            all_chromatograms <- list(reference_chrom, multiple_alig)
-            names(all_chromatograms) <- c(file_names[1], "Aligned")
-            all_chromatograms$time <- reference_chrom@time
+            all_chromatograms <- c(reference, multiple_alig)
             return(all_chromatograms)
           })
 
 setGeneric(name = "method_batch_2DCOW",
-           def = function(chrom_names, mod_time,
-                          segments, max_warp){
+           def = function(reference, sample_chroms,
+                          segments, max_warp, ref_name){
              standardGeneric("method_batch_2DCOW")
            })
 setMethod(f = "method_batch_2DCOW",
-          signature = c("character", "integer"),
-          definition = function(chrom_names, mod_time,
-                                segments, max_warp){
-            lst_aligned <- base_batch_2DCOW(chrom_names = chrom_names,
-                                            mod_time = mod_time,
+          signature = c("GCxGC", "list"),
+          definition = function(reference, sample_chroms,
+                                segments, max_warp, ref_name){
+            lst_aligned <- base_batch_2DCOW(reference = reference,
+                                            sample_chroms = sample_chroms,
                                             segments = segments,
                                             max_warp = max_warp)
+            names(lst_aligned) <- c(ref_name, names(lst_aligned)[-1])
             chrom_2DCOW <- new("batch_2DCOW")
             chrom_2DCOW@name <- "batch_2DCOW"
-            chrom_2DCOW@mod_time <- mod_time
-            chrom_2DCOW@time <- lst_aligned$time
-            lst_aligned <- lst_aligned[- length(lst_aligned)]
-            chrom_2DCOW@chromatogram <- lst_aligned[[1]]@chromatogram
-            chrom_2DCOW@Batch_2DCOW <- lapply(lst_aligned$Aligned,
+            chrom_2DCOW@mod_time <- reference@mod_time
+            chrom_2DCOW@time <- reference@time
+            chrom_2DCOW@chromatogram <- reference@chromatogram
+            chrom_2DCOW@Batch_2DCOW <- lapply(lst_aligned,
                                               function(x) x@chromatogram)
             return(chrom_2DCOW)
           })
@@ -64,10 +52,10 @@ setMethod(f = "method_batch_2DCOW",
 #' The [max_warp] argument provides de maximum tolerace of the signal
 #' transformation as well to the first and the second dimension.
 #'
-#' @param chrom_names The names of the chromatograms to be aligned,
-#'  the first chromatogram name will be considered as the 
-#'  reference chromatogram.
-#' @param mod_time The modulation time of the experiment.
+#' @param reference A GCxGC chromatogram wich will be taken as the reference 
+#'   chromatogram
+#' @param sample_chroms A named list with the sample chromatograms which will
+#'  be aligned to the reference chromatogram
 #' @param segments A two integer vector with number of segments
 #'  which the first and second dimension will be subdivided, respectively.
 #' @param max_warp A two intger vector with the maximum warping parameter.
@@ -83,12 +71,16 @@ setMethod(f = "method_batch_2DCOW",
 #' batch_alignment <- batch_2DCOW(chrom_nm, 5L, c(10, 40), c(1, 10))
 #' }
 #' 
-batch_2DCOW <- function(chrom_names, mod_time, segments, max_warp) {
-  if (length(chrom_names) < 2)
-    stop("At least two chromatograms are needed")
-  batch_aligned <- method_batch_2DCOW(chrom_names = chrom_names,
-                                      mod_time = mod_time,
+batch_2DCOW <- function(reference, sample_chroms, segments, max_warp) {
+  if (length(sample_chroms) < 2)
+    stop("At least two sample chromatograms are needed")
+  if (length(names(sample_chroms)) != length(sample_chroms))
+    stop('A named list must be provided')
+  ref_name <- deparse(substitute(reference))
+  batch_aligned <- method_batch_2DCOW(reference = reference,
+                                      sample_chroms = sample_chroms,
                                       segments = segments,
-                                      max_warp = max_warp)
+                                      max_warp = max_warp,
+                                      ref_name = ref_name)
   return(batch_aligned)
 }

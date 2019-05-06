@@ -1,3 +1,4 @@
+####  Parent class GCxGG ####
 #' Class GCxGC
 #' 
 #' Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
@@ -22,6 +23,7 @@ setClass(Class = "GCxGC",
            else paste(chrom_name, "is not a valid NetCDF file")
          })
 
+#### inherited class  raw_GCxGC ####
 #' Subclass raw_GCxGC
 #' 
 #' Subclass \emph{raw_GCxGC} are contained in \emph{GCxGC} super class. It
@@ -39,6 +41,7 @@ setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
                                         time = "vector"),
          contains = "GCxGC")
 
+#### inherited class  preproc_GCxGC ####
 #' Subclass preproc_GCxGC
 #' 
 #' Subclass \emph{preproc_GCxGC} are contained in \emph{raw_GCxGC} super class.
@@ -52,6 +55,7 @@ setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
 #' @exportClass preproc_GCxGC
 setClass(Class = "preproc_GCxGC", contains = "raw_GCxGC")
 
+#### inherited class  aligned_GCxGC ####
 #' Subclass aligned_GCxGC
 #' 
 #' Subclass \emph{aligned_GCxGC} are contained in \emph{raw_GCxGC} super class.
@@ -66,6 +70,7 @@ setClass(Class = "preproc_GCxGC", contains = "raw_GCxGC")
 #' @exportClass aligned_GCxGC
 setClass("aligned_GCxGC", contains = 'raw_GCxGC')
 
+#### inherited class  batch_2DCOW ####
 #' Subclass batch_2DCOW
 #' 
 #' Subclass \emph{batch_2DCOW} are contained in \emph{raw_GCxGC} super
@@ -77,9 +82,10 @@ setClass("aligned_GCxGC", contains = 'raw_GCxGC')
 #' aligment function, or with the raw chromatogram.
 #' 
 #' @exportClass batch_2DCOW
-setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list", category = "character"),
+setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list"),
          contains = 'raw_GCxGC')
 
+####  Parent joined_chrom ####
 #' Class joined_chrom
 #' 
 #' Class \emph{joined_chrom} defines the superclass to gather single
@@ -87,9 +93,9 @@ setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list", category = "character"),
 #' multiway principal compoment analysis
 #'  
 #' @slot chromatograms A named list with all chromatograms.
-#' @slot groups A data.frame with the metadata. A column \emph{Name} with
-#'  the same name of the chromatograms
 #' @slot time The time range of chromatographic run
+#' @slot groups A data.frame containing the experiment metadata with
+#'  a column named as \emph{Name}
 #' @slot mod_time modulation time of the second dimension
 #' @exportClass joined_chrom
 setClass("joined_chrom", slots = c(chromatograms = "list",
@@ -101,7 +107,7 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
            else print("A chromatogram of class raw_GCxGC or 
                       preproc_GCxGC is needed")
          })
-
+####  Parent MPCA ####
 #' Class MPCA
 #' 
 #' Class \emph{MPCA} defines the superclass of Multiway Principal Component

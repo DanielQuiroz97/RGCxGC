@@ -238,11 +238,6 @@ Then, you must to introduce the same parameters treated above
 (segments and maximum warping). The default option of **batch_2DCOW** is
 to take the first chromatogram as the reference for the alignment.
 
-```{r batch alignment}
-St_carriege <- batch_2DCOW(chrom_fl, mod_time = 5L,
-                           segments = c(20, 40),
-                           max_warp = c(1, 8))
-```
 
 ### Get all chromatograms together
 Once the chromatograms are already preprocessed, it has to be in a single R object.
