@@ -16,7 +16,7 @@
 #' @exportClass GCxGC
 #' @importFrom RNetCDF open.nc
 setClass(Class = "GCxGC", 
-         slots = c(name = "character", mod_time = "integer"),
+         slots = c(name = "character", mod_time = "numeric"),
          validity =  function(object) {
            val_chrom <- RNetCDF::open.nc(object@name)
            if (inherits(val_chrom, "NetCDF")) T
