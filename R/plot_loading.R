@@ -75,7 +75,8 @@ setMethod(f = "plot_loading", signature = "MPCA",
             }
             labx <- round(seq(Object@time[1], Object@time[2],
                               length.out = 5), 2)
-            laby <- round(seq(0, Object@mod_time, length.out = 5), 2)
+            laby <- round(seq( Object@mod_time[1], Object@mod_time[2],
+                               length.out = 5), 2)
             filled.contour(t(mloading), 
                            plot.axes = {
                              axis(1, at = seq(0, 1, length.out = 5),
