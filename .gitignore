@@ -1,4 +1,7 @@
 doc
 Meta
 .Rproj.user
+.RData$
 [.]Rhistory
+R/all_chrom.RData
+all_chrom.RData
