@@ -55,7 +55,7 @@ setMethod(f = "base_TwoDCOW", signature = c("matrix", 'matrix'),
               n_col_segs <- 2
               print("The segment lenght is forced to be smaller
                     than warping-vector lenght\n")
-              print(paste("segmentsg[2] =", segments[2]))
+              print(paste("segments[2] =", segments[2]))
             }
             if (max_warp[2] >= (segments[2] * 0.8)){
               max_warp[2] <- round(segments[2] * 0.3)
@@ -167,7 +167,7 @@ setGeneric(name = "method_TwoDCOW",
            })
 setMethod(f = "method_TwoDCOW", signature = c("raw_GCxGC"),
           definition = function(sample_chrom, ref_chrom, segments, max_warp){
-            if (sample_chrom@mod_time != ref_chrom@mod_time)
+            if (all(sample_chrom@mod_time != ref_chrom@mod_time))
               stop('The modulation time of chromatograms are not the same')
             al_chrom <- new("aligned_GCxGC")
             al_chrom@mod_time <- sample_chrom@mod_time
