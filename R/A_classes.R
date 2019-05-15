@@ -101,7 +101,7 @@ setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list"),
 setClass("joined_chrom", slots = c(chromatograms = "list",
                                    groups = "data.frame",
                                    time = "vector",
-                                   mod_time = "integer"),
+                                   mod_time = "numeric"),
          validity = function(object){
            if (is(objetc, "raw_GCxGC")) T
            else print("A chromatogram of class raw_GCxGC or 
@@ -123,5 +123,5 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
 #'   \emph{Name} to join with chromatograms.
 #' @exportClass MPCA
 setClass("MPCA", slots = c(scores = "matrix", loadings = "list",
-                           time = "vector", mod_time = "integer",
+                           time = "vector", mod_time = "numeric",
                            summary = "list", groups = "data.frame"))
