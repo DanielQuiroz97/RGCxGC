@@ -52,7 +52,7 @@ setMethod(f = "method_MPCA",
           })
 #' Multiway Principal Component Analysis
 #'
-#' `MPCA` Performs a multiway principal components analysis on the given
+#' `m_prcomp` Performs a multiway principal components analysis on the given
 #' bidimensional chromatograms and returns the rusults  as object of class
 #' MPCA.
 #"

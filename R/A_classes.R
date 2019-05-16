@@ -103,7 +103,7 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
                                    time = "vector",
                                    mod_time = "numeric"),
          validity = function(object){
-           if (is(objetc, "raw_GCxGC")) T
+           if (is(objetc, "raw_GCxGC")) TRUE
            else print("A chromatogram of class raw_GCxGC or 
                       preproc_GCxGC is needed")
          })
