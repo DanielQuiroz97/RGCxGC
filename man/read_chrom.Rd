@@ -4,7 +4,8 @@
 \alias{read_chrom}
 \title{Read bidimensional total ion current chromatogram.}
 \usage{
-read_chrom(name, mod_time, sam_rate, per_eval = 0.1)
+read_chrom(name, mod_time, sam_rate, per_eval = 0.1, x_cut = NULL,
+  y_cut = NULL)
 }
 \arguments{
 \item{name}{A name of the netCDF file to which the data will be retrieved.}
@@ -17,6 +18,12 @@ diference of two adjacent scan time.}
 
 \item{per_eval}{An integer with the percentage of the run time to be
 evaluate, if the sampling rate is homogeneous.}
+
+\item{x_cut}{A vector with two elements representing the minimum and maximum
+retention times for the first dimension, which will be maintained.}
+
+\item{y_cut}{A vector with two elements representing the minimum and maximum
+retention times for the second dimension, which will be maintained.}
 }
 \description{
 `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation

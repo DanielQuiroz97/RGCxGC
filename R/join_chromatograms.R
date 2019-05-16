@@ -88,7 +88,7 @@ setMethod(f = "method_joinChrom",
 #'  retention times.
 #' 
 #' @param x,y a GCxGC object, either single or batch chromatogram
-#' @param groups A data.frame containing the metadata. It must have a column
+#' @param groups a data.frame containing the metadata. It must have a column
 #'  named as \emph{Name} to merge with the imported chromatograms.
 #' @param ... other GCxGC objects to be merged
 #' @importFrom methods is new
@@ -100,6 +100,9 @@ setMethod(f = "method_joinChrom",
 #' GB08 <- read_chrom(GB08_fl, 5L)
 #' GB09 <- read_chrom(GB09_fl, 5L)
 #' join_gc <- join_chromatograms(GB08, GB09)
+#' metadata <- data.frame(Names = c("GB08", "GB09"),
+#'                        Type = c("Control", "Treatment"))
+#' join_metadata <- join_chromatograms(GB08, GB09, groups = metadata)
 join_chromatograms <- function(x, y, groups, ...) {
   
   if (is(x, "batch_2DCOW") & is(y, "batch_2DCOW")){

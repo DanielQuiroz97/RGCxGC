@@ -28,7 +28,7 @@ MPCA returns a list whit class "MPCA" containing the summary of the
   was providen when chromatograms were joined.
 }
 \description{
-`MPCA` Performs a multiway principal components analysis on the given
+`m_prcomp` Performs a multiway principal components analysis on the given
 bidimensional chromatograms and returns the rusults  as object of class
 MPCA.
 Before to perform the calculation, each given chromatogramas are unfolded

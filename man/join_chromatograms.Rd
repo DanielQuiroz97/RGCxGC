@@ -7,12 +7,12 @@
 join_chromatograms(x, y, groups, ...)
 }
 \arguments{
-\item{x, y}{an GCxGC object, either single or batch chromatogram}
+\item{x, y}{a GCxGC object, either single or batch chromatogram}
 
 \item{groups}{A data.frame containing the metadata. It must have a column
 named as \emph{Name} to merge with the imported chromatograms.}
 
-\item{...}{other GCxGC object to be merged}
+\item{...}{other GCxGC objects to be merged}
 }
 \description{
 `join_chromatograms` save the chromatograms in a
@@ -26,4 +26,7 @@ GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 GB08 <- read_chrom(GB08_fl, 5L)
 GB09 <- read_chrom(GB09_fl, 5L)
 join_gc <- join_chromatograms(GB08, GB09)
+metadata <- data.frame(Names = c("GB08", "GB09"),
+                       Type = c("Control", "Treatment"))
+join_metadata <- join_chromatograms(GB08, GB09, groups = metadata)
 }

@@ -30,7 +30,6 @@ setMethod(f = "base_unfold",
 #' @importFrom methods is new
 #' @export
 #' @examples  
-#' @examples 
 #' 
 #' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
