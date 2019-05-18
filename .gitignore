@@ -5,3 +5,4 @@ Meta
 [.]Rhistory
 R/all_chrom.RData
 all_chrom.RData
+*.RData
