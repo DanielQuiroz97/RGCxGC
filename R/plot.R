@@ -58,6 +58,7 @@ setMethod(f = 'plot', signature = 'GCxGC',
                                 drawlabels = FALSE,
                                 frame.plot = TRUE,
                                 axes = FALSE,
+                                xlab = "1D min", ylab = "2D sec",
                                 ... = ...)
               axis(1, at = seq(0, 1, length.out = 5),
                    labels = labx)
