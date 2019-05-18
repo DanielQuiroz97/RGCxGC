@@ -54,7 +54,11 @@ setMethod(f = 'plot', signature = 'GCxGC',
                            }, xlab = "1D min", ylab = "2D sec",
                            ... = ...)
             } else {
-              graphics::contour(t(Object@chromatogram), ... = ...)
+              graphics::contour(t(Object@chromatogram),
+                                drawlabels = FALSE,
+                                frame.plot = TRUE,
+                                axes = FALSE,
+                                ... = ...)
               axis(1, at = seq(0, 1, length.out = 5),
                    labels = labx)
               axis(2, at = seq(0, 1, length.out = 5),
