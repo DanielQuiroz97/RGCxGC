@@ -1,5 +1,6 @@
 setGeneric(name = "base_GCxGC",
-           def = function(Object, mod_time, sam_rate, per_eval, x_cut, y_cut) {
+           def = function(Object, mod_time, sam_rate, per_eval,
+                          x_cut, y_cut, verbose) {
              standardGeneric("base_GCxGC")
            }
 )
@@ -7,7 +8,7 @@ setGeneric(name = "base_GCxGC",
 setMethod(f = "base_GCxGC",
           signature = "GCxGC",
           definition = function(Object, mod_time, sam_rate, per_eval,
-                                x_cut, y_cut) {
+                                x_cut, y_cut, verbose) {
             
             raw_1d_chrom <- RNetCDF::open.nc(Object@name)
             scan_time <- RNetCDF::var.get.nc(raw_1d_chrom,
@@ -64,15 +65,20 @@ setMethod(f = "base_GCxGC",
             if (!is.null(y_cut))
               bidim_chrom <- c(bidim_chrom, mod_time = n_mod_time)
             else n_mod_time <- c(0, mod_time)
-            cat('Retention time ranges:\n')
-            cat(paste("1D (min):", round(time_rn[1], 2), round(time_rn[2], 2),'\n'))
-            cat(paste("2D (sec):", n_mod_time[1], n_mod_time[2], '\n'))
+            if (missing(verbose)) verbose <- TRUE
+            if (verbose){
+              cat('Retention time ranges:\n')
+              cat(paste("1D (min):", round(time_rn[1], 2),
+                        round(time_rn[2], 2),'\n'))
+              cat(paste("2D (sec):", n_mod_time[1], n_mod_time[2], '\n'))
+            }
             return(bidim_chrom)
           }
 )
 
 setGeneric(name = "Mread_GCxGC",
-           def = function(Object, mod_time, sam_rate, per_eval, x_cut, y_cut) {
+           def = function(Object, mod_time, sam_rate, per_eval,
+                          x_cut, y_cut, verbose) {
              standardGeneric("Mread_GCxGC")
            }
 )
@@ -80,13 +86,14 @@ setGeneric(name = "Mread_GCxGC",
 setMethod(f = "Mread_GCxGC",
           signature = "raw_GCxGC",
           definition = function(Object, mod_time, sam_rate, per_eval,
-                                x_cut, y_cut) {
+                                x_cut, y_cut, verbose) {
             readed_gc <- base_GCxGC(Object = Object,
                                     mod_time = mod_time,
                                     sam_rate = sam_rate,
                                     per_eval = per_eval,
                                     x_cut = x_cut,
-                                    y_cut = y_cut)
+                                    y_cut = y_cut,
+                                    verbose = verbose)
             Object@chromatogram <- readed_gc$chromatogram
             Object@time <- readed_gc$time
             if (length(readed_gc) > 2)
@@ -120,6 +127,8 @@ setMethod(f = "Mread_GCxGC",
 #'  retention times for the first dimension, which will be maintained.
 #' @param y_cut A vector with two elements representing the minimum and maximum
 #'  retention times for the second dimension, which will be maintained.
+#' @param verbose a logical indicating if information of chromatogram is
+#'  printted in console
 #' @importFrom RNetCDF open.nc var.get.nc
 #' @importFrom methods is
 #' @export 
@@ -131,9 +140,9 @@ setMethod(f = "Mread_GCxGC",
 #' @references
 #'     \insertAllCited{}
 read_chrom <- function(name, mod_time, sam_rate, per_eval = .10,
-                       x_cut = NULL, y_cut = NULL){
+                       x_cut = NULL, y_cut = NULL, verbose = TRUE){
   chromatogram <- new('raw_GCxGC', name = name, mod_time = mod_time)
   chromatogram <- Mread_GCxGC(chromatogram, mod_time, sam_rate, per_eval,
-                              x_cut, y_cut)
+                              x_cut, y_cut, verbose = verbose)
   return(chromatogram)
 }
