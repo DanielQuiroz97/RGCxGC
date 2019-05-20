@@ -9,7 +9,7 @@ join_chromatograms(x, y, groups, ...)
 \arguments{
 \item{x, y}{a GCxGC object, either single or batch chromatogram}
 
-\item{groups}{A data.frame containing the metadata. It must have a column
+\item{groups}{a data.frame containing the metadata. It must have a column
 named as \emph{Name} to merge with the imported chromatograms.}
 
 \item{...}{other GCxGC objects to be merged}

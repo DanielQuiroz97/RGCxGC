@@ -173,8 +173,8 @@ setMethod(f = "method_TwoDCOW", signature = c("raw_GCxGC"),
             al_chrom@mod_time <- sample_chrom@mod_time
             al_chrom@name <- sample_chrom@name
             al_chrom@time <- sample_chrom@time
-            al_chrom@chromatogram <- base_TwoDCOW(sample_chrom@chromatogram,
-                                                  ref_chrom@chromatogram,
+            al_chrom@chromatogram <- base_TwoDCOW(sample_chrom = sample_chrom@chromatogram,
+                                                  ref_chrom = ref_chrom@chromatogram,
                                                   segments = segments,
                                                   max_warp = max_warp)
             return(al_chrom)

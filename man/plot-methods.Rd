@@ -6,13 +6,18 @@
 \alias{plot,GCxGC-method}
 \title{Method plot}
 \usage{
-plot(Object, ...)
+plot(Object, type = "f", ...)
 
-\S4method{plot}{GCxGC}(Object, ...)
+\S4method{plot}{GCxGC}(Object, type = "f", ...)
 }
 \arguments{
 \item{Object}{a GCxGC chromatogram, it could be a raw, or preprocessed
 chromatogram}
+
+\item{type}{a character for the type of chromatogram display. By default, 
+type = "f" for \code{\link[graphics]{filled.contour}} function, if 
+type = "c" only contour or isolines will be displayed from
+\code{\link[graphics]{contour}} function}
 
 \item{...}{Other parameters passes to \code{\link[graphics]{filled.contour}}
 function.}
@@ -32,7 +37,7 @@ library(colorRamps)
 chrom_name <-  system.file("extdata", "08GB.cdf", package = "RGCxGC")
 chrom_2D <- read_chrom(chrom_name, 5L)
 plot(chrom_2D, nlevels = 150, color.palette = matlab.like)
-
+plot(chrom_2D, type = "c", nlevels = 50, col = matlab.like(30))
 }
 \references{
 \insertAllCited{}

@@ -5,7 +5,7 @@
 \title{Read bidimensional total ion current chromatogram.}
 \usage{
 read_chrom(name, mod_time, sam_rate, per_eval = 0.1, x_cut = NULL,
-  y_cut = NULL)
+  y_cut = NULL, verbose = TRUE)
 }
 \arguments{
 \item{name}{A name of the netCDF file to which the data will be retrieved.}
@@ -24,6 +24,9 @@ retention times for the first dimension, which will be maintained.}
 
 \item{y_cut}{A vector with two elements representing the minimum and maximum
 retention times for the second dimension, which will be maintained.}
+
+\item{verbose}{a logical indicating if information of chromatogram is
+printted in console}
 }
 \description{
 `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
