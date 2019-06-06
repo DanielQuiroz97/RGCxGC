@@ -118,10 +118,26 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
 #' @slot loadings The eigenvectors of each principal component.
 #' @slot summary The summary of the multiway principal component analysis.
 #' @slot groups A data.frame with the experiment metadata. It must have a column
+#' \emph{Names} to join with chromatograms.
 #' @slot time The time range of chromatographic run
 #' @slot mod_time modulation time of the second dimension
-#'   \emph{Name} to join with chromatograms.
 #' @exportClass MPCA
 setClass("MPCA", slots = c(scores = "matrix", loadings = "list",
                            time = "vector", mod_time = "numeric",
                            summary = "list", groups = "data.frame"))
+
+#### Parent foring loadings ####
+#' Class foreing_load
+#' 
+#' Class \emph{forein_load} defines the superclass for the resulting loadings
+#'  from foreing classification models, especially for PLS-DA model from
+#'  mixOmics package
+#'
+#' @slot loadings A matrix with the eigenvectors of each latent variable
+#' @slot time A two numeric vector of leght two with the range of the
+#'  chromatographic run time
+#' @slot mod_time The modulation period of the chromatographic experiment
+#' @slot sampling_rate The sampling rate of the mass analyzer
+setClass("foreign_load", slots = c(loadings = "matrix", time = "vector",
+                                   mod_time = "numeric",
+                                   sampling_rate = "numeric"))
