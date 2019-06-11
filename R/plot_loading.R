@@ -2,7 +2,8 @@
 #' @docType methods
 #' @rdname plot_loading-methods
 setGeneric(name = "plot_loading",
-           def = function(Object, type = "n", pc = 1, ...) {
+           def = function(Object, type = "n", pc = 1, 
+                          thresh, ...) {
              standardGeneric("plot_loading")
            }
 )
@@ -21,6 +22,7 @@ setGeneric(name = "plot_loading",
 #'  \emph{n} for negative, and \emph{b} for negative and positive 
 #'  loading values.
 #' @param pc the number of the principal component to plot
+#' @param thresh numerica value. A threshold to remoe low loading values.
 #' @param ... Other parameters passes to \code{\link[graphics]{filled.contour}}
 #'  function.
 #' @importFrom colorRamps matlab.like matlab.like2
@@ -41,7 +43,8 @@ setGeneric(name = "plot_loading",
 #'              color.palette = matlab.like)
 #' }
 setMethod(f = "plot_loading", signature = "MPCA",
-          definition = function(Object, type = "b", pc = 1, ...){
+          definition = function(Object, type = "b", pc = 1,
+                                thresh, ...){
             if (length(pc) > 1)
               stop("Only on principal component has to be provided")
             npcs <- length(Object@loadings$loadings)
@@ -55,6 +58,17 @@ setMethod(f = "plot_loading", signature = "MPCA",
               loading[loading > 0] <- 0
             } else if(type %in% "p"){
               loading[loading < 0] <- 0
+            }
+            if (!missing(thresh)){
+              if (type %in% "p"){ 
+                if (thresh < 0)
+                  stop("Please provide a positive threshold")
+                loading[loading < thresh] <- 0
+              }
+              if (type %in% "n")
+                if (thresh > 0)
+                  stop("Please provide a negative threshold")
+                loading[loading > thresh] <- 0
             }
             D1 <- Object@loadings$dimension[1]
             D2 <- Object@loadings$dimension[2]

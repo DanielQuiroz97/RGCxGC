@@ -67,10 +67,11 @@ setMethod(f = "base_GCxGC",
             else n_mod_time <- c(0, mod_time)
             if (missing(verbose)) verbose <- TRUE
             if (verbose){
-              cat('Retention time ranges:\n')
+              cat("Retention time ranges:\n")
               cat(paste("1D (min):", round(time_rn[1], 2),
-                        round(time_rn[2], 2),'\n'))
-              cat(paste("2D (sec):", n_mod_time[1], n_mod_time[2], '\n'))
+                        round(time_rn[2], 2),"\n"))
+              cat(paste("2D (sec):", n_mod_time[1], n_mod_time[2], "\n"))
+              cat(paste("Acquisitoin rate:", round(sam_rate, 0), "\n"))
             }
             return(bidim_chrom)
           }

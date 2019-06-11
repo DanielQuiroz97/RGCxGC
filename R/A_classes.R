@@ -138,6 +138,6 @@ setClass("MPCA", slots = c(scores = "matrix", loadings = "list",
 #'  chromatographic run time
 #' @slot mod_time The modulation period of the chromatographic experiment
 #' @slot sampling_rate The sampling rate of the mass analyzer
-setClass("foreign_load", slots = c(loadings = "matrix", time = "vector",
-                                   mod_time = "numeric",
-                                   sampling_rate = "numeric"))
+#' @exportClass foreign_load
+setClass("foreign_load", slots = c(loadings = "list", time = "vector",
+                                   mod_time = "numeric"))

@@ -39,7 +39,7 @@ setMethod(f = "base_unfold",
 #' chromatograms_1D <- unfold_chrom(join_gc)
 #' chrom_mt <- chromatograms_1D$chromatogram
 #' chromatograms_1D$mod_time
-#' chromatograms_1D$$time
+#' chromatograms_1D$time
 
 unfold_chrom <- function(Object) {
   if (!(is(Object, "batch_2DCOW") || is(Object, "joined_chrom")) )

@@ -6,9 +6,9 @@
 \alias{plot_loading,MPCA-method}
 \title{Plot two dimensional loadings from MPCA}
 \usage{
-plot_loading(Object, type = "n", pc = 1, ...)
+plot_loading(Object, type = "n", pc = 1, thresh, ...)
 
-\S4method{plot_loading}{MPCA}(Object, type = "b", pc = 1, ...)
+\S4method{plot_loading}{MPCA}(Object, type = "b", pc = 1, thresh, ...)
 }
 \arguments{
 \item{Object}{a MPCA object}
@@ -18,6 +18,8 @@ plot_loading(Object, type = "n", pc = 1, ...)
 loading values.}
 
 \item{pc}{the number of the principal component to plot}
+
+\item{thresh}{numerica value. A threshold to remoe low loading values.}
 
 \item{...}{Other parameters passes to \code{\link[graphics]{filled.contour}}
 function.}

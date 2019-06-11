@@ -32,5 +32,5 @@ join_gc <- join_chromatograms(GB08, GB09)
 chromatograms_1D <- unfold_chrom(join_gc)
 chrom_mt <- chromatograms_1D$chromatogram
 chromatograms_1D$mod_time
-chromatograms_1D$$time
+chromatograms_1D$time
 }

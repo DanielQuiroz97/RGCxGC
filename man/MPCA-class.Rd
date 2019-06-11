@@ -18,11 +18,11 @@ into principal components space.}
 
 \item{\code{summary}}{The summary of the multiway principal component analysis.}
 
-\item{\code{groups}}{A data.frame with the experiment metadata. It must have a column}
+\item{\code{groups}}{A data.frame with the experiment metadata. It must have a column
+\emph{Names} to join with chromatograms.}
 
 \item{\code{time}}{The time range of chromatographic run}
 
-\item{\code{mod_time}}{modulation time of the second dimension
-\emph{Name} to join with chromatograms.}
+\item{\code{mod_time}}{modulation time of the second dimension}
 }}
 
