@@ -78,8 +78,6 @@ batch_2DCOW <- function(reference, sample_chroms, segments, max_warp) {
     stop('A named list must be provided')
   if (!is(sample_chroms, "list"))
     stop("A list must be provided")
-  if ( !(names(sample_chroms) == length(sample_chroms)) )
-    stop("A named list must be provided")
   ref_name <- deparse(substitute(reference))
   batch_aligned <- method_batch_2DCOW(reference = reference,
                                       sample_chroms = sample_chroms,
