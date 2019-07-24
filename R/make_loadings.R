@@ -43,7 +43,7 @@ make_loadings <- function(floadings, time, mod_time, acq_rate){
   D2_rows <- length(x) / D1_cols
   if ( !(D1_cols * D2_rows == nrow(floadings)) )
     stop("The length of the loadings does not match with the two-dimensional
-         chromatograms")
+        chromatogram dimensions")
   m_loadings <-  base_makelds(floadings, D1_cols = D1_cols,
                               D2_rows = D2_rows)
   lds <- new("foreign", loadings = m_loadings,
