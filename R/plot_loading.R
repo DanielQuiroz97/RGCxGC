@@ -42,7 +42,7 @@ setGeneric(name = "plot_loading",
 #' plot_loading(MTBLS579_mpca, type = "p", pc = 1,
 #'              color.palette = matlab.like)
 #' }
-setMethod(f = "plot_loading", signature = "MPCA",
+setMethod(f = "plot_loading", signature = "projected",
           definition = function(Object, type = "b", pc = 1,
                                 thresh, ...){
             if (length(pc) > 1)

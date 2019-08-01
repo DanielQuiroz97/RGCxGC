@@ -3,12 +3,14 @@
 \docType{methods}
 \name{plot_loading}
 \alias{plot_loading}
+\alias{plot_loading,projected-method}
 \alias{plot_loading,MPCA-method}
 \title{Plot two dimensional loadings from MPCA}
 \usage{
 plot_loading(Object, type = "n", pc = 1, thresh, ...)
 
-\S4method{plot_loading}{MPCA}(Object, type = "b", pc = 1, thresh, ...)
+\S4method{plot_loading}{projected}(Object, type = "b", pc = 1, thresh,
+  ...)
 }
 \arguments{
 \item{Object}{a MPCA object}

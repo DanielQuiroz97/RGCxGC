@@ -107,37 +107,33 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
            else print("A chromatogram of class raw_GCxGC or 
                       preproc_GCxGC is needed")
          })
-####  Parent MPCA ####
-#' Class MPCA
+####  Parent class for projection methods such as PCA and PLS-DA ####
+#' Class projected
 #' 
-#' Class \emph{MPCA} defines the superclass of Multiway Principal Component
-#' Analysis
+#' Class \emph{projected} defines the superclass for projection methods,
+#' specially for multiway principal component analysis and discriminant
+#' analysis based on partial least squares. The class represents the 
+#' convergence of in-package results (m_prcomp) and the foreing 
+#' building model (PLS-DA) procedure.
 #' 
-#' @slot scores A matrix with the eigenvalues of projected chromatograms
-#'  into principal components space.
 #' @slot loadings The eigenvectors of each principal component.
-#' @slot summary The summary of the multiway principal component analysis.
-#' @slot groups A data.frame with the experiment metadata. It must have a column
-#' \emph{Names} to join with chromatograms.
 #' @slot time The time range of chromatographic run
 #' @slot mod_time modulation time of the second dimension
-#' @exportClass MPCA
-setClass("MPCA", slots = c(scores = "matrix", loadings = "list",
-                           time = "vector", mod_time = "numeric",
-                           summary = "list", groups = "data.frame"))
+setClass("projected", slots = c(loadings = "list", time = "vector",
+                                mod_time = "numeric"))
 
-#### Parent foring loadings ####
-#' Class foreing_load
+
+#' Subclass MPCA
+#' Class \emph{MPCA} defines the class of Multiway Principal Component
+#' Analysis
+#' @slot scores A matrix with the eigenvalues of projected chromatograms
+#'  into principal components space.
+setClass("MPCA", slots = c(scores = "matrix", summary = "list",
+                           groups = "data.frame"), contains = "projected")
+
+#' Subclass PLSDA
 #' 
-#' Class \emph{forein_load} defines the superclass for the resulting loadings
-#'  from foreing classification models, especially for PLS-DA model from
-#'  mixOmics package
-#'
-#' @slot loadings A matrix with the eigenvectors of each latent variable
-#' @slot time A two numeric vector of leght two with the range of the
-#'  chromatographic run time
-#' @slot mod_time The modulation period of the chromatographic experiment
-#' @slot sampling_rate The sampling rate of the mass analyzer
-#' @exportClass foreign_load
-setClass("foreign_load", slots = c(loadings = "list", time = "vector",
-                                   mod_time = "numeric"))
+#' Class \emph{PLSDA} defines the class for foreign results of 
+#' partial least squares-discriminant analysis performed with
+#' mixOmics package.
+setClass("PLSDA", contains = "projected")
