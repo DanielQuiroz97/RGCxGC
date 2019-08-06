@@ -57,7 +57,7 @@ setMethod(f = "import_mixOmics", signature = "GCxGC",
               }  )
             }
             mod_time <- chromatogram@mod_time
-            time <- chromatogram@mod_time
+            time <- chromatogram@time
             foreign_model <- new("PLSDA", loadings = loadings_2d,
                                  mod_time = mod_time, time = time)
             foreign_model
