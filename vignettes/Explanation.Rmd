@@ -86,7 +86,7 @@ install.packages("RGCxGC")
 Another way is to install it through the developer version in github.
 ```{r github install, eval=FALSE, include=TRUE}
 library(devtools)
-install_github("DanQui97/RGCxGC")
+install_github("DanielQuiroz97/RGCxGC")
 ```
 
 Once you have successfully installed the package, you can acces to every provided
