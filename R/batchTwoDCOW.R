@@ -40,26 +40,26 @@ setMethod(f = "method_batch_2DCOW",
             return(chrom_2DCOW)
           })
 
-#' Two Dimensional COW in batch.
+#' Two-dimensional COW in batch.
 #'
 #' `batch_2DCOW` returns the aligned chromatogram in a named list slot.
 #' The first chromatogram is considered as the reference. 
 #'
-#' This is an adaptation of bidimesional COW alignment, first implementated 
-#' in MATLAB. This function takes a sample chromatogram to be aligned 
-#' to the reference. The argument [segment] will be used to split the whole
-#' chromatogram in n parts in the first and the second dimension respectevily.
-#' The [max_warp] argument provides de maximum tolerace of the signal
-#' transformation as well to the first and the second dimension.
+#' This is an adaptation of two-dimesional COW alignment, implementated first
+#' in MATLAB. This function takes a set of samples chromatogram to be aligned 
+#' against to the reference. The argument [segment] will be used 
+#' to split the whole chromatogram in n parts in the first and the 
+#' second dimension respectevily. The [max_warp] argument provides de maximum
+#' tolerace of the signal transformation as well to the first and the
+#' second dimension.
 #'
-#' @param reference A GCxGC chromatogram wich will be taken as the reference 
+#' @param reference a GCxGC chromatogram wich will be taken as the reference 
 #'   chromatogram
-#' @param sample_chroms A named list with the sample chromatograms which will
-#'  be aligned to the reference chromatogram
+#' @param sample_chroms a named list with the sample chromatograms which will
+#'  be aligned against to the reference chromatogram
 #' @param segments A two integer vector with number of segments
 #'  which the first and second dimension will be subdivided, respectively.
 #' @param max_warp A two intger vector with the maximum warping parameter.
-#'  \emph{Name} to merge with the chromatograms.
 #' @importFrom methods new is
 #' @export
 #' @examples

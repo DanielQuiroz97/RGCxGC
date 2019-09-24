@@ -11,11 +11,11 @@ dephase_chrom(Object, rel_dephase)
 \S4method{dephase_chrom}{GCxGC}(Object, rel_dephase)
 }
 \description{
-`dephase_chrom`  move the retention time in the second dimension of a
- bidimensional chromatogram. This procedure is ussually applied in cases
- when peaks are near at the final of the second dimension of the 
- chromatogram. The dephasing is performing by splitting the chromagram
- with the relative value provided.
+`dephase_chrom` shifts the retention time in the second
+ dimension of the two-dimensional chromatogram. This procedure is usually
+ applied in cases when part of peaks is splited in at the final and beginning
+ of the second dimension. The dephasing procedure is performing by splitting
+ the chromagram with the relative value provided.
  
  @param Object a GCxGC class object
  @param rel_dephase a numeric value from 0 to 100 with the relative dephasing

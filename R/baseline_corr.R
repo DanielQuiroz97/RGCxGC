@@ -27,8 +27,8 @@ setMethod(f = "method_baselineCorr",
 #' @description  `baseline_corr` provides a bidimensional baseline correction
 #' using asymetric least squares.
 #' 
-#' @details This function takes a raw bidimensional chromatogram and performs
-#'  the baseline correction  with implemented function in
+#' @details This function takes a raw two-dimensional chromatogram and performs
+#'  the baseline correction  with the implemented function in
 #'  \code{\link[ptw]{baseline.corr}}  \insertCite{Eilers2004}{RGCxGC}.
 #' 
 #' @param chromatogram a \emph{raw_GCxGC} object like with provided

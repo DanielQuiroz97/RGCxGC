@@ -10,15 +10,15 @@ contains a dedicated slot to storage the folded bidimensional chromatogram.
 }
 \details{
 In the first creation of a \emph{raw_GCxGC} object, the slot for the
-chromatogram. To read and fold the chromatogram use the function
-\code{\link{read_chrom}}.
+chromatogram is not yet created. To read and fold the chromatogram 
+use the \code{\link{read_chrom}}  function.
 }
 \section{Slots}{
 
 \describe{
 \item{\code{chromatogram}}{a numeric matrix.}
 
-\item{\code{time}}{a vector of to elements with the range of the first dimenstion
-retention time}
+\item{\code{time}}{a vector of two elements with the range of the first dimenstion
+run time}
 }}
 

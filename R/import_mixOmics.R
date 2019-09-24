@@ -12,7 +12,7 @@ setGeneric(name = "import_mixOmics",
 #' @aliases import_mixOmics,PLSDA-method
 #' @description `import_mixOmics` transform a mixOmics discriminant analysis
 #'   lodings/eigenvectors into a two-dimensional loading matrix
-#' @details This functions takes a model built through
+#' @details This function takes a model built through
 #'   \code{\link[mixOmics]{plsda}} and \code{\link[mixOmics]{splsda}}, then,
 #'   access to loading values and transform each dimension loading into
 #'   a two-dimensional matrix. This matrix represents a typcial GCxGC
@@ -26,10 +26,56 @@ setGeneric(name = "import_mixOmics",
 #' @param model a partial least square discriminant analysis based model, built
 #'   by mixOmics package.
 #' @param mod_time modulation time of the second dimension
-#' @param time_range an atomic vector of two with the time range
-#'   of chromatographic run
+#' @param time_range an atomic vector of lenght two with the time range
+#'   of chromatographic run.
 #' @param sampling_rate the sampling rate of the equipment
 #' @exportMethod import_mixOmics
+#' @examples 
+#' \donttest{
+#' 
+#' #### Preparing data ####
+#' # Load libraries
+#' library(mixOmics)
+#' library(caret)
+#' # Load chromatograms
+#' data(Myrothecium)
+#' 
+#' # Unfold chromatograms
+#' list_chrom <- unfold_chrom(all_chrom)
+#' unfolded_chrom <- list_chrom$chromatogram
+#' colnames(unfolded_chrom) <- paste0("RT", seq(dim(unfolded_chrom)[2]))
+#' metadata <- get_metadata(all_chrom)
+#' 
+#' index <- get_metadata(all_chrom)
+#' # Create a response variable
+#' Y <- factor(index$Type)
+#' 
+#' #### Build the PLS-DA model ####
+#' # For reprosucibility
+#' set.seed(10)
+#  #Tune pls-da
+#' chrom_dim <- dim(unfolded_chrom)[2]
+#' list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
+
+#'tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
+#'                           progressBar = T, dist = 'max.dist', cpus = 12,
+#'                           test.keepX = list.keepX)
+#' # Plot error rates
+#' graphics::plot(tune.splsda)
+
+#' # Number of variables per component
+#' tune.splsda$choice.keepX
+#' # Remove zero variance predictor variables
+#' zero_var <- caret::nearZeroVar(unfolded_chrom)
+#' unfolded_chrom <- unfolded_chrom[, -zero_var]
+#' splsda_final <- mixOmics::splsda(unfolded_chrom, Y,
+#'                                  ncomp = 2, keepX = list.keepX)
+#' # Scores
+#' scores <- as.data.frame(splsda_final$variates$X)
+#' scores$Names <- rownames(scores)
+#' scores <- merge(scores, metadata)
+#' xyplot(comp2 ~ comp1, data = scores, groups = Type, pch = c(8, 1), cex = 2)
+#' }
 setMethod(f = "import_mixOmics", signature = "GCxGC",
           definition = function(chromatogram, model, mod_time,
                                 time_range, sampling_rt) {

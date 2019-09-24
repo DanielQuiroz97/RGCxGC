@@ -4,13 +4,13 @@
 #' Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
 #' gas chromatography 
 #' 
-#' The validity function evaluates if the provied file can be readed in a
-#' netCDF format. The validation employs the function 
+#' The validity function evaluates if the provied file can be readed from a 
+#' NetCDF file. The validation function employs the function 
 #' \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
-#' NetCDF.
+#' NetCDF class.
 #'
-#' @slot name the name of a netCDF file to which the data will be retrieved
-#' @slot mod_time A integer with the modulation time for the second dimension.
+#' @slot name the name of a NetCDF file to which the data will be retrieved.
+#' @slot mod_time a integer with the modulation time for the second dimension.
 #'   Note the integer should be provide with an \emph{L} at the end of 
 #'   the number.
 #' @exportClass GCxGC
@@ -30,12 +30,12 @@ setClass(Class = "GCxGC",
 #' contains a dedicated slot to storage the folded bidimensional chromatogram.
 #' 
 #' In the first creation of a \emph{raw_GCxGC} object, the slot for the
-#' chromatogram. To read and fold the chromatogram use the function
-#' \code{\link{read_chrom}}.
+#' chromatogram is not yet created. To read and fold the chromatogram 
+#' use the \code{\link{read_chrom}}  function.
 #' 
 #' @slot chromatogram a numeric matrix.
-#' @slot time a vector of to elements with the range of the first dimenstion
-#'   retention time
+#' @slot time a vector of two elements with the range of the first dimenstion
+#'   run time
 #' @exportClass raw_GCxGC
 setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
                                         time = "vector"),
@@ -49,7 +49,7 @@ setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
 #' chromatogram.
 #' 
 #' After reading a bidimensional chromatogram, you can perform serveral
-#'  preprocessing technicas as smothing, or baseline correction. It will
+#'  preprocessing technics such as smothing, or baseline correction. It will
 #' create an object of subclass preproc_GCxGC.
 #' 
 #' @exportClass preproc_GCxGC
@@ -75,10 +75,10 @@ setClass("aligned_GCxGC", contains = 'raw_GCxGC')
 #' 
 #' Subclass \emph{batch_2DCOW} are contained in \emph{raw_GCxGC} super
 #' class. \emph{batch_2DCOW} contains multiple aligned chromatograms, which the
-#' first one is consider as the reference chromatogram.
+#' first one is the reference chromatogram.
 #' 
 #' You can perform the alignment after some preprocessing technic as:
-#' baseline correction, or signal smothing to imporve the performance of the
+#' baseline correction, or signal smothing to improve the performance of the
 #' aligment function, or with the raw chromatogram.
 #' 
 #' @exportClass batch_2DCOW
@@ -89,13 +89,13 @@ setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list"),
 #' Class joined_chrom
 #' 
 #' Class \emph{joined_chrom} defines the superclass to gather single
-#' chromatogram as well batch cromatograms into a singe list previos
-#' multiway principal compoment analysis
+#' chromatogram, as well as batch chromatograms into a single list, prior to
+#' multiway principal compoment analysis or unfolding them.
 #'  
-#' @slot chromatograms A named list with all chromatograms.
-#' @slot time The time range of chromatographic run
-#' @slot groups A data.frame containing the experiment metadata with
-#'  a column named as \emph{Name}
+#' @slot chromatograms a named list with all chromatograms.
+#' @slot time the time range of chromatographic run
+#' @slot groups a data.frame containing the experiment metadata with
+#'  a column named as \emph{Names}
 #' @slot mod_time modulation time of the second dimension
 #' @exportClass joined_chrom
 setClass("joined_chrom", slots = c(chromatograms = "list",

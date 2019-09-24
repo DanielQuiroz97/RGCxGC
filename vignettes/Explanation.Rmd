@@ -57,19 +57,23 @@ preprocessing and multivariate analysis, after the data is imported (Figure 2).
 knitr::include_graphics("images/basicWorkflow.png")
 ```
 
-The raw NetCDF file is imported with the **read_chrom** function, in which the user
-needs to set the modulation time the GCxGC data was acquiered.
- Next, you can perform smoothing, and baseline
+The raw NetCDF file is imported with **read_chrom** function, by providing
+the modulation time that the GCxGC data was acquiered.
+Next, you can perform preprocessing routines like smoothing and/or baseline
 correction using the function **wsmooth** and **baseline_corr**, 
-respectively. Then, alignment of the peaks from a singel sample,
-can be done using the function **twod_cow** based in the two-dimensional
-correlation optimized warping (2DCOW) algorithm, Alternatively, mutiple sample
-alignment can be performed with function **batch_2DCOW**, where the first chromatogram 
-will be cosidered as the reference while aligning the remaining chromatograms.
-After preprocessing, MPCA can be performed in the dataset using **m_prcomp** functions,
-which provide the scores and loadings and the summary, which can be plotted
-using **plot_mpca** and **scores** functions, while the function **print**
-you can access to the MPCA summary.
+respectively. Then, peak alignment one sample against a reference chromatogram
+can be performed based on the two-dimensional
+correlation optimized warping (2DCOW) algorithm. Alternatively, mutiple sample
+alignment can be performed with function **batch_2DCOW**. This function takes
+the first chromatogram as the reference.
+After signal preprocessing, MPCA can be performed over the dataset by using
+the **m_prcomp** functions. As result of the MPCA, you can acces to the score
+matrix through **scores** function, or plot the loading matrix with the
+**plot_loading** function. Finally, the MPCA summary can be retrieved with
+the **print** function. On the other hand, the RGCxGC package can export the
+two-dimensional chromatograms in order to perform supervised models. It can
+be done through **unfold_chrom**. Supervised models can be done with the
+[mixOmics](http://mixomics.org/s) functions.
 
 # Detailed workflow
 ## Installation

@@ -11,6 +11,6 @@ chromatogram.
 }
 \details{
 After reading a bidimensional chromatogram, you can perform serveral
- preprocessing technicas as smothing, or baseline correction. It will
+ preprocessing technics such as smothing, or baseline correction. It will
 create an object of subclass preproc_GCxGC.
 }

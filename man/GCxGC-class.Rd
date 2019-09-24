@@ -9,17 +9,17 @@ Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
 gas chromatography
 }
 \details{
-The validity function evaluates if the provied file can be readed in a
-netCDF format. The validation employs the function 
+The validity function evaluates if the provied file can be readed from a 
+NetCDF file. The validation function employs the function 
 \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
-NetCDF.
+NetCDF class.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{name}}{the name of a netCDF file to which the data will be retrieved}
+\item{\code{name}}{the name of a NetCDF file to which the data will be retrieved.}
 
-\item{\code{mod_time}}{A integer with the modulation time for the second dimension.
+\item{\code{mod_time}}{a integer with the modulation time for the second dimension.
 Note the integer should be provide with an \emph{L} at the end of 
 the number.}
 }}

@@ -7,10 +7,10 @@
 \description{
 Subclass \emph{batch_2DCOW} are contained in \emph{raw_GCxGC} super
 class. \emph{batch_2DCOW} contains multiple aligned chromatograms, which the
-first one is consider as the reference chromatogram.
+first one is the reference chromatogram.
 }
 \details{
 You can perform the alignment after some preprocessing technic as:
-baseline correction, or signal smothing to imporve the performance of the
+baseline correction, or signal smothing to improve the performance of the
 aligment function, or with the raw chromatogram.
 }

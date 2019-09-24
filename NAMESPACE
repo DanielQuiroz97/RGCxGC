@@ -3,6 +3,7 @@
 export(baseline_corr)
 export(batch_2DCOW)
 export(dephase_chrom)
+export(get_metadata)
 export(import_mixOmics)
 export(join_chromatograms)
 export(m_prcomp)

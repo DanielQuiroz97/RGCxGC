@@ -6,18 +6,18 @@
 \title{Class joined_chrom}
 \description{
 Class \emph{joined_chrom} defines the superclass to gather single
-chromatogram as well batch cromatograms into a singe list previos
-multiway principal compoment analysis
+chromatogram, as well as batch chromatograms into a single list, prior to
+multiway principal compoment analysis or unfolding them.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{chromatograms}}{A named list with all chromatograms.}
+\item{\code{chromatograms}}{a named list with all chromatograms.}
 
-\item{\code{time}}{The time range of chromatographic run}
+\item{\code{time}}{the time range of chromatographic run}
 
-\item{\code{groups}}{A data.frame containing the experiment metadata with
-a column named as \emph{Name}}
+\item{\code{groups}}{a data.frame containing the experiment metadata with
+a column named as \emph{Names}}
 
 \item{\code{mod_time}}{modulation time of the second dimension}
 }}

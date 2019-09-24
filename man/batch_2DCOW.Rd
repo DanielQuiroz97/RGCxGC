@@ -2,34 +2,34 @@
 % Please edit documentation in R/batchTwoDCOW.R
 \name{batch_2DCOW}
 \alias{batch_2DCOW}
-\title{Two Dimensional COW in batch.}
+\title{Two-dimensional COW in batch.}
 \usage{
 batch_2DCOW(reference, sample_chroms, segments, max_warp)
 }
 \arguments{
-\item{reference}{A GCxGC chromatogram wich will be taken as the reference 
+\item{reference}{a GCxGC chromatogram wich will be taken as the reference 
 chromatogram}
 
-\item{sample_chroms}{A named list with the sample chromatograms which will
-be aligned to the reference chromatogram}
+\item{sample_chroms}{a named list with the sample chromatograms which will
+be aligned against to the reference chromatogram}
 
 \item{segments}{A two integer vector with number of segments
 which the first and second dimension will be subdivided, respectively.}
 
-\item{max_warp}{A two intger vector with the maximum warping parameter.
-\emph{Name} to merge with the chromatograms.}
+\item{max_warp}{A two intger vector with the maximum warping parameter.}
 }
 \description{
 `batch_2DCOW` returns the aligned chromatogram in a named list slot.
 The first chromatogram is considered as the reference.
 }
 \details{
-This is an adaptation of bidimesional COW alignment, first implementated 
-in MATLAB. This function takes a sample chromatogram to be aligned 
-to the reference. The argument [segment] will be used to split the whole
-chromatogram in n parts in the first and the second dimension respectevily.
-The [max_warp] argument provides de maximum tolerace of the signal
-transformation as well to the first and the second dimension.
+This is an adaptation of two-dimesional COW alignment, implementated first
+in MATLAB. This function takes a set of samples chromatogram to be aligned 
+against to the reference. The argument [segment] will be used 
+to split the whole chromatogram in n parts in the first and the 
+second dimension respectevily. The [max_warp] argument provides de maximum
+tolerace of the signal transformation as well to the first and the
+second dimension.
 }
 \examples{
 
