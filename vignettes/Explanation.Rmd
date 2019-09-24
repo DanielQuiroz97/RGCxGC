@@ -83,7 +83,7 @@ You can install the package by several manners. The most common is to install fr
 install.packages("RGCxGC")
 ```
 
-Another way is to install developer version.
+Another way is to install it through the developer version in github.
 ```{r github install, eval=FALSE, include=TRUE}
 library(devtools)
 install_github("DanQui97/RGCxGC")
@@ -100,28 +100,28 @@ library(RGCxGC)
 ## Importing raw chromatogram
 The example data is retrieved form
 [Diagnostic metabolite biomarkers of chronic typhoid carriage](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0006215).
-You can access to the whole data with the MetaboLights identifier
-[MTBLS579](https://www.ebi.ac.uk/metabolights/MTBLS579).
+You can access to the whole dataset with the MetaboLights identifier
+[MTBLS579](https://www.ebi.ac.uk/metabolights/MTBLS579) in the
+[MetaboLights](https://www.ebi.ac.uk/metabolights/) database.
 
-You import the raw chromatogram through the **read_chrom** function. This function
+You can import the raw chromatogram through the **read_chrom** function. This function
 requires at least two parameters: the name of the *netCDF* file (name), and
-the modulation time as a 
-integer^[To specify that the modulation time is an integer, an *L* has to be next of the number.].
-This is an adaptation of @Skov2008 routine.
+the modulation time. This is an adaptation of @Skov2008 routine.
 
 ```{r Chrom import}
 chrom_08 <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
-MTBLS08 <- read_chrom(chrom_08, mod_time = 5L)
+MTBLS08 <- read_chrom(chrom_08, mod_time = 5)
 slotNames(MTBLS08)
 ```
 As one can see, the MTBLS object has four slots. The first correspond to the
-location of the imported two-dimensional chromatogram, the time slot refers to the retention time,
-the name slot point to the name of the file, and mod_time to the modulation
-time.
+location of the imported two-dimensional chromatogram. The second slot refers to
+the retention time in the first dimension. The third slot is the name of the
+NetCDF file, which is first check for validity before import the chromatogram.
+Finally, the fourth slot is the modulation time in the second dimension.
 
 ## Chromatogram visualization
-To visualize the chromatogram you can use the **plot** function.
-It is built from **filled.contour** r base function, due to countour plots
+To visualize chromatograms, you can use the **plot** function.
+It is built from **filled.contour** r base function. Since countour plots
 is a good choice to display non-native GCxGC data [@Reichenbach2004].
 The default function only plots the most intense signals, into a few breaks.
 For visualizing a familiar chromatogram, you have to provide the palette color and
@@ -131,21 +131,20 @@ Due to the large variety of relative concentration of metabolites in a sample,
 the total ion current can also have large variability in the intensity scale.
 Therefore, you have to set the number of levels in hundreds.
 As the number of levels increases, you can obtain
-a more detailed chromatogram. On the other hand, you can use those
-presented in the *colorRamps* package (matlab.like & matlab.like2)
-for the color palette. 
+a more detailed chromatogram. On the other hand, you can use color palettes
+presented in the *colorRamps* package (matlab.like & matlab.like2).
 
 ```{r Chrom plot, message=FALSE, warning=FALSE, paged.print=FALSE, out.width= "60%"}
 # nlevels: Number of levels
 # color.palette: The color palette to employ
 library(colorRamps)
-plot(MTBLS08, nlevels = 100, color.palette = matlab.like)
+plot(MTBLS08, nlevels = 100, color.palette = matlab.like2)
 ```
 
 ## Signal preprocessing
 In chromatography, the net metabolite signals are often obscured by
 instrumental and chemical noise. This undesirable signals 
-variance disturbs the chemical interpretation of the resutls. In order to remove this irrelevant information, some
+disturbs the chemical interpretation of the resutls. In order to remove this irrelevant information, some
 preprocessing steps can be employed. The most common preprocessing algorithms are:
 baseline correction, smoothing and peak alignment, which are reviewed in the following
 sections.
@@ -158,7 +157,7 @@ least squares algorithm [@Eilers2004].
 
 ```{r baseline correction, out.width= "60%"}
 MTBLS08_bc <- baseline_corr(MTBLS08)
-plot(MTBLS08_bc, nlevels = 100, color.palette = matlab.like)
+plot(MTBLS08_bc, nlevels = 100, color.palette = matlab.like2)
 ```
 
 The result of this preprocessing step is a cleaner chromatogram. The baseline has
@@ -169,15 +168,16 @@ The Whittaker smoother
 algorithm^[The base functions (with1 & with2) are coupled from the *ptw* package]
 is used in this package [@Eilers2003].
 As the main advantages, it accounts by computational efficiency, control over
-smoothness, automatically interpolation. The Whittaker smoother for GCxGC
+smoothness and automatically interpolation. The Whittaker smoother for GCxGC
 is implemented in the first chromatogram dimension. In other words, smoothing
 is carry out to every chromatographic modulation.
 
 The Whittaker smoother works with discrete penalized least squares. For instance,
-the penalty orde (1 or 2) and the $\lambda$ arguments has to be provided.
+the penalty order (1 or 2) and the $\lambda$ arguments has to be provided.
 While the penalty refers to the order to penalize the roughness of the signals, 
 $\lambda$ is factor which multiply the rougness signal level.
-Then, greater parameter values will hava a stronger influence of the smmothing.
+Then, greater parameter values will hava a stronger influence in the smmothing
+process.
 
 ```{r smoothing, out.width= "60%"}
 # Linear penalty with lambda equal to 10
@@ -202,10 +202,11 @@ among chromatographic runs.
 
 There are two general pathways for peak alignment: using peak table,
 or pixel level alignment. In this package, the pixel level alignment is implemented.
-using the two-dimensional correlation optimized warping (2D-COW) algorithm is implemented [@DabaoZhang2008].
-Basically, the algorithm works by splitting the raw chromatogram into $n$ segments,
-then time warping is applied over each dimensions using the one dimensional correlation
-optimized warping (COW) [@Tomasi2004].
+using the two-dimensional correlation optimized warping (2D-COW) algorithm
+is implemented [@DabaoZhang2008]. Basically, the algorithm works by splitting
+the raw chromatogram into $n$ segments. Then, time warping is applied over each
+dimensions using the one dimensional correlation optimized
+warping (COW) [@Tomasi2004].
 
 The **TwoDCOW** need four arguments, the sample, and the reference chromatogram,
 the number of segments to split the chromatogram and the maximum
