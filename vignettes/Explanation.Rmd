@@ -22,21 +22,18 @@ body {text-align: justify}
 </style>
 
 # Introduction
-This is the vignette to explain the implementation of RGCxGC package. This text presents the end to end pipeline for data analysis of comprehensive two
-dimensional gas chromatography data. You can access a specific function 
+This is the vignette to explain the implementation of RGCxGC package. This text presents an end to end pipeline for the analysis for comprehensive two
+dimensional gas chromatography(GCxGC-MS) data. You can access a specific function 
 help through the command help(*['function name']*). 
 
-This package is designed to analyze data from comprenhensive two-dimensional
-gas chromatography coupled with mass spctrometry (GCxGC-MS). A general
-workflow about signal preprocessing in chromatography is summarized in Figure 1.
-The raw chromatographic signals ussually contains undesirable artifacts,
-such as chemical and instrumental noise. Therefore, this noise in the
-data can be significantly reduced by using preprocessing algorithms,
-herien smoothing, baseline correction, and
-peak alignment. Then, in order to differentiate between groups/treatments,
-multivariate analysis is performed.
+A general workflow about signal preprocessing in chromatography is summarized in
+Figure 1. Raw chromatographic signals ussually contains undesirable artifacts,
+such as chemical and instrumental noise. Therefore, noise in the
+data should be removed prior statistical analysis. Furthermore, noise can be
+significantly reduced by using preprocessing algorithms,
+herein smoothing, baseline correction, and peak alignment. Then, in order to differentiate between groups/treatments, multivariate analysis can be performed.
 
-```{r Fig 1, echo=FALSE, fig.cap= "Overview of general data processing in chromatography that is presented in the RGCxGC package. The double line between smooth andbaseline correction refers to the interchangeable pathway.", out.width= "80%",message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
+```{r Fig 1, echo=FALSE, fig.cap= "Figure 1. Overview of general data processing in chromatography that is presented in the RGCxGC package.", out.width= "80%",message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
 knitr::include_graphics("images/dataProcessing.png")
 ```
 
@@ -53,18 +50,18 @@ analysis (MPCA) to look for systematic patterns that distiguish your samples.
 The basic workflow of the RGCxGC package is composed of two main steps,
 preprocessing and multivariate analysis, after the data is imported (Figure 2).
 
-```{r Fig 2, echo=FALSE, fig.align="center", fig.cap="The basic workflow of RGCxGC package. The functions for each step are in parenthesis.", message=FALSE, warning=FALSE, out.width="80%", paged.print=FALSE}
-knitr::include_graphics("images/basicWorkflow.png")
+```{r Fig 2, echo=FALSE, fig.align="center", fig.cap="Figure 2. The basic workflow of RGCxGC package. The functions for each step are in parenthesis. The double line between smooth andbaseline correction refers to the interchangeable pathway.", message=FALSE, warning=FALSE, out.width="80%", paged.print=FALSE}
+knitr::include_graphics("images/basicWorkflow.jpg")
 ```
 
 The raw NetCDF file is imported with **read_chrom** function, by providing
 the modulation time that the GCxGC data was acquiered.
 Next, you can perform preprocessing routines like smoothing and/or baseline
-correction using the function **wsmooth** and **baseline_corr**, 
+correction by using the function **wsmooth** and **baseline_corr**, 
 respectively. Then, peak alignment one sample against a reference chromatogram
 can be performed based on the two-dimensional
 correlation optimized warping (2DCOW) algorithm. Alternatively, mutiple sample
-alignment can be performed with function **batch_2DCOW**. This function takes
+alignment can be performed with **batch_2DCOW** function. This function takes
 the first chromatogram as the reference.
 After signal preprocessing, MPCA can be performed over the dataset by using
 the **m_prcomp** functions. As result of the MPCA, you can acces to the score
@@ -89,8 +86,8 @@ library(devtools)
 install_github("DanielQuiroz97/RGCxGC")
 ```
 
-Once you have successfully installed the package, you can acces to every provided
-functions and data by calling the library.
+Once you have successfully installed the package, you can acces to every
+functions and data provided by calling the library.
 
 ```{r library call}
 library(RGCxGC)
@@ -100,7 +97,7 @@ library(RGCxGC)
 ## Importing raw chromatogram
 The example data is retrieved form
 [Diagnostic metabolite biomarkers of chronic typhoid carriage](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0006215).
-You can access to the whole dataset with the MetaboLights identifier
+You can access to the whole dataset with the identifier
 [MTBLS579](https://www.ebi.ac.uk/metabolights/MTBLS579) in the
 [MetaboLights](https://www.ebi.ac.uk/metabolights/) database.
 
@@ -113,10 +110,10 @@ chrom_08 <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 MTBLS08 <- read_chrom(chrom_08, mod_time = 5)
 slotNames(MTBLS08)
 ```
-As one can see, the MTBLS object has four slots. The first correspond to the
+As one can see, the MTBLS08 object has four slots. The first one correspond to the
 location of the imported two-dimensional chromatogram. The second slot refers to
 the retention time in the first dimension. The third slot is the name of the
-NetCDF file, which is first check for validity before import the chromatogram.
+NetCDF file, which is first check for validity before importing the chromatogram.
 Finally, the fourth slot is the modulation time in the second dimension.
 
 ## Chromatogram visualization
@@ -124,7 +121,7 @@ To visualize chromatograms, you can use the **plot** function.
 It is built from **filled.contour** r base function. Since countour plots
 is a good choice to display non-native GCxGC data [@Reichenbach2004].
 The default function only plots the most intense signals, into a few breaks.
-For visualizing a familiar chromatogram, you have to provide the palette color and
+For visualizing a familiar chromatogram, you have to provide the color palette and
 the number of breaks or levels.
 
 Due to the large variety of relative concentration of metabolites in a sample,
@@ -151,7 +148,7 @@ sections.
 
 ### Baseline correction
 Baseline correction remove a steady increasing intensity in the signal.
-For example, contamination of the instrument system injection, column bleeding.
+For example, contamination of the instrument system injection or column bleeding.
 The baseline correction implemented in this package employs the asymmetric
 least squares algorithm [@Eilers2004].
 
@@ -208,12 +205,11 @@ the raw chromatogram into $n$ segments. Then, time warping is applied over each
 dimensions using the one dimensional correlation optimized
 warping (COW) [@Tomasi2004].
 
-The **TwoDCOW** need four arguments, the sample, and the reference chromatogram,
-the number of segments to split the chromatogram and the maximum
+The **TwoDCOW** function need four arguments: sample the reference chromatogram, the number of segments to split the chromatogram and the maximum
 warping level for both dimensions.
 
 ```{r 2DCOW, out.width= "60%"}
-# Raw chromatogram
+# Reference chromatogram
 chrom_09 <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 MTBLS09 <- read_chrom(chrom_09, mod_time = 5L)
 # Baseline correction
@@ -233,22 +229,49 @@ Therefore, to align multiple samples simultaneosuly
  is a more confortable option.
 The **batch_2DCOW** function performs this action. 
 
-First, you need a vector with the names of the files to be aligned.
-```{r batch names}
-chrom_fl <- c(chrom_08, chrom_09)
-chrom_fl
+First, you need to import the reference and sample chromatogram.
+
+```{r Batch import}
+# Read Sample chromatogram
+GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
+MTBLS08 <- read_chrom(GB08_fl, mod_time = 5, verbose = F)
+ 
+# Read reference chromatogram
+GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
+MTBLS09 <- read_chrom(GB09_fl, mod_time = 5, verbose = F)
 ```
 
-Then, you must to introduce the same parameters treated above
-(segments and maximum warping). The default option of **batch_2DCOW** is
-to take the first chromatogram as the reference for the alignment.
+The batch funcion needs a **named list** of sample chromatograms that will be
+aligned. Just for demostration GB08 chromatogram will be triplicated to simulate
+multiple samples.
 
+**Note:** List names will be considered as the names of each chromatograms
+and the object name will be omitted.
+
+```{r Batch list}
+batch_samples <- list(Chrom1 = MTBLS08, Chrom2 = MTBLS08, Chrom3 = MTBLS08)
+```
+
+
+Then, you must to introduce the same parameters explained above
+(segments and maximum warping). 
+
+```{r Batch alignment}
+batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
+names(batch_alignment@Batch_2DCOW)
+```
+
+As you can see, the names of the sample chromatograms are the names of the list.
 
 ### Get all chromatograms together
 Once the chromatograms are already preprocessed, it has to be in a single R object.
-To meet this requirement, the **join_chromatograms** joins the chromatograms.
-Additionally, if you have the metadata, you can also join into the R object.
-By defautl, the MPCA is carried out with mean centered and scaled data.
+To meet this requirement, the **join_chromatograms** functions does it.
+Additionally, if you have the metadata, you can also join into this R object.
+By defautl, the MPCA is carried out with mean centered and unit scaled data.
+
+```{r Join}
+allChrom <- join_chromatograms(MTBLS09, MTBLS08)
+```
 
 In this function, you can provide as many chromatograms or batch chromatograms
 as you want. What only issue you have to take into consideration is, if you
@@ -256,9 +279,23 @@ provide a single chromatogram, you have to call the function with a named
 argument. For example, if you have a chromatogram of name chrom_control, you
 have to call the function trough *(chrom_control = chrom_control)*.
 
-```{r}
-allChrom <- join_chromatograms(MTBLS09, MTBLS08)
+For example, lets consider that we have the following objects:
+
+* **reference_1:** A single reference chromatogram of group one,
+* **reference_2:** A single reference chromatogram of group two,
+* **batch_samp1:** A batch aligned chromatograms of the group one,
+* **batch_samp2:** A batch aligned chromatograms of the group two and
+* **metadata_exp** The experiment metadata.
+
+Then, the user should be proceed as follow:
+
+```{r Join complex, eval=FALSE, include=TRUE}
+join_complex <- join_chromatograms(batch_samp1, batch_samp2,#Two batch samples
+                                   Ref_chrom1 = reference_1,#User named argument
+                                   Ref_chrom2 = reference_2,#User named argument
+                                   groups = metadata_exp)   #Metadata
 ```
+
 
 ## Multivariate analysis
 Multivariate analysis is chosen in the RGCxGC package in order to
@@ -301,8 +338,6 @@ exp_MPCA <- m_prcomp(MTBLS579)
 print(exp_MPCA)
 ```
 
-Then, the explained variace of the first principal component is 87% while the explained
-variance of the second principal component is 5%.
 
 ### Scores
 The scores is the projection in the reduced multivariate space spanned by
@@ -332,7 +367,7 @@ plot_loading(exp_MPCA, type = "n", main = "Negative loadings",
 
 
 ```{r positive loadings, out.width= "60%"}
-# Negative loadings
+# Positive loadings
 plot_loading(exp_MPCA, type = "p", main = "Positive loadings",
              color.palette = matlab.like)
 ```

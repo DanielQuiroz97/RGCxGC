@@ -6,7 +6,7 @@ Date: 2019-01-09
 Authors@R: c(
     person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
            role = c("aut", "cre")),
-    person("Guilherme", "L. Alexandrino", email = "Alexandrinogl@gmail.com",
+    person("Guilherme", "L. Alexandrino", email = "alexandrinogl@gmail.com",
            role = "aut"),
     person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
            role = "aut"))

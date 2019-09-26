@@ -1,29 +1,3 @@
-
-setGeneric(name = "get_metadata",
-           def = function(Object)
-             standardGeneric("get_metadata"))
-#' Extract metadata from a joinded_chrom
-#' 
-#' `get_metadata` if a metadata was provided when join_chromatogram
-#' funcion was used, the matadata will be retrieve from de object.
-#' 
-#' @param Object a joined_chrom object
-#' @export
-#' @examples 
-#' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
-#' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
-#' GB08 <- read_chrom(GB08_fl, 5L)
-#' GB09 <- read_chrom(GB09_fl, 5L)
-#' metadata <- data.frame(Names = c("GB08", "GB09"),
-#'                        Type = c("Control", "Treatment"))
-#' join_metadata <- join_chromatograms(GB08, GB09, groups = metadata)
-#' get_metadata(join_metadata)
-setMethod(f = "get_metadata",
-          signature = "joined_chrom",
-          definition = function(Object){
-            return(Object@groups)
-          })
-
 setGeneric(name = "set_metadata",
            def = function(Object, metadata)
              standardGeneric("set_metadata"))
