@@ -50,6 +50,7 @@ setMethod(f = "method_reference",
 #' two-dimensional chromatogram.
 #' 
 #' @param chromatograms a joined_chrom object.
+#' @export
 #' @examples 
 #' 
 #' # Read chromatogram 1
