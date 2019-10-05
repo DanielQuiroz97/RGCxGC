@@ -23,6 +23,11 @@ which the first and second dimension will be subdivided, respectively.}
 The first chromatogram is considered as the reference.
 }
 \details{
+First you have to select a representative chromatogram to be considered as
+the reference. Then, chromatograms to align has to be sabed in a single
+obects as a named list. The list names will be considered as the names
+of each chromatograms and the object name will be omitted.
+
 This is an adaptation of two-dimesional COW alignment, implementated first
 in MATLAB. This function takes a set of samples chromatogram to be aligned 
 against to the reference. The argument [segment] will be used 
@@ -33,11 +38,22 @@ second dimension.
 }
 \examples{
 
+# Read Sample chromatogram
 GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
+MTBLS08 <- read_chrom(GB08_fl, mod_time = 5)
+
+# Read reference chromatogram
 GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
-chrom_nm <- c(GB08_fl, GB09_fl)
+MTBLS09 <- read_chrom(GB09_fl, mod_time = 5)
+
+# Create a named list
+# MTBLS08 will be repeated for exemplification
+# Considerer that chromatograms are renamed considering the list names
+batch_samples <- list(Chrom1 = MTBLS08, Chrom2 = MTBLS08)
+
 \donttest{
-batch_alignment <- batch_2DCOW(chrom_nm, 5L, c(10, 40), c(1, 10))
+# Perform batch 2DCOW alignment
+batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
 }
 
 }

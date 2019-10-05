@@ -31,15 +31,13 @@ setMethod(f = "base_unfold",
 #' @export
 #' @examples  
 #' 
-#' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
-#' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
-#' GB08 <- read_chrom(GB08_fl, 5L)
-#' GB09 <- read_chrom(GB09_fl, 5L)
-#' join_gc <- join_chromatograms(GB08, GB09)
-#' chromatograms_1D <- unfold_chrom(join_gc)
-#' chrom_mt <- chromatograms_1D$chromatogram
-#' chromatograms_1D$mod_time
-#' chromatograms_1D$time
+#' data(Myrothecium)
+#' # Unfold 2D chromatogram
+#' chrom_1D <- unfold_chrom(Myrothecium)
+#' # Retrieve retention time for the first dimension
+#' time_1D <- chrom_1D$time
+#' # Retrieve the modulation time
+#' modulation <- chrom_1D$mod_time
 
 unfold_chrom <- function(Object) {
   if (!(is(Object, "batch_2DCOW") || is(Object, "joined_chrom")) )

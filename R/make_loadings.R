@@ -28,8 +28,8 @@ setMethod(f = "base_makelds",
 #'  where \emph{m} is the eigenvalues and \emph{n}
 #'  is the number of loadings which the model returns.
 #'  
-#' @param floadings a numeric matrix with loadings in columns and eigenvalues
-#'  in rows
+#' @param floadings a numeric matrix with loadings as variables (columns) and
+#'  eigenvalues as observations (rows).
 #' @param time a vector of length two with the tota time range of the
 #'  chromatographic run
 #' @param mod_time the modulation time
@@ -40,7 +40,7 @@ setMethod(f = "base_makelds",
 
 make_loadings <- function(floadings, time, mod_time, acq_rate){
   D1_cols <- mod_time * acq_rate
-  D2_rows <- length(x) / D1_cols
+  D2_rows <- nrow(floadings) / D1_cols
   if ( !(D1_cols * D2_rows == nrow(floadings)) )
     stop("The length of the loadings does not match with the two-dimensional
         chromatogram dimensions")

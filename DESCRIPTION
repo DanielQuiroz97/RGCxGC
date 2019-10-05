@@ -1,15 +1,23 @@
 Package: RGCxGC
 Type: Package
 Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
-Version: 1.0.0
+Version: 1.1.0
 Date: 2019-01-09
 Authors@R: c(
-    person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
-           role = c("aut", "cre")),
-    person("Guilherme", "L. Alexandrino", email = "alexandrinogl@gmail.com",
-           role = "aut"),
-    person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
-           role = "aut"))
+    person(given = "Cristian",
+           family = "Quiroz-Moreno",
+           email = "cristianquirozd1997@gmail.com",
+           role = c("aut", "cre"),
+           comment = (ORCID = "0000-0002-9069-9147")),
+    person(given = "Guilherme",
+           family = "L. Alexandrino",
+           email = "alexandrinogl@gmail.com",
+           role = "aut",
+           comment = c(ORCID = "0000-0002-2007-378X")),
+    person(given = "Noroska",
+           family = "G.S. Mogollón",
+           email = "gaby867@gmail.com",
+           role = "aut", comment = c(ORCID = "0000-0002-0756-6184")) )
 Author: Cristian Quiroz-Moreno [aut, cre],
     Guilherme L. Alexandrino [aut],
     Noroska G.S. Mogollón [aut]
@@ -22,10 +30,11 @@ Description: Implementation of chemometrics analysis for bidimensional gas
     While in multivariate analysis, multiway principal component analysis is
     incorporated.
 License: MIT + file LICENSE
+URL: https://github.com/DanielQuiroz97/RGCxGC
 BugReports: https://github.com/DanielQuiroz97/RGCxGC/issues
 Imports: colorRamps (>= 2.3),
      Rdpack (>= 0.7),
-     prettydoc (>= 0.2)
+     prettydoc (>= 0.3)
 RdMacros: Rdpack
 Depends:
      R (>= 3.5.0),
@@ -33,7 +42,9 @@ Depends:
      methods,
      graphics,
      RNetCDF (>= 1.9-1),
-     ptw (>= 1.9-13)
+     ptw (>= 1.9-13),
+     caret (>= 6.0-84),
+     mixOmics (>= 6.8.4)
 LazyData: true
 RoxygenNote: 6.1.1
 Encoding: UTF-8

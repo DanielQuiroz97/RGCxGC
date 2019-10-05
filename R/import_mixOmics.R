@@ -29,6 +29,8 @@ setGeneric(name = "import_mixOmics",
 #' @param time_range an atomic vector of lenght two with the time range
 #'   of chromatographic run.
 #' @param sampling_rate the sampling rate of the equipment
+#' @importFrom mixOmics tune.splsda splsda
+#' @importFrom caret nearZeroVar
 #' @exportMethod import_mixOmics
 #' @examples 
 #' \donttest{
@@ -109,4 +111,5 @@ setMethod(f = "import_mixOmics", signature = "GCxGC",
             foreign_model
             
           })
+
 

@@ -13,7 +13,7 @@ setGeneric(name = "get_metadata",
 #' @description `get_metadata`retrieve the get_metadata contained in a joined_chrom
 #'  object.
 #' @details This function acceses to the \emph{groups} slot created by the
-#'  \code{\link{join_chrom}} function. The \emph{Names} are the names of the
+#'  \code{\link{joined_chrom}{RGCxGC}} function. The \emph{Names} are the names of the
 #'  chromatograms.
 #'  
 #' @param chroms a joined chromatogram object created by
@@ -21,7 +21,7 @@ setGeneric(name = "get_metadata",
 #' 
 #' @examples
 #' data(Myrothecium)
-#' myr_data <- get_metadata(all_chrom)
+#' myr_data <- get_metadata(Myrothecium)
 #' myr_data
 setMethod(f = "get_metadata", signature = "joined_chrom",
           definition = function(chroms) return(chroms@groups) )

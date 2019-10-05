@@ -7,8 +7,8 @@
 make_loadings(floadings, time, mod_time, acq_rate)
 }
 \arguments{
-\item{floadings}{a numeric matrix with loadings in columns and eigenvalues
-in rows}
+\item{floadings}{a numeric matrix with loadings as variables (columns) and
+eigenvalues as observations (rows).}
 
 \item{time}{a vector of length two with the tota time range of the
 chromatographic run}

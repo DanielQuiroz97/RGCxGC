@@ -7,9 +7,9 @@
 \alias{get_metadata,GCxGC-method}
 \title{Method get_metadata}
 \usage{
-get_metadata(Object)
+get_metadata(chroms)
 
-\S4method{get_metadata}{joined_chrom}(Object)
+\S4method{get_metadata}{joined_chrom}(chroms)
 }
 \arguments{
 \item{chroms}{a joined chromatogram object created by
@@ -21,11 +21,11 @@ get_metadata(Object)
 }
 \details{
 This function acceses to the \emph{groups} slot created by the
- \code{\link{join_chrom}} function. The \emph{Names} are the names of the
+ \code{\link{joined_chrom}{RGCxGC}} function. The \emph{Names} are the names of the
  chromatograms.
 }
 \examples{
 data(Myrothecium)
-myr_data <- get_metadata(all_chrom)
+myr_data <- get_metadata(Myrothecium)
 myr_data
 }
