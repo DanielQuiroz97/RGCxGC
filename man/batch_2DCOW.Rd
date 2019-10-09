@@ -4,7 +4,7 @@
 \alias{batch_2DCOW}
 \title{Two-dimensional COW in batch.}
 \usage{
-batch_2DCOW(reference, sample_chroms, segments, max_warp)
+batch_2DCOW(reference, sample_chroms, segments, max_warp, add_ref = F)
 }
 \arguments{
 \item{reference}{a GCxGC chromatogram wich will be taken as the reference 
@@ -13,10 +13,15 @@ chromatogram}
 \item{sample_chroms}{a named list with the sample chromatograms which will
 be aligned against to the reference chromatogram}
 
-\item{segments}{A two integer vector with number of segments
+\item{segments}{a two integer vector with number of segments
 which the first and second dimension will be subdivided, respectively.}
 
-\item{max_warp}{A two intger vector with the maximum warping parameter.}
+\item{max_warp}{a two intger vector with the maximum warping parameter.}
+
+\item{add_ref}{a logical indicating if the reference chromatogram will
+be joined together with the sample chromatograms. By the fault add_ref = F.
+If add_ref is set T the provide reference chromatogram will be included as
+another sample chromatogram in the downstream analysis.}
 }
 \description{
 `batch_2DCOW` returns the aligned chromatogram in a named list slot.
@@ -53,6 +58,10 @@ batch_samples <- list(Chrom1 = MTBLS08, Chrom2 = MTBLS08)
 
 \donttest{
 # Perform batch 2DCOW alignment
+# Add the reference chromatogram as another sample
+batch_alignment <- batch_2DCOW(MTBLS09, batch_samples,
+                               c(10, 40), c(1, 10), add_ref = T)
+# Exclude the reference chromatogram in the sample chromatogram set
 batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
 }
 

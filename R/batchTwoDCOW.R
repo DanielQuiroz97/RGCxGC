@@ -1,34 +1,38 @@
 setGeneric(name = "base_batch_2DCOW",
            def = function(reference, sample_chroms,
-                          segments, max_warp){
+                          segments, max_warp, add_ref){
              standardGeneric("base_batch_2DCOW")
            })
 
 setMethod(f = "base_batch_2DCOW",
           signature = c("GCxGC", "list"),
           definition = function(reference, sample_chroms,
-                                segments, max_warp){
+                                segments, max_warp, add_ref){
             multiple_alig <- lapply(sample_chroms, method_TwoDCOW,
                                     ref_chrom = reference,
                                     segments = segments,
                                     max_warp = max_warp)
-            all_chromatograms <- c(reference, multiple_alig)
+            if (add_ref){
+              all_chromatograms <- c(reference, multiple_alig)  
+            } else all_chromatograms <- multiple_alig
+            
             return(all_chromatograms)
           })
 
 setGeneric(name = "method_batch_2DCOW",
            def = function(reference, sample_chroms,
-                          segments, max_warp, ref_name){
+                          segments, max_warp, ref_name, add_ref){
              standardGeneric("method_batch_2DCOW")
            })
 setMethod(f = "method_batch_2DCOW",
           signature = c("GCxGC", "list"),
           definition = function(reference, sample_chroms,
-                                segments, max_warp, ref_name){
+                                segments, max_warp, ref_name, add_ref){
             lst_aligned <- base_batch_2DCOW(reference = reference,
                                             sample_chroms = sample_chroms,
                                             segments = segments,
-                                            max_warp = max_warp)
+                                            max_warp = max_warp,
+                                            add_ref = add_ref)
             names(lst_aligned) <- c(ref_name, names(lst_aligned)[-1])
             chrom_2DCOW <- new("batch_2DCOW")
             chrom_2DCOW@name <- "batch_2DCOW"
@@ -62,9 +66,13 @@ setMethod(f = "method_batch_2DCOW",
 #'   chromatogram
 #' @param sample_chroms a named list with the sample chromatograms which will
 #'  be aligned against to the reference chromatogram
-#' @param segments A two integer vector with number of segments
+#' @param segments a two integer vector with number of segments
 #'  which the first and second dimension will be subdivided, respectively.
-#' @param max_warp A two intger vector with the maximum warping parameter.
+#' @param max_warp a two intger vector with the maximum warping parameter.
+#' @param add_ref a logical indicating if the reference chromatogram will
+#'  be joined together with the sample chromatograms. By the fault add_ref = F.
+#'  If add_ref is set T the provide reference chromatogram will be included as
+#'  another sample chromatogram in the downstream analysis.
 #' @importFrom methods new is
 #' @export
 #' @examples
@@ -84,10 +92,15 @@ setMethod(f = "method_batch_2DCOW",
 #' 
 #' \donttest{
 #' # Perform batch 2DCOW alignment
+#' # Add the reference chromatogram as another sample
+#' batch_alignment <- batch_2DCOW(MTBLS09, batch_samples,
+#'                                c(10, 40), c(1, 10), add_ref = T)
+#' # Exclude the reference chromatogram in the sample chromatogram set
 #' batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
 #' }
 #' 
-batch_2DCOW <- function(reference, sample_chroms, segments, max_warp) {
+batch_2DCOW <- function(reference, sample_chroms, segments, max_warp,
+                        add_ref = F) {
   if (length(sample_chroms) < 2)
     stop("At least two sample chromatograms are needed")
   if (length(names(sample_chroms)) != length(sample_chroms))
@@ -99,6 +112,7 @@ batch_2DCOW <- function(reference, sample_chroms, segments, max_warp) {
                                       sample_chroms = sample_chroms,
                                       segments = segments,
                                       max_warp = max_warp,
-                                      ref_name = ref_name)
+                                      ref_name = ref_name,
+                                      add_ref = add_ref)
   return(batch_aligned)
 }
