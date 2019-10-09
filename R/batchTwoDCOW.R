@@ -33,7 +33,9 @@ setMethod(f = "method_batch_2DCOW",
                                             segments = segments,
                                             max_warp = max_warp,
                                             add_ref = add_ref)
-            names(lst_aligned) <- c(ref_name, names(lst_aligned)[-1])
+            if (add_ref){
+              names(lst_aligned) <- c(ref_name, names(lst_aligned)[-1])  
+            }
             chrom_2DCOW <- new("batch_2DCOW")
             chrom_2DCOW@name <- "batch_2DCOW"
             chrom_2DCOW@mod_time <- reference@mod_time
