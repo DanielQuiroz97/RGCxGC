@@ -18,8 +18,12 @@ setMethod(f = "base_MPCA",
             raw_signal <-  t(raw_signal)
             col_0var <- apply(raw_signal, 2, var) != 0
             col_removed <- which(!col_0var)
-            raw_signal <- raw_signal[, col_0var]
-            pca <- prcomp(raw_signal, center = center, scale. = scale, ...)
+            raw_signal <- raw_signal[, -col_removed]
+            if ( sum( is.na(col_0var) ) ){
+              warning("NAs wer found and replaced with 0")
+              raw_signal[is.na(raw_signal)] <- 0
+            }
+            pca <- prcomp(raw_signal, center = center, scale. = scale)
             sum_pca <- list(summary = summary(pca))
             lds <-  lapply(seq(npcs), function(i) pca$rotation[, i])
             names(lds) <- paste0("PC", seq(npcs))
