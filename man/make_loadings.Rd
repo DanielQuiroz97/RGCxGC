@@ -10,7 +10,7 @@ make_loadings(floadings, time, mod_time, acq_rate)
 \item{floadings}{a numeric matrix with loadings as variables (columns) and
 eigenvalues as observations (rows).}
 
-\item{time}{a vector of length two with the tota time range of the
+\item{time}{a vector of length two with the time range of the
 chromatographic run}
 
 \item{mod_time}{the modulation time}
@@ -20,13 +20,13 @@ known at the moment, it is printed when read_chrom function is performed}
 }
 \description{
 `make_loading` method takes the loading matrix obtained
- by a foreing package and fold them into two-dimensional matrix
+ by a mixOmixs package and fold them into two-dimensional matrix
 }
 \details{
 We strongly recommend to use the plsda function in the mixOmics
  package to perform partial least squares-discriminant analysis. The result
  of this model is a list containing a loading matrix.
- The method start the matrix A with \emph{m} and \emph{n} dimensions.
- where \emph{m} is the eigenvalues and \emph{n}
+ The method retrieves a matrix A with \emph{m} and \emph{n} dimensions.
+ Where \emph{m} is the eigenvalues and \emph{n}
  is the number of loadings which the model returns.
 }

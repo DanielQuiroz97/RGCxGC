@@ -7,9 +7,11 @@ setGeneric(name = "print",
 #' @title  Print MPCA summary
 #' @rdname print-methods
 #' @aliases print,MPCA-method
-#' @description `print` call the MPCA object to print the summary analysis
+#' @description `print` call the MPCA object to print the summary of the
+#'  analysis.
 #' 
-#' @details  This plot function employs the built-in print function
+#' @details  This plot function employs the built-in print function and a
+#'  precomputed MPCA summary.
 #' 
 #' @param Object a MPCA object
 #' @exportMethod print

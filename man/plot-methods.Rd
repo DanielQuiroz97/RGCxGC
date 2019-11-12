@@ -12,19 +12,18 @@ plot(Object, type = "f", ...)
 }
 \arguments{
 \item{Object}{a GCxGC chromatogram, it could be a raw, or preprocessed
-chromatogram}
+chromatogram.}
 
-\item{type}{a character for the type of chromatogram display. By default, 
-type = "f" for \code{\link[graphics]{filled.contour}} function, if 
-type = "c" only contour or isolines will be displayed from
-\code{\link[graphics]{contour}} function}
+\item{type}{a character indicating the type of chromatogram representation.
+By default, type = "f" for \code{\link[graphics]{filled.contour}} function,
+if type = "c" only contours or isolines will be displayed by using the
+ \code{\link[graphics]{contour}} function.}
 
-\item{...}{Other parameters passes to \code{\link[graphics]{filled.contour}}
+\item{...}{Other parameters passed to \code{\link[graphics]{filled.contour}}
 function.}
 }
 \description{
-`plot` plot the bidimensional chromatogram as a
- filled contour plot
+`plot` plot the two-dimensional chromatogram as a contour plot.
 }
 \details{
 This plot function employs the built-in countour function. As

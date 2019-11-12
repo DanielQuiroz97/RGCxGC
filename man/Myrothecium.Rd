@@ -4,7 +4,7 @@
 \name{Myrothecium}
 \alias{Myrothecium}
 \title{Microbial antagonism between \emph{Curvularia sp.} facultative
-pathogen and the antagonist \emph{Myrothecium sp.}}
+pathogen and the \emph{Myrothecium sp.} antagonist.}
 \format{A joined_chrom object containing four slots:
 \describe{
   \item{chromatograms}{A named list with the two-dimensional chromatograms}
@@ -16,7 +16,7 @@ pathogen and the antagonist \emph{Myrothecium sp.}}
 data(Myrothecium)
 }
 \description{
-This object contain six chromatograms of the microbial
+This object contains six chromatograms of the microbial
 antagonism interaction. Microbials were cultured in carrot-maize-agar.
 Inoculation was made from Petri dishes with the fully-grown fungal cells and
 sterile distilled water (to wash the surface of the plate). The plate was 
@@ -36,7 +36,7 @@ connected to a Supelcowax 1m x 0.10mm × 0.10um
 with a 1m x 0.25mm deactivated silica capillary being allocated between
 them. In these tests, a modulation period of 5s was used.
 
-For GCxGC-QMS data acquisition, GCMSsolution version 5.3 software.
+For GCxGC-QMS data acquisition, GCMSsolution version 5.3 software was used.
 The temperature program were 60-165 celcius at 3 celcius/min;
 165 celcius - 260celcius at 20 celcius/min; 260 celcius (5 min);
 flow rate was 0.6 mL/min (Helium 5.0 carrier gas); splitless injection mode,

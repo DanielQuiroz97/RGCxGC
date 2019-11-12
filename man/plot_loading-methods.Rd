@@ -5,7 +5,7 @@
 \alias{plot_loading}
 \alias{plot_loading,projected-method}
 \alias{plot_loading,MPCA-method}
-\title{Plot two dimensional loadings from MPCA}
+\title{Plot two-dimensional loadings}
 \usage{
 plot_loading(Object, type = "n", pc = 1, thresh, ...)
 
@@ -19,7 +19,7 @@ plot_loading(Object, type = "n", pc = 1, thresh, ...)
 \emph{n} for negative, and \emph{b} for negative and positive 
 loading values.}
 
-\item{pc}{the number of the principal component to plot}
+\item{pc}{the principal component to plot.}
 
 \item{thresh}{numerica value. A threshold to remoe low loading values.}
 
@@ -27,13 +27,13 @@ loading values.}
 function.}
 }
 \description{
-`plot_loading` plot the loadings of the previously MPCA performed.
+`plot_loading` plot the loadings of the a MPCA object.
 }
 \details{
 This function takes the loadings of MPCA and eval if a certain
-  variable was removed previous compute de MPCA and fill the removed
-  variables with cero. Then, it plots the loadings of a single
-  principal component in two dimensions.
+  variable was removed previous compute de MPCA and it fills the removed
+  variables with cero. Then, the loadings are plotted considering one
+  principle component at a time as a two-dimensional chromatogram.
 }
 \examples{
 

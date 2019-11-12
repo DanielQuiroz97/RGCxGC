@@ -9,20 +9,19 @@ setGeneric(name = "plot",
 #' @title  Method plot
 #' @rdname plot-methods
 #' @aliases plot,GCxGC-method
-#' @description `plot` plot the bidimensional chromatogram as a
-#'  filled contour plot
+#' @description `plot` plot the two-dimensional chromatogram as a contour plot.
 #' 
 #' @details  This plot function employs the built-in countour function. As
 #'  mentioned in \insertCite{Reichenbach2004;textual}{RGCxGC}, interpolation
 #'  is usedto display non-native GCxGC data.
 #' 
 #' @param Object a GCxGC chromatogram, it could be a raw, or preprocessed
-#'   chromatogram
-#' @param type a character for the type of chromatogram display. By default, 
-#'   type = "f" for \code{\link[graphics]{filled.contour}} function, if 
-#'   type = "c" only contour or isolines will be displayed from
-#'   \code{\link[graphics]{contour}} function
-#' @param ... Other parameters passes to \code{\link[graphics]{filled.contour}}
+#'   chromatogram.
+#' @param type a character indicating the type of chromatogram representation.
+#'  By default, type = "f" for \code{\link[graphics]{filled.contour}} function,
+#'  if type = "c" only contours or isolines will be displayed by using the
+#'   \code{\link[graphics]{contour}} function.
+#' @param ... Other parameters passed to \code{\link[graphics]{filled.contour}}
 #'  function.
 #' @importFrom colorRamps matlab.like2
 #' @importFrom graphics axis filled.contour contour

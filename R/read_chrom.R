@@ -108,28 +108,25 @@ setMethod(f = "Mread_GCxGC",
 #' `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
 #' time and the bidimensional chromatogram.
 #' 
-#' This function reads the netCDF file and retrieve the values in the
+#' This function reads the NetCDF file and retrieves values in the
 #' \emph{total_intensity} variable. Then, with the provided sampling rate and
-#' modulation time, it is folded into a numerical matrix (bidimensional
-#' chromatogram). This function is an adaptation of the presented routine
-#' from \insertCite{Skov2008;textual}{RGCxGC}.
+#' modulation time, the chromatogram is folded into a numerical matrix,
+#' representing the two-dimensional chromatogram. This function is an
+#' adaptation of the presented routine by \insertCite{Skov2008;textual}{RGCxGC}.
 #' 
-#' For unusual retention times, more than 60 seconds, the chemical equipment
-#' converts the measured points per minute in function of sampling rate.
-#' 
-#' @param name A name of the netCDF file to which the data will be retrieved.
-#' @param mod_time The modulation time of the chromatographic run.
-#' @param sam_rate the sampling rate of the equipment. If sam_rate is missing,
-#'  the sampling rate is calculated by the dividing one by the
-#'  diference of two adjacent scan time.
-#' @param per_eval An integer with the percentage of the run time to be
-#'  evaluate, if the sampling rate is homogeneous.
-#' @param x_cut A vector with two elements representing the minimum and maximum
-#'  retention times for the first dimension, which will be maintained.
-#' @param y_cut A vector with two elements representing the minimum and maximum
-#'  retention times for the second dimension, which will be maintained.
-#' @param verbose a logical indicating if information of chromatogram is
-#'  printted in console
+#' @param name a name of the NetCDF file where the data is alocated.
+#' @param mod_time a integer, the modulation time of the chromatographic run.
+#' @param sam_rate a integer, the sampling rate of the equipment.
+#'  If sam_rate is missing, the sampling rate is calculated by the dividing 1 by
+#'  the diference of two adjacent scan time.
+#' @param per_eval a double between 0 and 1, with the percentage of the run time
+#'  recrods to be evaluated if the sampling rate is homogeneous.
+#' @param x_cut a vector with two elements representing the retention time range
+#'  to be mantained in the first dimension.
+#' @param y_cut a vector with two elements representing the retention time range
+#'  to be mantained in the second dimension.
+#' @param verbose a logical indicating if the information of chromatogram is
+#'  printted in the console.
 #' @importFrom RNetCDF open.nc var.get.nc
 #' @importFrom methods is
 #' @export 

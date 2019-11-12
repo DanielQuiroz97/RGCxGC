@@ -1,17 +1,17 @@
 setGeneric(name = "base_reference",
-           def = function(joined_list){
+           def = function(joined_list, stat){
   standardGeneric("base_reference")
 })
 
 setMethod(f = "base_reference",
           signature = "joined_chrom",
-          definition = function(joined_list){
+          definition = function(joined_list, stat){
             # Unfold chrom
             chroms <- joined_list@chromatograms
             unfolded <- sapply(chroms,
                                 FUN = function(x) as.vector(t(x)) )
             # Get the mean for each pixel
-            mean_chrom <- apply(unfolded, 1, mean)
+            mean_chrom <- apply(unfolded, 1, stat)
             # Get chromaogram dimensions
             n_col <- ncol( chroms[[1]] )
             n_row <- nrow( chroms[[1]] )
@@ -43,13 +43,18 @@ setMethod(f = "method_reference",
 #' of multiple chromatograms.
 #' 
 #' The aim of this function is to create a consensus chromatogram to be used
-#' as a reference one in the peak alignment process. In other words, the new
-#' chromatogram will be used as a template and other chromatograms will be
-#' aligned against it. This function overlap the provided chromatograms and
-#' compute the mean for each pixel in order to create a reference 
-#' two-dimensional chromatogram.
+#' as a reference one in the peak alignment process. In other words, multiple
+#' chromatograms will be subjected to a mathematical function, such as minn, max,
+#' or mean in order to create a representative chromatogram.
+#' Then, the new chromatogram will be used as a template and the other
+#' chromatograms will be aligned against it. This function overlap pixels with
+#' the same chromatogram index and computes a desired mathematical function for
+#' each pixel.
 #' 
 #' @param chromatograms a joined_chrom object.
+#' @param stat a character with the name of the mathematical function that
+#'  pixels will be subjected. By default, (stat = "mean") the new reference
+#'  chromatogram will be the mean of the provided chromatograms.
 #' @export
 #' @examples 
 #' 
@@ -66,7 +71,7 @@ setMethod(f = "method_reference",
 #' reference <- reference_chrom(joined)
 #' plot(reference, main = "Reference chromaogram")
 
-reference_chrom <- function(chromatograms) {
+reference_chrom <- function(chromatograms, stat = "mean") {
   ref_crom <- method_reference(chromatograms)
   ref_crom
 }

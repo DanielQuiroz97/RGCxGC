@@ -2,27 +2,28 @@
 % Please edit documentation in R/wsmooth.R
 \name{wsmooth}
 \alias{wsmooth}
-\title{Bidimensional smoothing}
+\title{Two-dimensional smoothing}
 \usage{
 wsmooth(chromatogram, penalty = 1, lambda = 1)
 }
 \arguments{
-\item{chromatogram}{\emph{raw_GCxGC} or \emph{preproc_GCxGC} object like with
-provided \emph{name} and \emph{mod_time} slots.}
+\item{chromatogram}{\emph{raw_GCxGC} or \emph{preproc_GCxGC} object with
+\emph{name} and \emph{mod_time} slots.}
 
 \item{penalty}{an integer of the order of the penalty. Only penalty of
-first (penalty = 1) and second order (penalty = 2) are allowed. By
-default it is performed with first penalty order.}
+first (penalty = 1) and second  (penalty = 2) order are allowed. By
+default, the smooth function is performed with first penalty order.}
 
 \item{lambda}{smoothing parameter: larger values lead to more smoothing.}
 }
 \description{
-`wsmooth` provides a bidimensional weighted whittaker
-  smoothing of a two dimensional chromatogram
+`wsmooth` enables two-dimensional weighted whittaker
+  smoothing.
 }
 \details{
 This function takes a raw bidimensional chromatogram and performs
- the weighted wittaker smoothing. It smooths with linear or cuadratic penalty
+ the weighted wittaker smoothing. It smooths the signal with linear or
+ cuadratic penalty, depending on the provided penalty,
  along side the first dimension, based on Whittaker smoother
  \insertCite{Eilers2003}{RGCxGC}.
 }

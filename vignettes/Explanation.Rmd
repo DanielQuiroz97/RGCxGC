@@ -3,7 +3,7 @@ title: "Introduction to RGCxGC package"
 author: "Cristian Quiroz-Moreno"
 date: "`r Sys.Date()`"
 bibliography: REFERENCES.bib
-csl: bioinformatics.csl
+csl: analitica-chimica-acta.csl
 output:
   prettydoc::html_pretty:
     toc: true

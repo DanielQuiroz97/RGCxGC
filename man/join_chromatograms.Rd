@@ -2,15 +2,15 @@
 % Please edit documentation in R/join_chromatograms.R
 \name{join_chromatograms}
 \alias{join_chromatograms}
-\title{Join two-dimensional chromatograms into a single R object}
+\title{Join multiple two-dimensional chromatograms into a single R object}
 \usage{
 join_chromatograms(x, y, groups, ...)
 }
 \arguments{
-\item{x, y}{a GCxGC object, either single or batch chromatogram}
+\item{x, y}{a GCxGC object, either single or batch chromatograms.}
 
 \item{groups}{a data.frame containing the metadata. It must have a column
-named as \emph{Name} to merge with the imported chromatograms.}
+named as \emph{Names} to merge with the imported chromatograms.}
 
 \item{...}{other GCxGC objects to be merged}
 }

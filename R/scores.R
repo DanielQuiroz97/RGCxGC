@@ -8,10 +8,10 @@ setGeneric(name = "scores",
 #' @title  Method plot_scores
 #' @rdname scores-methods
 #' @aliases scores,MPCA-method
-#' @description `scores` exports the scores matrix of the previously MPCA
-#'  performed.
+#' @description `scores` exports the scores matrix of a MPCA
+#'  object.
 #' 
-#' @details  This function takes the scores of MPCA and retrieves the score
+#' @details  This function takes the whole MPCA object and retrieves the score
 #'   matrix.
 #' 
 #' @param Object a MPCA object

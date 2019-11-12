@@ -14,32 +14,33 @@ chromatogram}
 be aligned against to the reference chromatogram}
 
 \item{segments}{a two integer vector with number of segments
-which the first and second dimension will be subdivided, respectively.}
+which the first and second dimension will be divided, respectively.}
 
 \item{max_warp}{a two intger vector with the maximum warping parameter.}
 
 \item{add_ref}{a logical indicating if the reference chromatogram will
 be joined together with the sample chromatograms. By the fault add_ref = F.
-If add_ref is set T the provide reference chromatogram will be included as
+If add_ref is set T, the provide reference chromatogram will be included as
 another sample chromatogram in the downstream analysis.}
 }
 \description{
 `batch_2DCOW` returns the aligned chromatogram in a named list slot.
-The first chromatogram is considered as the reference.
 }
 \details{
-First you have to select a representative chromatogram to be considered as
-the reference. Then, chromatograms to align has to be sabed in a single
-obects as a named list. The list names will be considered as the names
-of each chromatograms and the object name will be omitted.
+The first argument is the reference chromatogram which other chromatograms
+will aligned against. Then, a named list is needed for the sample_chroms
+argumnet. The chromatogram in this list will be aligned using the reference
+chromatogram. By default, the ference chromatogram will be not included in
+the subsequent analysis, such as MPCA. If you would like to add the reference
+chromatogram, then add_ref = T.
 
-This is an adaptation of two-dimesional COW alignment, implementated first
+This is an adaptation of two-dimesional COW alignment, firstle implemented
 in MATLAB. This function takes a set of samples chromatogram to be aligned 
 against to the reference. The argument [segment] will be used 
-to split the whole chromatogram in n parts in the first and the 
-second dimension respectevily. The [max_warp] argument provides de maximum
-tolerace of the signal transformation as well to the first and the
-second dimension.
+to split the whole chromatogram in \emp{n} and \emp{m} parts in the first
+and the second dimension, respectively. The [max_warp] argument provides
+the maximum tolerace of the signal transformation for the first and the
+second dimension, respectively.
 }
 \examples{
 

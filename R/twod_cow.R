@@ -181,37 +181,37 @@ setMethod(f = "method_TwoDCOW", signature = c("raw_GCxGC"),
           })
 #' Two-dimensional correlation optimized warping alignment
 #'
-#' `twod_cow` returns the bidimensional correlation optimised warping aligmened
+#' `twod_cow` returns the two-dimensional correlation optimised warping aligmened
 #'  sample chromatogram versus a reference chromatogram.
 #'
-#' This is an adaptation of bidimesional COW aligment first implementated 
+#' This is an adaptation of two-dimesional COW aligment, first implementated 
 #' in MATLAB \insertCite{Tomasi2004}{RGCxGC}. 
 #' This functions takes a sample chromatogram to be aligned 
-#' to reference one. The argument [segment] will be used to split the whole
-#' chromatogram in n parts in the first and the second dimension respectevily.
-#' The [max_warp] argument provides de maxium tolerace of the signal
-#' transformation as well to the firs and the second dimension
+#' against a reference. The argument [segment] will be used to split the whole
+#' chromatogram in \emph{n} and \emph{m} parts the first and the second
+#' dimension, respectevily. The [max_warp] argument provides de maxium tolerace
+#' of the signal transformation for the first and the second dimension
 #' \insertCite{DabaoZhang2008}{RGCxGC}.
 #'
-#' @param sample_chrom A GCxGC class cromatogram obtained by read_chrom 
-#'  function.
-#' @param ref_chrom A representative GCxGC chromatogram choosen to be the 
+#' @param sample_chrom A GCxGC class cromatogram imported by read_chrom 
+#'  function or a preprocessed chromatogram.
+#' @param ref_chrom A representative GCxGC chromatogram chosen to be the 
 #'   template which sample_chrom will be aligned.
 #' @param segments A two integer vector with number of segments
-#'  which the first and second dimension will be subdivided, respectively.
+#'  which the first and second dimension will be divided, respectively.
 #' @param max_warp A two integer vector with the maximum warping parameter.
 #' 
 #' @importFrom stats na.omit approx
 #' @export
 #' @examples
 #' 
-#' library(colorRamps)
 #' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #' GB09_fl <- system.file("extdata", "09GB.cdf", package = "RGCxGC")
 #' GB08 <- read_chrom(GB08_fl, 5L)
 #' GB09 <- read_chrom(GB09_fl, 5L)
 #' \donttest{
-#' GB09_al <- twod_cow(GB09, GB08, c(20, 40), c(2, 8))
+#' GB09_al <- twod_cow(sample_chrom = GB09, ref_chrom = GB08,
+#'                     segments = c(20, 40), max_warp = c(2, 8))
 #' }
 #' 
 #' @references

@@ -66,7 +66,8 @@ set.seed(10)
 chrom_dim <- dim(unfolded_chrom)[2]
 list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
 tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
-                          progressBar = T, dist = 'max.dist', cpus = 12,
+                          progressBar = T, dist = 'max.dist',
+                          cpus = 12, # Set cpus according with your pc
                           test.keepX = list.keepX)
 # Plot error rates
 graphics::plot(tune.splsda)

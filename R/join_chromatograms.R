@@ -81,15 +81,15 @@ setMethod(f = "method_joinChrom",
             joined_chrom@mod_time <- x@mod_time
             return(joined_chrom)
           })
-#' @title  Join two-dimensional chromatograms into a single R object
+#' @title  Join multiple two-dimensional chromatograms into a single R object
 #' 
 #' @description `join_chromatograms` save the chromatograms in a
 #'  named list slot. Also, it saves information like metadata and 
 #'  retention times.
 #' 
-#' @param x,y a GCxGC object, either single or batch chromatogram
+#' @param x,y a GCxGC object, either single or batch chromatograms.
 #' @param groups a data.frame containing the metadata. It must have a column
-#'  named as \emph{Name} to merge with the imported chromatograms.
+#'  named as \emph{Names} to merge with the imported chromatograms.
 #' @param ... other GCxGC objects to be merged
 #' @importFrom methods is new
 #' @export

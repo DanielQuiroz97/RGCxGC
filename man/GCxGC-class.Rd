@@ -9,7 +9,7 @@ Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
 gas chromatography
 }
 \details{
-The validity function evaluates if the provied file can be readed from a 
+The validity function evaluates if the provied file can be readed as a 
 NetCDF file. The validation function employs the function 
 \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
 NetCDF class.

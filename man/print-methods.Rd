@@ -14,10 +14,12 @@ print(Object)
 \item{Object}{a MPCA object}
 }
 \description{
-`print` call the MPCA object to print the summary analysis
+`print` call the MPCA object to print the summary of the
+ analysis.
 }
 \details{
-This plot function employs the built-in print function
+This plot function employs the built-in print function and a
+ precomputed MPCA summary.
 }
 \examples{
 

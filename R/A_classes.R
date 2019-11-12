@@ -4,7 +4,7 @@
 #' Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
 #' gas chromatography 
 #' 
-#' The validity function evaluates if the provied file can be readed from a 
+#' The validity function evaluates if the provied file can be readed as a 
 #' NetCDF file. The validation function employs the function 
 #' \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
 #' NetCDF class.
@@ -45,11 +45,11 @@ setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
 #' Subclass preproc_GCxGC
 #' 
 #' Subclass \emph{preproc_GCxGC} are contained in \emph{raw_GCxGC} super class.
-#' It contains a dedicated slot to storage the preprocessed bidimensional
+#' It contains a dedicated slot to storage the preprocessed two-dimensional
 #' chromatogram.
 #' 
-#' After reading a bidimensional chromatogram, you can perform serveral
-#'  preprocessing technics such as smoothing or baseline correction. It will
+#' After reading a two-dimensional chromatogram, you can perform serveral
+#' preprocessing technics such as smoothing or baseline correction. It will
 #' create an object of a preproc_GCxGC subclass.
 #' 
 #' @exportClass preproc_GCxGC

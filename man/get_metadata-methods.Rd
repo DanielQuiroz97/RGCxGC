@@ -12,11 +12,11 @@ get_metadata(chroms)
 \S4method{get_metadata}{joined_chrom}(chroms)
 }
 \arguments{
-\item{chroms}{a joined chromatogram object created by
+\item{chroms}{a joined_chrom object created by
 \code{\link{joined_chrom}} function.}
 }
 \description{
-`get_metadata`retrieve the get_metadata contained in a joined_chrom
+`get_metadata`retrieves the metadata contained in a joined_chrom
  object.
 }
 \details{

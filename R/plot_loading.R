@@ -7,21 +7,21 @@ setGeneric(name = "plot_loading",
              standardGeneric("plot_loading")
            }
 )
-#' @title  Plot two dimensional loadings from MPCA
+#' @title  Plot two-dimensional loadings
 #' @rdname plot_loading-methods
 #' @aliases plot_loading,MPCA-method
-#' @description `plot_loading` plot the loadings of the previously MPCA performed.
+#' @description `plot_loading` plot the loadings of the a MPCA object.
 #' 
 #' @details  This function takes the loadings of MPCA and eval if a certain
-#'   variable was removed previous compute de MPCA and fill the removed
-#'   variables with cero. Then, it plots the loadings of a single
-#'   principal component in two dimensions.
+#'   variable was removed previous compute de MPCA and it fills the removed
+#'   variables with cero. Then, the loadings are plotted considering one
+#'   principle component at a time as a two-dimensional chromatogram.
 #' 
 #' @param Object a MPCA object
 #' @param type the value type of loadings, \emph{p} for positive, 
 #'  \emph{n} for negative, and \emph{b} for negative and positive 
 #'  loading values.
-#' @param pc the number of the principal component to plot
+#' @param pc the principal component to plot.
 #' @param thresh numerica value. A threshold to remoe low loading values.
 #' @param ... Other parameters passes to \code{\link[graphics]{filled.contour}}
 #'  function.
@@ -126,11 +126,11 @@ setMethod(f = "plot_loading", signature = "projected",
                               length.out = 5), 2)
             laby <- round(seq( Object@mod_time[1], Object@mod_time[2],
                                length.out = 5), 2)
-            filled.contour(mloading, 
+            filled.contour(mloading, ...,
                            plot.axes = {
                              axis(1, at = seq(0, 1, length.out = 5),
                                   labels = labx)
                              axis(2, at = seq(0, 1, length.out = 5),
                                   labels = laby)
-                           }, xlab = "1D min", ylab = "2D sec",...)
+                           }, xlab = "1D min", ylab = "2D sec")
           } )

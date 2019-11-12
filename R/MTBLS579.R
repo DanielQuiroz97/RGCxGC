@@ -6,12 +6,12 @@
 #' identifier number MTBLS79 \url{https://www.ebi.ac.uk/metabolights/MTBLS579}.
 #' Two groups from the entire study was downloaded: control and \emph{S. typhi}
 #' carriage. The name files of control group are: 08GB, 09GB, and 14GB,
-#' which has the native name of 08_GB.cdf, 14_GB.cdf, and 09_GB.cdf in the
+#' which has the following native name 08_GB.cdf, 14_GB.cdf, and 09_GB.cdf in the
 #' MetaboLights database. For the \emph{S. typhi} group the names are:
 #' 34GB, 24GB, 29GB, which has the native name of 34_GB.cdf, 24_GB.cdf and
 #' 29_GB.cdf in MetaboLights database.
 #' 
-#' Due to large size of chromatograms, this data is a subset of the whole
+#' Due to the large size of chromatograms, these data is a subset of the whole
 #' chromatograms from 7 min to 18 min of chromatografic run. If you would
 #' like to acces the whole formated chromatograms, please go to 
 #' \url{https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda}.

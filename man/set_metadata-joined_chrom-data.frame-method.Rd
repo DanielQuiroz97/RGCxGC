@@ -13,7 +13,7 @@
 \item{metadata}{a data.frame containing the metadata. It must have a column}
 }
 \description{
-`set_metadata` fill metadata slot of a joined chrom.
+`set_metadata` fill metadata slot of a joined chrom object.
 }
 \examples{
 

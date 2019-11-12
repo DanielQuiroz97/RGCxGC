@@ -10,12 +10,11 @@ m_prcomp(chrom, center = TRUE, scale = TRUE, npcs = 3, ...)
 \item{chrom}{Multiple chromatograms readed or batch aligned}
 
 \item{center}{A logical value indicating whether the variables should be
-shifted to be zero centered. True is set by default and is strongly
-seggested not to change to False.}
+shifted to be zero centered. TRUE is set by default.}
 
 \item{scale}{a logical value indicating whether the variables should
 be scaled to have unit variance before the analysis takes place. The
-default is True to give the same variable importance in chemometrics.}
+default is FALSE.}
 
 \item{npcs}{an integer indicating how many principals components are
 desired to mantain. The default is 3 principal components.}
@@ -24,12 +23,12 @@ desired to mantain. The default is 3 principal components.}
 }
 \value{
 MPCA returns a list whit class "MPCA" containing the summary of the
-  analysis, the scores matrix, and unfolded loadings, and the metadata if it
-  was providen when chromatograms were joined.
+  analysis, the scores matrix, unfolded loadings, and the metadata if it
+  was provided when chromatograms were joined.
 }
 \description{
-`m_prcomp` Performs a multiway principal components analysis on the given
-bidimensional chromatograms and returns the rusults  as object of class
+`m_prcomp` Performs a multiway principal components analysis on a given
+two-dimensional chromatograms and returns the rusults as object of class
 MPCA.
 Before to perform the calculation, each given chromatogramas are unfolded
 to a single dimension. All chromatograms are merged and principal component 
