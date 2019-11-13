@@ -22,8 +22,8 @@ body {text-align: justify}
 </style>
 
 # Introduction
-This is the vignette to explain the implementation of RGCxGC package. This text presents an end to end pipeline for the analysis for comprehensive two
-dimensional gas chromatography(GCxGC-MS) data. You can access a specific function 
+This is the vignette to explain the implementation of RGCxGC package. This text presents an end-to-end pipeline for the analysis of comprehensive two
+dimensional gas chromatography (GCxGC-MS) data. You can access a specific function 
 help through the command help(*['function name']*). 
 
 A general workflow about signal preprocessing in chromatography is summarized in
@@ -31,15 +31,15 @@ Figure 1. Raw chromatographic signals ussually contains undesirable artifacts,
 such as chemical and instrumental noise. Therefore, noise in the
 data should be removed prior statistical analysis. Furthermore, noise can be
 significantly reduced by using preprocessing algorithms,
-herein smoothing, baseline correction, and peak alignment. Then, in order to differentiate between groups/treatments, multivariate analysis can be performed.
+herein smoothing, baseline correction, and peak alignment. Then, in order to reveal differences between groups, multivariate analysis can be performed.
 
-```{r Fig 1, echo=FALSE, fig.cap= "Figure 1. Overview of general data processing in chromatography that is presented in the RGCxGC package.", out.width= "80%",message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
+```{r Fig 1, echo=FALSE, fig.cap= "Figure 1. Overview of general data processing pipeline in chromatography that is presented in the RGCxGC package.", out.width= "80%",message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
 knitr::include_graphics("images/dataProcessing.png")
 ```
 
-In the RGCxGC package,first, the raw chromatogram is importing from a **NetCDF** file and is folded
-into the two-dimensional Total Intensity Chromatogram (2D-TIC).Next,
-you can perform three preprocessing methodologies in order to remove noise,
+In the RGCxGC package, first, the raw chromatogram is importing from a **NetCDF** file and is folded
+into the two-dimensional Total Intensity Chromatogram (2D-TIC). Next,
+you can perform three preprocessing methodologies in order to enhace signals,
 such as smooth, baseline correction, and peak alignment. Basically,
 smooth enhance the signal to noise ratio (S/N), baseline correction  handles
 column blooding, and peak alignment corrects the retention time shift of the peaks
@@ -54,15 +54,14 @@ preprocessing and multivariate analysis, after the data is imported (Figure 2).
 knitr::include_graphics("images/basicWorkflow.jpg")
 ```
 
-The raw NetCDF file is imported with **read_chrom** function, by providing
-the modulation time that the GCxGC data was acquiered.
+The raw NetCDF file is imported with the **read_chrom** function, by providing
+the file name and modulation time that the GCxGC data was acquiered.
 Next, you can perform preprocessing routines like smoothing and/or baseline
 correction by using the function **wsmooth** and **baseline_corr**, 
-respectively. Then, peak alignment one sample against a reference chromatogram
+respectively. Then, peak alignment of a single sample against a reference chromatogram
 can be performed based on the two-dimensional
 correlation optimized warping (2DCOW) algorithm. Alternatively, mutiple sample
-alignment can be performed with **batch_2DCOW** function. This function takes
-the first chromatogram as the reference.
+alignment can be performed with **batch_2DCOW** function. 
 After signal preprocessing, MPCA can be performed over the dataset by using
 the **m_prcomp** functions. As result of the MPCA, you can acces to the score
 matrix through **scores** function, or plot the loading matrix with the
@@ -74,13 +73,14 @@ be done through **unfold_chrom**. Supervised models can be done with the
 
 # Detailed workflow
 ## Installation
-You can install the package by several manners. The most common is to install from CRAN.
+You can install the package in different manners. The most common is to 
+install it from CRAN.
 
 ```{r Cran install, eval=FALSE, include=TRUE}
 install.packages("RGCxGC")
 ```
 
-Another way is to install it through the developer version in github.
+Another way is to install it is through the developer version in github.
 ```{r github install, eval=FALSE, include=TRUE}
 library(devtools)
 install_github("DanielQuiroz97/RGCxGC")
@@ -96,35 +96,34 @@ library(RGCxGC)
 
 ## Importing raw chromatogram
 The example data is retrieved form
-[Diagnostic metabolite biomarkers of chronic typhoid carriage](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0006215).
-You can access to the whole dataset with the identifier
+[Diagnostic metabolite biomarkers of chronic typhoid carriage](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0006215)
+stady. You can access to the whole dataset with the identifier
 [MTBLS579](https://www.ebi.ac.uk/metabolights/MTBLS579) in the
 [MetaboLights](https://www.ebi.ac.uk/metabolights/) database.
 
 You can import the raw chromatogram through the **read_chrom** function. This function
-requires at least two parameters: the name of the *netCDF* file (name), and
-the modulation time. This is an adaptation of @Skov2008 routine.
+requires at least two parameters: the name of the *NetCDF* file (name), and
+the modulation time. This is an adaptation of Skov routine @Skov2008.
 
 ```{r Chrom import}
 chrom_08 <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 MTBLS08 <- read_chrom(chrom_08, mod_time = 5)
 slotNames(MTBLS08)
 ```
-As one can see, the MTBLS08 object has four slots. The first one correspond to the
-location of the imported two-dimensional chromatogram. The second slot refers to
+As we can see, the MTBLS08 object has four slots. The first one correspond to the
+2D-TIC chromatogram. The second slot refers to
 the retention time in the first dimension. The third slot is the name of the
 NetCDF file, which is first check for validity before importing the chromatogram.
 Finally, the fourth slot is the modulation time in the second dimension.
 
 ## Chromatogram visualization
 To visualize chromatograms, you can use the **plot** function.
-It is built from **filled.contour** r base function. Since countour plots
+It is built from **filled.contour** R base function. Since countour plots
 is a good choice to display non-native GCxGC data [@Reichenbach2004].
 The default function only plots the most intense signals, into a few breaks.
-For visualizing a familiar chromatogram, you have to provide the color palette and
-the number of breaks or levels.
 
-Due to the large variety of relative concentration of metabolites in a sample,
+
+Due to the large variety of  metabolite concentrations in a sample,
 the total ion current can also have large variability in the intensity scale.
 Therefore, you have to set the number of levels in hundreds.
 As the number of levels increases, you can obtain
@@ -140,14 +139,15 @@ plot(MTBLS08, nlevels = 100, color.palette = matlab.like2)
 
 ## Signal preprocessing
 In chromatography, the net metabolite signals are often obscured by
-instrumental and chemical noise. This undesirable signals 
-disturbs the chemical interpretation of the resutls. In order to remove this irrelevant information, some
+instrumental and chemical noise. These undesirable signals 
+disturbs the chemical interpretation of the resutls.
+In order to remove  irrelevant information, some
 preprocessing steps can be employed. The most common preprocessing algorithms are:
 baseline correction, smoothing and peak alignment, which are reviewed in the following
 sections.
 
 ### Baseline correction
-Baseline correction remove a steady increasing intensity in the signal.
+Baseline correction remove a steady and increasing intensity in the signal.
 For example, contamination of the instrument system injection or column bleeding.
 The baseline correction implemented in this package employs the asymmetric
 least squares algorithm [@Eilers2004].
@@ -158,23 +158,24 @@ plot(MTBLS08_bc, nlevels = 100, color.palette = matlab.like2)
 ```
 
 The result of this preprocessing step is a cleaner chromatogram. The baseline has
-been removed and all of the separation space has filled with a more intense blue.
+been removed and all of the separation space has filled with a more intense
+blue.
 
 ### Smoothing
 The Whittaker smoother
 algorithm^[The base functions (with1 & with2) are coupled from the *ptw* package]
 is used in this package [@Eilers2003].
-As the main advantages, it accounts by computational efficiency, control over
+As the main advantages, it accounts with computational efficiency, control over
 smoothness and automatically interpolation. The Whittaker smoother for GCxGC
 is implemented in the first chromatogram dimension. In other words, smoothing
 is carry out to every chromatographic modulation.
 
-The Whittaker smoother works with discrete penalized least squares. For instance,
-the penalty order (1 or 2) and the $\lambda$ arguments has to be provided.
-While the penalty refers to the order to penalize the roughness of the signals, 
-$\lambda$ is factor which multiply the rougness signal level.
-Then, greater parameter values will hava a stronger influence in the smmothing
-process.
+The Whittaker smooth algorithm works with discrete penalized least squares.
+For instance, the penalty order (1 or 2) and the $\lambda$ arguments
+has to be provided. While the penalty refers to the order to penalize the
+roughness of the signals, $\lambda$ is factor which multiply the rougness
+signal level. For instance, greater parameter values will hava a
+stronger influence in the smmothing process.
 
 ```{r smoothing, out.width= "60%"}
 # Linear penalty with lambda equal to 10
@@ -192,21 +193,22 @@ plot(MTBLS08_sm2, nlevels = 100, color.palette = matlab.like,
 ```
 
 ### Peak alignment
-In the chemometric pipeline, the user selects the desired preprocessing steps. However,
-peak alignment is practically mandatory whenever multiple samples should be compared.
-The peak alignment corrects unavoidable shifts of the retention times
-among chromatographic runs.
+In the chemometric pipeline, the user selects the desired and required
+preprocessing steps. However, peak alignment is practically mandatory whenever
+multiple samples should be compared. The peak alignment corrects unavoidable
+shifts of the retention times among chromatographic runs.
 
 There are two general pathways for peak alignment: using peak table,
-or pixel level alignment. In this package, the pixel level alignment is implemented.
-using the two-dimensional correlation optimized warping (2D-COW) algorithm
+or pixel level alignment. In this package, the pixel level alignment is implemented
+by using the two-dimensional correlation optimized warping (2D-COW) algorithm
 is implemented [@DabaoZhang2008]. Basically, the algorithm works by splitting
 the raw chromatogram into $n$ segments. Then, time warping is applied over each
 dimensions using the one dimensional correlation optimized
-warping (COW) [@Tomasi2004].
+warping (COW) algorithm [@Tomasi2004].
 
-The **TwoDCOW** function need four arguments: sample the reference chromatogram, the number of segments to split the chromatogram and the maximum
-warping level for both dimensions.
+The **TwoDCOW** function need four arguments: the sample name,
+the reference chromatogram, the number of segments to split the chromatogram
+and the maximum warping level for both dimensions.
 
 ```{r 2DCOW, out.width= "60%"}
 # Reference chromatogram
@@ -261,7 +263,15 @@ batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
 names(batch_alignment@Batch_2DCOW)
 ```
 
-As you can see, the names of the sample chromatograms are the names of the list.
+As you can see, the names of the sample chromatograms are the names of 
+its object the list. In this batch example, the reference chromatogram is 
+included as another sample chromatogram. This is usefull when a representative
+chromatogram is selected as a reference. Therefore, it should be added after
+sample chromatograms are aligned. On the other hand, there is an option that
+allows to make an average chromatogram of multiple chromatograms. Therefore,
+if you batch align sample cromatograms against the new chromatogram, it 
+should not be added as a sample chromatogra. In this cases, you should set
+the argument *add_ref = FALSE*.
 
 ### Get all chromatograms together
 Once the chromatograms are already preprocessed, it has to be in a single R object.
@@ -287,7 +297,7 @@ For example, lets consider that we have the following objects:
 * **batch_samp2:** A batch aligned chromatograms of the group two and
 * **metadata_exp** The experiment metadata.
 
-Then, the user should be proceed as follow:
+Then, the user should proceed as follow:
 
 ```{r Join complex, eval=FALSE, include=TRUE}
 join_complex <- join_chromatograms(batch_samp1, batch_samp2,#Two batch samples
@@ -297,19 +307,19 @@ join_complex <- join_chromatograms(batch_samp1, batch_samp2,#Two batch samples
 ```
 
 
-## Multivariate analysis
+## Multiway Principal Component Analysis
 Multivariate analysis is chosen in the RGCxGC package in order to
-extract the main metabolites that distinguish the samples.
+extract the main variables that distinguish the samples.
 Due to high complexity of the chromatograms containing thousands of variables,
 the multivariate algorithms is an interesting approach for data analysis 
 in GCxGC.
 
 In this case, the extension of principal component anaylisis is implemente, the
-called Multiway Principal Component Analysis (MPCA) [@Wold1987]. Which can handle the three
+ Multiway Principal Component Analysis (MPCA) [@Wold1987]. It can handle the three
 dimensions of the dataset that is typical for 2D-TIC from GCxGC.
-of tipical chromatographic experiment.
 
-The example data has to groups, the *S. typhy* carriage, and the control group.
+
+The example data has two groups, the *S. typhy* carriage, and the control group.
 In this sense we are going to perform MPCA with 6 chromatograms.
 
 ```{r metadata, message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
@@ -323,7 +333,7 @@ knitr::kable(metadata)
 
 In the previous section, the *S. typhy* carriage is already aligned. In order to
 have the same preprocessing techniques for both groups, the control chromatograms
-will be aligned. This treated data can be called with the name of **MTBLS579** name.
+will be aligned. The chromatogram set can be called with the name of **MTBLS579** name.
 
 ```{r batch alignment 2}
 data(MTBLS579)
@@ -342,9 +352,8 @@ print(exp_MPCA)
 ### Scores
 The scores is the projection in the reduced multivariate space spanned by
 principal components, and it is related to the 
-(chromatographic) differences among the samples. To plot access the scores
-matrix, you can use the **plot_scores** function. The second argument is the name of
-the factor type column to provide colors between groups.
+(chromatographic) differences among the samples. To acces to the scores
+matrix, you can use the **scores** function.
 
 ```{r Scores, out.width= "60%"}
 scores(exp_MPCA)
@@ -352,9 +361,9 @@ scores(exp_MPCA)
 
 ### Loadings
 While the scores matrix represents the relationship between samples, the loading
-matrix explain the relationship between variables. Then, we obtain a plot similar
-to the input chromatograms. To plot loadings, you can use the **plot_loading**
-function. The type argument refers to positive (type = "p") or negative 
+matrix explain the relationship between variables. 
+To plot loadings, you can use the **plot_loading**
+function. The *type* argument refers to positive (type = "p") or negative 
 (type = "n") loading values or (type = "b") for both loadings values.
 The default option of this fucntion is to plot the
 firts principal component, even though, you can choose setting the *pc* argument.
