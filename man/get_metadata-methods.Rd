@@ -21,7 +21,7 @@ get_metadata(chroms)
 }
 \details{
 This function acceses to the \emph{groups} slot created by the
- \code{\link{joined_chrom}{RGCxGC}} function. The \emph{Names} are the names of the
+ \code{\link[RGCxGC]{joined_chrom}} function. The \emph{Names} are the names of the
  chromatograms.
 }
 \examples{

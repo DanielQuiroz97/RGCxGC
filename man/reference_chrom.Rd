@@ -39,6 +39,6 @@ MTBLS09 <- read_chrom(GB09_fl, mod_time = 5)
 
 # Join chromatograms
 joined <-  join_chromatograms(MTBLS08, MTBLS09)
-reference <- reference_chrom(joined)
+reference <- reference_chrom(joined, stat = "mean")
 plot(reference, main = "Reference chromaogram")
 }

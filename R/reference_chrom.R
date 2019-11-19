@@ -5,7 +5,7 @@ setGeneric(name = "base_reference",
 
 setMethod(f = "base_reference",
           signature = "joined_chrom",
-          definition = function(joined_list, stat){
+          definition = function(joined_list, stat =  "mean"){
             # Unfold chrom
             chroms <- joined_list@chromatograms
             unfolded <- sapply(chroms,
@@ -22,14 +22,14 @@ setMethod(f = "base_reference",
           } )
 
 setGeneric(name = "method_reference",
-           def = function(chroms){
+           def = function(chroms, stat){
              standardGeneric("method_reference")
            })
 
 setMethod(f = "method_reference",
           signature = "joined_chrom",
-          definition = function(chroms){
-            census_chrom <- base_reference(chroms)
+          definition = function(chroms, stat = "mean"){
+            census_chrom <- base_reference(chroms, stat)
             ref_chrom <- new("preproc_GCxGC")
             ref_chrom@chromatogram <- census_chrom
             ref_chrom@time <- chroms@time
@@ -68,10 +68,10 @@ setMethod(f = "method_reference",
 #' 
 #' # Join chromatograms
 #' joined <-  join_chromatograms(MTBLS08, MTBLS09)
-#' reference <- reference_chrom(joined)
+#' reference <- reference_chrom(joined, stat = "mean")
 #' plot(reference, main = "Reference chromaogram")
 
 reference_chrom <- function(chromatograms, stat = "mean") {
-  ref_crom <- method_reference(chromatograms)
+  ref_crom <- method_reference(chromatograms, stat = stat)
   ref_crom
 }

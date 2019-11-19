@@ -18,7 +18,12 @@ setMethod(f = "base_MPCA",
             raw_signal <-  t(raw_signal)
             col_0var <- apply(raw_signal, 2, var) != 0
             col_removed <- which(!col_0var)
-            raw_signal <- raw_signal[, -col_removed]
+            if (length(col_removed) != 0){
+              raw_signal <- raw_signal[, -col_removed]
+              warning(paste0(length(col_removed), "variables with 0 variance were
+                             removed"))
+            }
+            
             if ( sum( is.na(col_0var) ) ){
               warning("NAs wer found and replaced with 0")
               raw_signal[is.na(raw_signal)] <- 0
@@ -99,7 +104,7 @@ setMethod(f = "method_MPCA",
 #' 
 #' @references 
 #'     \insertAllCited{}
-m_prcomp <- function(chrom, center = TRUE, scale = TRUE, npcs = 3, ...) {
+m_prcomp <- function(chrom, center = TRUE, scale = FALSE, npcs = 3, ...) {
   multiway_pca <- method_MPCA(chrom = chrom, center = center,
                               scale = scale, npcs = npcs, ...)
   return(multiway_pca)

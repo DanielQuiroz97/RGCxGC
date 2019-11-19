@@ -28,7 +28,7 @@ setGeneric(name = "import_mixOmics",
 #' @param mod_time modulation time of the second dimension
 #' @param time_range an atomic vector of lenght two with the time range
 #'   of chromatographic run.
-#' @param sampling_rate the sampling rate of the equipment
+#' @param sampling_rt the sampling rate of the equipment
 #' @importFrom mixOmics tune.splsda splsda
 #' @importFrom caret nearZeroVar
 #' @exportMethod import_mixOmics
@@ -98,7 +98,7 @@ setMethod(f = "import_mixOmics", signature = "GCxGC",
               
             } else{
               raw_loadings <- as.data.frame(model$loadings$X)
-              len_1d <- floor(sam_rate * mod_time)
+              len_1d <- floor(sampling_rt * mod_time)
               len_2d <- floor(ncol(raw_loadings) / len_1d)
               loadings_2d <- lapply(raw_loadings,
                                     FUN = function(lds, n_row, n_col){

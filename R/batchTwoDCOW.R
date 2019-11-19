@@ -60,7 +60,7 @@ setMethod(f = "method_batch_2DCOW",
 #' This is an adaptation of two-dimesional COW alignment, firstle implemented
 #' in MATLAB. This function takes a set of samples chromatogram to be aligned 
 #' against to the reference. The argument [segment] will be used 
-#' to split the whole chromatogram in \emp{n} and \emp{m} parts in the first
+#' to split the whole chromatogram in \emph{n} and \emph{m} parts in the first
 #' and the second dimension, respectively. The [max_warp] argument provides
 #' the maximum tolerace of the signal transformation for the first and the
 #' second dimension, respectively.

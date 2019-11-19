@@ -1,14 +1,16 @@
+#' @export
+#' @docType methods
+#' @rdname set_metadata-methods
 setGeneric(name = "set_metadata",
            def = function(Object, metadata)
              standardGeneric("set_metadata"))
 
-#' Set the metadata for a joined_chrom
-#' 
-#' `set_metadata` fill metadata slot of a joined chrom object.
-#' 
+#' @title  Set the metadata for a joined_chrom
+#' @rdname set_metadata-methods
+#' @description `set_metadata` fill metadata slot of a joined chrom object.
+#' @aliases set_metadata,GCxGC-method
 #' @param Object a joined_chrom object
 #' @param metadata a data.frame containing the metadata. It must have a column
-#' @export
 #' @examples 
 #' 
 #' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")

@@ -344,8 +344,7 @@ data(MTBLS579)
 [link](https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda).
 
 ```{r MPCA}
-exp_MPCA <- m_prcomp(MTBLS579)
-print(exp_MPCA)
+exp_MPCA <- m_prcomp(MTBLS579, center = T, scale = F)
 ```
 
 

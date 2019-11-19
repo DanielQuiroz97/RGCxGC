@@ -4,7 +4,7 @@
 \alias{m_prcomp}
 \title{Multiway Principal Component Analysis}
 \usage{
-m_prcomp(chrom, center = TRUE, scale = TRUE, npcs = 3, ...)
+m_prcomp(chrom, center = TRUE, scale = FALSE, npcs = 3, ...)
 }
 \arguments{
 \item{chrom}{Multiple chromatograms readed or batch aligned}
