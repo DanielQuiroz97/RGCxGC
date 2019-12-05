@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_chrom.R
 \name{read_chrom}
 \alias{read_chrom}
-\title{Read bidimensional total ion current chromatogram.}
+\title{Read two-dimensional chromatogram}
 \usage{
 read_chrom(name, mod_time, sam_rate, per_eval = 0.1, x_cut = NULL,
   y_cut = NULL, verbose = TRUE)
@@ -14,10 +14,10 @@ read_chrom(name, mod_time, sam_rate, per_eval = 0.1, x_cut = NULL,
 
 \item{sam_rate}{a integer, the sampling rate of the equipment.
 If sam_rate is missing, the sampling rate is calculated by the dividing 1 by
-the diference of two adjacent scan time.}
+the difference of two adjacent scan time.}
 
 \item{per_eval}{a double between 0 and 1, with the percentage of the run time
-recrods to be evaluated if the sampling rate is homogeneous.}
+records to be evaluated if the sampling rate is homogeneous.}
 
 \item{x_cut}{a vector with two elements representing the retention time range
 to be mantained in the first dimension.}
@@ -30,7 +30,7 @@ printted in the console.}
 }
 \description{
 `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
-time and the bidimensional chromatogram.
+time, the chromatographic time range and the bidimensional chromatogram.
 }
 \details{
 This function reads the NetCDF file and retrieves values in the

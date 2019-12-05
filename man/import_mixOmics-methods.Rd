@@ -27,7 +27,8 @@ of chromatographic run.}
 }
 \description{
 `import_mixOmics` transform a mixOmics discriminant analysis
-  lodings/eigenvectors into a two-dimensional loading matrix
+  eigenvalues/eigenvectors into a familiar structure to be handled in the
+  RGCxGC package.
 }
 \details{
 This function takes a model built through

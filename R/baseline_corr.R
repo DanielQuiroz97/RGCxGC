@@ -22,17 +22,18 @@ setMethod(f = "method_baselineCorr",
             Object@chromatogram <- base_baselineCorr(Object, ...)
             return(Object)
           })
-#' @title  Bidimensional baseline correction
+#' @title  Two-dimensional baseline correction
 #' 
 #' @description  `baseline_corr` provides a two-dimensional baseline correction
-#' using asymetric least squares.
+#' using asymetric least squares algorithm.
 #' 
 #' @details This function takes a raw two-dimensional chromatogram and performs
 #'  the baseline correction  with the implemented function in
 #'  \code{\link[ptw]{baseline.corr}}  \insertCite{Eilers2004}{RGCxGC}.
 #' 
 #' @param chromatogram a \emph{raw_GCxGC} object.
-#' @param ... other parameters passed to asyms function in pwt package.
+#' @param ... other parameters passed to asy\code{\link[ptw]{baseline.corr}}
+#'  function in pwt package.
 #'  
 #' @importFrom ptw baseline.corr
 #' @importFrom methods new

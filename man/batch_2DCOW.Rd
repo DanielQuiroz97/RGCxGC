@@ -8,15 +8,16 @@ batch_2DCOW(reference, sample_chroms, segments, max_warp, add_ref = F)
 }
 \arguments{
 \item{reference}{a GCxGC chromatogram wich will be taken as the reference 
-chromatogram}
+chromatogram.}
 
 \item{sample_chroms}{a named list with the sample chromatograms which will
-be aligned against to the reference chromatogram}
+be aligned against to the reference chromatogram.}
 
-\item{segments}{a two integer vector with number of segments
+\item{segments}{a two integer vector with the number of segments
 which the first and second dimension will be divided, respectively.}
 
-\item{max_warp}{a two intger vector with the maximum warping parameter.}
+\item{max_warp}{a two intger vector with the maximum warping parameter for
+the first and second dimension}
 
 \item{add_ref}{a logical indicating if the reference chromatogram will
 be joined together with the sample chromatograms. By the fault add_ref = F.
@@ -24,7 +25,8 @@ If add_ref is set T, the provide reference chromatogram will be included as
 another sample chromatogram in the downstream analysis.}
 }
 \description{
-`batch_2DCOW` returns the aligned chromatogram in a named list slot.
+`batch_2DCOW` perform two-dicmensional correlation optimized warping
+alignment in batch.
 }
 \details{
 The first argument is the reference chromatogram which other chromatograms
@@ -34,12 +36,12 @@ chromatogram. By default, the ference chromatogram will be not included in
 the subsequent analysis, such as MPCA. If you would like to add the reference
 chromatogram, then add_ref = T.
 
-This is an adaptation of two-dimesional COW alignment, firstle implemented
+This is an adaptation of two-dimesional COW alignment, firstly implemented
 in MATLAB. This function takes a set of samples chromatogram to be aligned 
 against to the reference. The argument [segment] will be used 
 to split the whole chromatogram in \emph{n} and \emph{m} parts in the first
 and the second dimension, respectively. The [max_warp] argument provides
-the maximum tolerace of the signal transformation for the first and the
+the maximum tolerance of the signal transformation for the first and the
 second dimension, respectively.
 }
 \examples{

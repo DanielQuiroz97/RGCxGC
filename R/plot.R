@@ -15,14 +15,15 @@ setGeneric(name = "plot",
 #'  mentioned in \insertCite{Reichenbach2004;textual}{RGCxGC}, interpolation
 #'  is usedto display non-native GCxGC data.
 #' 
-#' @param Object a GCxGC chromatogram, it could be a raw, or preprocessed
+#' @param Object a GCxGC chromatogram, it can be a raw, or preprocessed
 #'   chromatogram.
 #' @param type a character indicating the type of chromatogram representation.
 #'  By default, type = "f" for \code{\link[graphics]{filled.contour}} function,
 #'  if type = "c" only contours or isolines will be displayed by using the
 #'   \code{\link[graphics]{contour}} function.
 #' @param ... Other parameters passed to \code{\link[graphics]{filled.contour}}
-#'  function.
+#'  or \code{\link[graphics]{filled.contour}} function, it depends on the value
+#'  of the \emph{type} argument.
 #' @importFrom colorRamps matlab.like2
 #' @importFrom graphics axis filled.contour contour
 #' @exportMethod plot

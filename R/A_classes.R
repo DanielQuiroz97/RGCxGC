@@ -1,18 +1,16 @@
 ####  Parent class GCxGG ####
 #' Class GCxGC
 #' 
-#' Class \emph{GCxGC} defines the superclass of bidimensional comprehensive
+#' Class \emph{GCxGC} defines the superclass of two-dimensional comprehensive
 #' gas chromatography 
 #' 
-#' The validity function evaluates if the provied file can be readed as a 
+#' The validity function evaluates if the provided file can be readed as a 
 #' NetCDF file. The validation function employs the function 
 #' \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
 #' NetCDF class.
 #'
-#' @slot name the name of a NetCDF file to which the data will be retrieved.
+#' @slot name the name of a NetCDF file to where the data will be retrieved.
 #' @slot mod_time a integer with the modulation time for the second dimension.
-#'   Note the integer should be provide with an \emph{L} at the end of 
-#'   the number.
 #' @exportClass GCxGC
 #' @importFrom RNetCDF open.nc
 setClass(Class = "GCxGC", 
@@ -93,9 +91,9 @@ setClass("batch_2DCOW", slots = c(Batch_2DCOW = "list"),
 #' multiway principal compoment analysis or unfolding them.
 #'  
 #' @slot chromatograms a named list with all chromatograms.
-#' @slot time the time range of chromatographic run
+#' @slot time the time range of the chromatographic run
 #' @slot groups a data.frame containing the experiment metadata with
-#'  a column named as \emph{Names}
+#'  a column named as \emph{Names}.
 #' @slot mod_time modulation time of the second dimension
 #' @exportClass joined_chrom
 setClass("joined_chrom", slots = c(chromatograms = "list",
@@ -124,8 +122,7 @@ setClass("projected", slots = c(loadings = "list", time = "vector",
 
 
 #' Subclass MPCA
-#' Class \emph{MPCA} defines the class of Multiway Principal Component
-#' Analysis
+#' \emph{MPCA} subclass for Multiway Principal Component Analysis object
 #' @slot scores A matrix with the eigenvalues of projected chromatograms
 #'  into principal components space.
 setClass("MPCA", slots = c(scores = "matrix", summary = "list",

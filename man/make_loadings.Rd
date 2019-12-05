@@ -7,16 +7,16 @@
 make_loadings(floadings, time, mod_time, acq_rate)
 }
 \arguments{
-\item{floadings}{a numeric matrix with loadings as variables (columns) and
-eigenvalues as observations (rows).}
+\item{floadings}{a numeric matrix with foreign loadings. With variables in
+columns and eigenvalues as rows.}
 
 \item{time}{a vector of length two with the time range of the
 chromatographic run}
 
 \item{mod_time}{the modulation time}
 
-\item{acq_rate}{the acquisition rate of the mass analyzer. If it is not
-known at the moment, it is printed when read_chrom function is performed}
+\item{acq_rate}{the acquisition rate of the mass analyzer. 
+The acquisition rate  is printed when read_chrom function is performed}
 }
 \description{
 `make_loading` method takes the loading matrix obtained

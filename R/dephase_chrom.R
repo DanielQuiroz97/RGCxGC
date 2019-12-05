@@ -14,11 +14,11 @@ setGeneric(name = "dephase_chrom",
 #'  of the second dimension. The dephasing procedure is performing by splitting
 #'  the chromagram with the relative value provided.
 #'  
-#'  @param Object a GCxGC class object
-#'  @param rel_dephase a numeric value from 0 to 100 with the relative dephasing
+#' @param Object a GCxGC class object
+#' @param rel_dephase a numeric value from 0 to 100 with the relative dephasing
 #'    position.
-#'  @export
-#'  @examples 
+#' @export
+#' @examples 
 #'  
 #'  GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #'  GB08 <- read_chrom(GB08_fl, 5L)

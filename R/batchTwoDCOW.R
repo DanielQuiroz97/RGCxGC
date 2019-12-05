@@ -48,7 +48,8 @@ setMethod(f = "method_batch_2DCOW",
 
 #' Two-dimensional COW in batch.
 #'
-#' `batch_2DCOW` returns the aligned chromatogram in a named list slot.
+#' `batch_2DCOW` perform two-dicmensional correlation optimized warping
+#' alignment in batch.
 #' 
 #' The first argument is the reference chromatogram which other chromatograms
 #' will aligned against. Then, a named list is needed for the sample_chroms
@@ -57,21 +58,22 @@ setMethod(f = "method_batch_2DCOW",
 #' the subsequent analysis, such as MPCA. If you would like to add the reference
 #' chromatogram, then add_ref = T.
 #' 
-#' This is an adaptation of two-dimesional COW alignment, firstle implemented
+#' This is an adaptation of two-dimesional COW alignment, firstly implemented
 #' in MATLAB. This function takes a set of samples chromatogram to be aligned 
 #' against to the reference. The argument [segment] will be used 
 #' to split the whole chromatogram in \emph{n} and \emph{m} parts in the first
 #' and the second dimension, respectively. The [max_warp] argument provides
-#' the maximum tolerace of the signal transformation for the first and the
+#' the maximum tolerance of the signal transformation for the first and the
 #' second dimension, respectively.
 #'
 #' @param reference a GCxGC chromatogram wich will be taken as the reference 
-#'   chromatogram
+#'   chromatogram.
 #' @param sample_chroms a named list with the sample chromatograms which will
-#'  be aligned against to the reference chromatogram
-#' @param segments a two integer vector with number of segments
+#'  be aligned against to the reference chromatogram.
+#' @param segments a two integer vector with the number of segments
 #'  which the first and second dimension will be divided, respectively.
-#' @param max_warp a two intger vector with the maximum warping parameter.
+#' @param max_warp a two intger vector with the maximum warping parameter for
+#'  the first and second dimension
 #' @param add_ref a logical indicating if the reference chromatogram will
 #'  be joined together with the sample chromatograms. By the fault add_ref = F.
 #'  If add_ref is set T, the provide reference chromatogram will be included as

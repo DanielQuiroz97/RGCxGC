@@ -10,7 +10,7 @@ reference_chrom(chromatograms, stat = "mean")
 \item{chromatograms}{a joined_chrom object.}
 
 \item{stat}{a character with the name of the mathematical function that
-pixels will be subjected. By default, (stat = "mean") the new reference
+pixels will be subjected to. By default, (stat = "mean") the new reference
 chromatogram will be the mean of the provided chromatograms.}
 }
 \description{
@@ -19,7 +19,7 @@ of multiple chromatograms.
 }
 \details{
 The aim of this function is to create a consensus chromatogram to be used
-as a reference one in the peak alignment process. In other words, multiple
+as a reference in the peak alignment process. In other words, multiple
 chromatograms will be subjected to a mathematical function, such as minn, max,
 or mean in order to create a representative chromatogram.
 Then, the new chromatogram will be used as a template and the other

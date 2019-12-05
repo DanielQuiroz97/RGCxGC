@@ -19,10 +19,6 @@ which the first and second dimension will be divided, respectively.}
 \item{max_warp}{A two integer vector with the maximum warping parameter.}
 }
 \description{
-`twod_cow` returns the two-dimensional correlation optimised warping aligmened
- sample chromatogram versus a reference chromatogram.
-}
-\details{
 This is an adaptation of two-dimesional COW aligment, first implementated 
 in MATLAB \insertCite{Tomasi2004}{RGCxGC}. 
 This functions takes a sample chromatogram to be aligned 

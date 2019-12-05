@@ -11,7 +11,7 @@ plot(Object, type = "f", ...)
 \S4method{plot}{GCxGC}(Object, type = "f", ...)
 }
 \arguments{
-\item{Object}{a GCxGC chromatogram, it could be a raw, or preprocessed
+\item{Object}{a GCxGC chromatogram, it can be a raw, or preprocessed
 chromatogram.}
 
 \item{type}{a character indicating the type of chromatogram representation.
@@ -20,7 +20,8 @@ if type = "c" only contours or isolines will be displayed by using the
  \code{\link[graphics]{contour}} function.}
 
 \item{...}{Other parameters passed to \code{\link[graphics]{filled.contour}}
-function.}
+or \code{\link[graphics]{filled.contour}} function, it depends on the value
+of the \emph{type} argument.}
 }
 \description{
 `plot` plot the two-dimensional chromatogram as a contour plot.

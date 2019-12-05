@@ -2,18 +2,19 @@
 % Please edit documentation in R/baseline_corr.R
 \name{baseline_corr}
 \alias{baseline_corr}
-\title{Bidimensional baseline correction}
+\title{Two-dimensional baseline correction}
 \usage{
 baseline_corr(chromatogram, ...)
 }
 \arguments{
 \item{chromatogram}{a \emph{raw_GCxGC} object.}
 
-\item{...}{other parameters passed to asyms function in pwt package.}
+\item{...}{other parameters passed to asy\code{\link[ptw]{baseline.corr}}
+function in pwt package.}
 }
 \description{
 `baseline_corr` provides a two-dimensional baseline correction
-using asymetric least squares.
+using asymetric least squares algorithm.
 }
 \details{
 This function takes a raw two-dimensional chromatogram and performs

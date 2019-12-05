@@ -11,6 +11,7 @@ setGeneric(name = "set_metadata",
 #' @aliases set_metadata,GCxGC-method
 #' @param Object a joined_chrom object
 #' @param metadata a data.frame containing the metadata. It must have a column
+#'  named as \emph{Names} to merge with the chromatograms.
 #' @examples 
 #' 
 #' GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")

@@ -7,7 +7,7 @@ setGeneric(name = "plot_loading",
              standardGeneric("plot_loading")
            }
 )
-#' @title  Plot two-dimensional loadings
+#' @title  Plot two-dimensional MPCA loadings
 #' @rdname plot_loading-methods
 #' @aliases plot_loading,MPCA-method
 #' @description `plot_loading` plot the loadings of the a MPCA object.

@@ -28,13 +28,13 @@ setMethod(f = "base_makelds",
 #'  Where \emph{m} is the eigenvalues and \emph{n}
 #'  is the number of loadings which the model returns.
 #'  
-#' @param floadings a numeric matrix with loadings as variables (columns) and
-#'  eigenvalues as observations (rows).
+#' @param floadings a numeric matrix with foreign loadings. With variables in
+#'  columns and eigenvalues as rows.
 #' @param time a vector of length two with the time range of the
 #'  chromatographic run
 #' @param mod_time the modulation time
-#' @param acq_rate the acquisition rate of the mass analyzer. If it is not
-#'  known at the moment, it is printed when read_chrom function is performed
+#' @param acq_rate the acquisition rate of the mass analyzer. 
+#'  The acquisition rate  is printed when read_chrom function is performed
 #' @export
 
 

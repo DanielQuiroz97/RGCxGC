@@ -5,7 +5,7 @@
 \alias{plot_loading}
 \alias{plot_loading,projected-method}
 \alias{plot_loading,MPCA-method}
-\title{Plot two-dimensional loadings}
+\title{Plot two-dimensional MPCA loadings}
 \usage{
 plot_loading(Object, type = "n", pc = 1, thresh, ...)
 

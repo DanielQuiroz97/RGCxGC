@@ -11,7 +11,8 @@ setGeneric(name = "import_mixOmics",
 #' @rdname import_mixOmics-methods
 #' @aliases import_mixOmics,PLSDA-method
 #' @description `import_mixOmics` transform a mixOmics discriminant analysis
-#'   lodings/eigenvectors into a two-dimensional loading matrix
+#'   eigenvalues/eigenvectors into a familiar structure to be handled in the
+#'   RGCxGC package.
 #' @details This function takes a model built through
 #'   \code{\link[mixOmics]{plsda}} and \code{\link[mixOmics]{splsda}}, then,
 #'   access to loading values and transform each dimension loading into

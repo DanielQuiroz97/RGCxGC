@@ -103,10 +103,10 @@ setMethod(f = "Mread_GCxGC",
             return(Object)
           }
 )
-#' Read bidimensional total ion current chromatogram.
+#' Read two-dimensional chromatogram
 #' 
 #' `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
-#' time and the bidimensional chromatogram.
+#' time, the chromatographic time range and the bidimensional chromatogram.
 #' 
 #' This function reads the NetCDF file and retrieves values in the
 #' \emph{total_intensity} variable. Then, with the provided sampling rate and
@@ -118,9 +118,9 @@ setMethod(f = "Mread_GCxGC",
 #' @param mod_time a integer, the modulation time of the chromatographic run.
 #' @param sam_rate a integer, the sampling rate of the equipment.
 #'  If sam_rate is missing, the sampling rate is calculated by the dividing 1 by
-#'  the diference of two adjacent scan time.
+#'  the difference of two adjacent scan time.
 #' @param per_eval a double between 0 and 1, with the percentage of the run time
-#'  recrods to be evaluated if the sampling rate is homogeneous.
+#'  records to be evaluated if the sampling rate is homogeneous.
 #' @param x_cut a vector with two elements representing the retention time range
 #'  to be mantained in the first dimension.
 #' @param y_cut a vector with two elements representing the retention time range

@@ -16,8 +16,8 @@ get_metadata(chroms)
 \code{\link{joined_chrom}} function.}
 }
 \description{
-`get_metadata`retrieves the metadata contained in a joined_chrom
- object.
+`get_metadata` retrieves the metadata contained in a
+joined_chrom object.
 }
 \details{
 This function acceses to the \emph{groups} slot created by the

@@ -181,9 +181,6 @@ setMethod(f = "method_TwoDCOW", signature = c("raw_GCxGC"),
           })
 #' Two-dimensional correlation optimized warping alignment
 #'
-#' `twod_cow` returns the two-dimensional correlation optimised warping aligmened
-#'  sample chromatogram versus a reference chromatogram.
-#'
 #' This is an adaptation of two-dimesional COW aligment, first implementated 
 #' in MATLAB \insertCite{Tomasi2004}{RGCxGC}. 
 #' This functions takes a sample chromatogram to be aligned 

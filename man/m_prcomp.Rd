@@ -4,13 +4,13 @@
 \alias{m_prcomp}
 \title{Multiway Principal Component Analysis}
 \usage{
-m_prcomp(chrom, center = TRUE, scale = FALSE, npcs = 3, ...)
+m_prcomp(chrom, center = FALSE, scale = FALSE, npcs = 3, ...)
 }
 \arguments{
 \item{chrom}{Multiple chromatograms readed or batch aligned}
 
 \item{center}{A logical value indicating whether the variables should be
-shifted to be zero centered. TRUE is set by default.}
+shifted to be zero centered. FALSE is set by default.}
 
 \item{scale}{a logical value indicating whether the variables should
 be scaled to have unit variance before the analysis takes place. The
@@ -19,7 +19,8 @@ default is FALSE.}
 \item{npcs}{an integer indicating how many principals components are
 desired to mantain. The default is 3 principal components.}
 
-\item{...}{Other argments passed to prcomp function.}
+\item{...}{Other argments passed to \code{\link[stats]{prcomp}}
+function.}
 }
 \value{
 MPCA returns a list whit class "MPCA" containing the summary of the

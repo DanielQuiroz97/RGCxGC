@@ -14,7 +14,8 @@ set_metadata(Object, metadata)
 \arguments{
 \item{Object}{a joined_chrom object}
 
-\item{metadata}{a data.frame containing the metadata. It must have a column}
+\item{metadata}{a data.frame containing the metadata. It must have a column
+named as \emph{Names} to merge with the chromatograms.}
 }
 \description{
 `set_metadata` fill metadata slot of a joined chrom object.
