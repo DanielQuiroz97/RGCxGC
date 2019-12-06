@@ -341,7 +341,7 @@ data(MTBLS579)
 
 **Note**: If you would like to work with the whole chromatograms, dowload the
 *MTBLS.rda* file from this
-[link](https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda).
+[link](https://github.com/DanielQuiroz97/MTBLS579).
 
 ```{r MPCA}
 exp_MPCA <- m_prcomp(MTBLS579, center = T, scale = F)

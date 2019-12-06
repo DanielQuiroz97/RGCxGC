@@ -14,7 +14,7 @@
 #' Due to the large size of chromatograms, these data is a subset of the whole
 #' chromatograms from 7 min to 18 min of chromatografic run. If you would
 #' like to acces the whole formated chromatograms, please go to 
-#' \url{https://github.com/DanielQuiroz97/MTBLS579/raw/master/MTBLS579.rda}.
+#' \url{https://github.com/DanielQuiroz97/MTBLS579}.
 #' 
 #' The original study was developed by
 #'  \insertCite{Nasstrom2018;textual}{RGCxGC}.

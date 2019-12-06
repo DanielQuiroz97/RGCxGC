@@ -13,7 +13,7 @@ get_metadata(chroms)
 }
 \arguments{
 \item{chroms}{a joined_chrom object created by
-\code{\link{joined_chrom}} function.}
+joined_chrom function.}
 }
 \description{
 `get_metadata` retrieves the metadata contained in a
@@ -21,7 +21,7 @@ joined_chrom object.
 }
 \details{
 This function acceses to the \emph{groups} slot created by the
- \code{\link[RGCxGC]{joined_chrom}} function. The \emph{Names} are the names of the
+ joined_chrom function. The \emph{Names} are the names of the
  chromatograms.
 }
 \examples{

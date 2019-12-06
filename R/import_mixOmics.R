@@ -28,10 +28,9 @@ setGeneric(name = "import_mixOmics",
 #'   by mixOmics package.
 #' @param mod_time modulation time of the second dimension
 #' @param time_range an atomic vector of lenght two with the time range
-#'   of chromatographic run.
-#' @param sampling_rt the sampling rate of the equipment
-#' @importFrom mixOmics tune.splsda splsda
-#' @importFrom caret nearZeroVar
+#'   of chromatographic  run.
+#' @param sampling_rt the sampling rate of the equipment.
+#' @importFrom mixOmics splsda tune.splsda
 #' @exportMethod import_mixOmics
 #' @examples 
 #' \donttest{

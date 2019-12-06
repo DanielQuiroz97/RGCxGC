@@ -2,7 +2,7 @@ Package: RGCxGC
 Type: Package
 Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
 Version: 1.1.0
-Date: 2019-01-09
+Date: 2019-12-05
 Authors@R: c(
     person(given = "Cristian",
            family = "Quiroz-Moreno",
@@ -34,21 +34,24 @@ URL: https://github.com/DanielQuiroz97/RGCxGC
 BugReports: https://github.com/DanielQuiroz97/RGCxGC/issues
 Imports: colorRamps (>= 2.3),
      Rdpack (>= 0.7),
-     prettydoc (>= 0.3)
-RdMacros: Rdpack
-Depends:
-     R (>= 3.5.0),
+     prettydoc (>= 0.3),
      stats,
      methods,
      graphics,
+     mixOmics
+RdMacros: Rdpack
+biocViews:
+Depends:
+     R (>= 3.5.0),
      RNetCDF (>= 1.9-1),
-     ptw (>= 1.9-13),
-     caret (>= 6.0-84),
-     mixOmics (>= 6.8.4)
+     ptw (>= 1.9-13)
 LazyData: true
 RoxygenNote: 6.1.1
 Encoding: UTF-8
-Suggests: 
+Suggests:
     knitr,
-    rmarkdown
+    rmarkdown,
+     lattice (>= 0.20),
+     caret,
+     MASS
 VignetteBuilder: knitr

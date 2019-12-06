@@ -19,7 +19,7 @@ setGeneric(name = "dephase_chrom",
 #'    position.
 #' @export
 #' @examples 
-#'  
+#'  library(colorRamps)
 #'  GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #'  GB08 <- read_chrom(GB08_fl, 5L)
 #'  plot(GB08, nlevels = 150, color.palette = matlab.like,

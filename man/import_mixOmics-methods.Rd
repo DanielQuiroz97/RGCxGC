@@ -21,9 +21,9 @@ by mixOmics package.}
 \item{mod_time}{modulation time of the second dimension}
 
 \item{time_range}{an atomic vector of lenght two with the time range
-of chromatographic run.}
+of chromatographic  run.}
 
-\item{sampling_rt}{the sampling rate of the equipment}
+\item{sampling_rt}{the sampling rate of the equipment.}
 }
 \description{
 `import_mixOmics` transform a mixOmics discriminant analysis
