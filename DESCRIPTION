@@ -37,21 +37,21 @@ Imports: colorRamps (>= 2.3),
      prettydoc (>= 0.3),
      stats,
      methods,
-     graphics,
-     mixOmics
+     graphics
 RdMacros: Rdpack
 biocViews:
 Depends:
      R (>= 3.5.0),
      RNetCDF (>= 1.9-1),
-     ptw (>= 1.9-13)
+     ptw (>= 1.9-13),
+     mixOmics
 LazyData: true
 RoxygenNote: 6.1.1
 Encoding: UTF-8
 Suggests:
     knitr,
     rmarkdown,
-     lattice (>= 0.20),
-     caret,
-     MASS
+    lattice (>= 0.20),
+    MASS,
+    caret
 VignetteBuilder: knitr
