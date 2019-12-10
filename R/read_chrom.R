@@ -22,6 +22,7 @@ setMethod(f = "base_GCxGC",
             
             tic <- RNetCDF::var.get.nc(raw_1d_chrom,
                                        "total_intensity")
+            close.nc(raw_1d_chrom)
             if (missing(sam_rate)){
               sam_rate <- var.get.nc(raw_1d_chrom,
                                      "scan_acquisition_time")[1:2]
