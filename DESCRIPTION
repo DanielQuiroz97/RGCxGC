@@ -4,20 +4,12 @@ Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatograp
 Version: 1.1.0
 Date: 2019-12-05
 Authors@R: c(
-    person(given = "Cristian",
-           family = "Quiroz-Moreno",
-           email = "cristianquirozd1997@gmail.com",
-           role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-9069-9147")),
-    person(given = "Guilherme",
-           family = "L. Alexandrino",
-           email = "alexandrinogl@gmail.com",
-           role = "aut",
-           comment = c(ORCID = "0000-0002-2007-378X")),
-    person(given = "Noroska",
-           family = "G.S. Mogollón",
-           email = "gaby867@gmail.com",
-           role = "aut", comment = c(ORCID = "0000-0002-0756-6184")) )
+    person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
+           role = c("aut", "cre")),
+    person("Guilherme", "L. Alexandrino", email = "Alexandrinogl@gmail.com",
+           role = "aut"),
+    person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
+           role = "aut"))
 Author: Cristian Quiroz-Moreno [aut, cre],
     Guilherme L. Alexandrino [aut],
     Noroska G.S. Mogollón [aut]
