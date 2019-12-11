@@ -33,8 +33,7 @@ setMethod(f = "method_smooth",
           })
 #' @title  Two-dimensional smoothing
 #' 
-#' @description  `wsmooth` enables two-dimensional weighted whittaker
-#'   smoothing.
+#' @description  `wsmooth` weighted whittaker  smoothing.
 #' 
 #' @details This function takes a raw bidimensional chromatogram and performs
 #'  the weighted wittaker smoothing. It smooths the signal with linear or
