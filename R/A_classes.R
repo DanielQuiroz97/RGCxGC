@@ -18,7 +18,7 @@ setClass(Class = "GCxGC",
          validity =  function(object) {
            val_chrom <- RNetCDF::open.nc(object@name)
            if (inherits(val_chrom, "NetCDF")) {
-             close.nc(val_chrom)
+             #close.nc(val_chrom)
              return(T)
              }
            else paste(chrom_name, "is not a valid NetCDF file")
