@@ -30,7 +30,7 @@ printted in the console.}
 }
 \description{
 `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
-time, the chromatographic time range and the bidimensional chromatogram.
+time, the chromatographic time range and the two-dimensional chromatogram.
 }
 \details{
 This function reads the NetCDF file and retrieves values in the

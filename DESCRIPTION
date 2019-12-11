@@ -26,7 +26,6 @@ URL: https://github.com/DanielQuiroz97/RGCxGC
 BugReports: https://github.com/DanielQuiroz97/RGCxGC/issues
 Imports: colorRamps (>= 2.3),
      Rdpack (>= 0.7),
-     prettydoc (>= 0.3),
      stats,
      methods,
      graphics
@@ -45,5 +44,6 @@ Suggests:
     rmarkdown,
     lattice (>= 0.20),
     MASS,
-    caret
+    caret,
+    prettydoc (>= 0.3),
 VignetteBuilder: knitr

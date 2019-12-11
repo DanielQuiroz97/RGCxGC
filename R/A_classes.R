@@ -28,10 +28,10 @@ setClass(Class = "GCxGC",
 #' Subclass raw_GCxGC
 #' 
 #' Subclass \emph{raw_GCxGC} are contained in \emph{GCxGC} super class. It
-#' contains a dedicated slot to storage the folded bidimensional chromatogram.
+#' contains a dedicated slot to storage the folded two-dimensional chromatogram.
 #' 
 #' In the first creation of a \emph{raw_GCxGC} object, the slot for the
-#' chromatogram is not yet created. To read and fold the chromatogram 
+#' chromatogram is not created yet. To read and fold the chromatogram 
 #' use the \code{\link{read_chrom}}  function.
 #' 
 #' @slot chromatogram a numeric matrix.
@@ -50,8 +50,8 @@ setClass(Class = "raw_GCxGC", slots = c(chromatogram = "matrix",
 #' chromatogram.
 #' 
 #' After reading a two-dimensional chromatogram, you can perform serveral
-#' preprocessing technics such as smoothing or baseline correction. It will
-#' create an object of a preproc_GCxGC subclass.
+#' preprocessing techniques such as smoothing or baseline correction.
+#' This action will create an object of a preproc_GCxGC subclass.
 #' 
 #' @exportClass preproc_GCxGC
 setClass(Class = "preproc_GCxGC", contains = "raw_GCxGC")
@@ -111,7 +111,7 @@ setClass("joined_chrom", slots = c(chromatograms = "list",
 ####  Parent class for projection methods such as PCA and PLS-DA ####
 #' Class projected
 #' 
-#' Class \emph{projected} defines the superclass for projection methods,
+#' The \emph{projected} class defines the superclass for projection methods,
 #' specially for multiway principal component analysis and discriminant
 #' analysis based on partial least squares. The class represents the 
 #' convergence of in-package results (m_prcomp) and the foreing 
@@ -133,7 +133,7 @@ setClass("MPCA", slots = c(scores = "matrix", summary = "list",
 
 #' Subclass PLSDA
 #' 
-#' Class \emph{PLSDA} defines the class for foreign results of 
+#' Class \emph{PLSDA} defines the class to import foreign results of 
 #' partial least squares-discriminant analysis performed with
 #' mixOmics package.
 setClass("PLSDA", contains = "projected")

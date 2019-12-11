@@ -5,7 +5,7 @@
 \alias{projected-class}
 \title{Class projected}
 \description{
-Class \emph{projected} defines the superclass for projection methods,
+The \emph{projected} class defines the superclass for projection methods,
 specially for multiway principal component analysis and discriminant
 analysis based on partial least squares. The class represents the 
 convergence of in-package results (m_prcomp) and the foreing 

@@ -107,7 +107,7 @@ setMethod(f = "Mread_GCxGC",
 #' Read two-dimensional chromatogram
 #' 
 #' `read_GCxGC` returns a \emph{raw_GCxGC} with the sample name, the modulation
-#' time, the chromatographic time range and the bidimensional chromatogram.
+#' time, the chromatographic time range and the two-dimensional chromatogram.
 #' 
 #' This function reads the NetCDF file and retrieves values in the
 #' \emph{total_intensity} variable. Then, with the provided sampling rate and

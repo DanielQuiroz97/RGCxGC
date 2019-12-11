@@ -39,12 +39,12 @@ setMethod(f = "method_reference",
 
 #' Make reference chromatogram
 #' 
-#' `reference_chrom` makes a reference chromatogram by calculating the mean
+#' `reference_chrom` makes a reference chromatogram by calculating a statistic
 #' of multiple chromatograms.
 #' 
 #' The aim of this function is to create a consensus chromatogram to be used
 #' as a reference in the peak alignment process. In other words, multiple
-#' chromatograms will be subjected to a mathematical function, such as minn, max,
+#' chromatograms will be subjected to a mathematical function, such as min, max,
 #' or mean in order to create a representative chromatogram.
 #' Then, the new chromatogram will be used as a template and the other
 #' chromatograms will be aligned against it. This function overlap pixels with
@@ -54,7 +54,7 @@ setMethod(f = "method_reference",
 #' @param chromatograms a joined_chrom object.
 #' @param stat a character with the name of the mathematical function that
 #'  pixels will be subjected to. By default, (stat = "mean") the new reference
-#'  chromatogram will be the mean of the provided chromatograms.
+#'  chromatogram will be the result of the provided mathematical function.
 #' @export
 #' @examples 
 #' 

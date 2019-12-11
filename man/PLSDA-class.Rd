@@ -5,7 +5,7 @@
 \alias{PLSDA-class}
 \title{Subclass PLSDA}
 \description{
-Class \emph{PLSDA} defines the class for foreign results of 
+Class \emph{PLSDA} defines the class to import foreign results of 
 partial least squares-discriminant analysis performed with
 mixOmics package.
 }
