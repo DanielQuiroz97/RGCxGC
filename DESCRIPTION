@@ -16,7 +16,7 @@ Author: Cristian Quiroz-Moreno [aut, cre],
 Maintainer: Cristian Quiroz-Moreno <cristianquirozd1997@gmail.com>
 Description: Toolbox for chemometrics analysis of bidimensional gas 
     chromatography data. This package import data for common scientific data
-    format (netCDF) and fold it to 2D chromatogram. Then, it can perform
+    format (NetCDF) and fold it to 2D chromatogram. Then, it can perform
     preprocessing and multivariate analysis. In the preprocessing algorithms,
     baseline correction, smoothing, and peak alignment are available.
     While in multivariate analysis, multiway principal component analysis is
