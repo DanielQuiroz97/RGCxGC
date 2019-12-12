@@ -17,8 +17,7 @@ default, the smooth function is performed with first penalty order.}
 \item{lambda}{smoothing parameter: larger values lead to more smoothing.}
 }
 \description{
-`wsmooth` enables two-dimensional weighted whittaker
-  smoothing.
+`wsmooth` weighted whittaker  smoothing.
 }
 \details{
 This function takes a raw bidimensional chromatogram and performs

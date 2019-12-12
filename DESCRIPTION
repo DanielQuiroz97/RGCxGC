@@ -5,11 +5,11 @@ Version: 1.1.0
 Date: 2019-12-05
 Authors@R: c(
     person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
-           role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9069-9147")),
+           role = c("aut", "cre")),
     person("Guilherme", "L. Alexandrino", email = "Alexandrinogl@gmail.com",
-           role = "aut", comment = c(ORCID = "0000-0002-2007-378X")),
+           role = "aut"),
     person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
-           role = "aut", comment = c(ORCID = "0000-0002-0756-6184")))
+           role = "aut"))
 Maintainer: Cristian Quiroz-Moreno <cristianquirozd1997@gmail.com>
 Description: Toolbox for chemometrics analysis of bidimensional gas 
     chromatography data. This package import data for common scientific data
