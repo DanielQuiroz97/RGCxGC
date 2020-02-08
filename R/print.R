@@ -10,8 +10,9 @@ setGeneric(name = "print",
 #' @description `print` call the MPCA object to print the summary of this
 #'  analysis.
 #' 
-#' @details  This plot function employs the built-in print function and a
-#'  precomputed MPCA summary.
+#' @details  The plot function employs the built-in print function and a
+#'  precomputed MPCA summary to display the explained and cumulative variance
+#'  for each principal component.
 #' 
 #' @param Object a MPCA object
 #' @exportMethod print

@@ -21,7 +21,7 @@ setGeneric(name = "import_mixOmics",
 #'   requiered information will be retrieved from. On the other hand,
 #'   user can also provide all the needed information
 #'   (\emph{mod_time}, \emph{time_range}, \emph{sampling_rt})
-#'   to fold eigenvectors into a GCxGC chromatogram.
+#'   to fold eigenvectors into a typical GCxGC chromatogram.
 #'   
 #' @param chromatogram a typicial GCxGC imported or preprocessed chromatogram.
 #' @param model a partial least square discriminant analysis based model, built

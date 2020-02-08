@@ -2,14 +2,14 @@
 #' Class GCxGC
 #' 
 #' Class \emph{GCxGC} defines the superclass of two-dimensional comprehensive
-#' gas chromatography 
+#' gas chromatographic data.
 #' 
 #' The validity function evaluates if the provided file can be readed as a 
 #' NetCDF file. The validation function employs the function 
 #' \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
-#' NetCDF class.
+#' the NetCDF class.
 #'
-#' @slot name the name of a NetCDF file to where the data will be retrieved.
+#' @slot name the name of a NetCDF file where the data will be retrieved from.
 #' @slot mod_time a integer with the modulation time for the second dimension.
 #' @exportClass GCxGC
 #' @importFrom RNetCDF open.nc
@@ -61,8 +61,8 @@ setClass(Class = "preproc_GCxGC", contains = "raw_GCxGC")
 #' 
 #' Subclass \emph{aligned_GCxGC} are contained in \emph{raw_GCxGC} super class.
 #' It is not contained in the \emph{prepec_GCxGC} due to raw chromatograms can
-#' be aligned without a previous preproccesing technique Although it can
-#' improve the performance of the aligment, it is not mandatory.
+#' be aligned without a previous preproccesing technique. Although, it can
+#' improve the performance of the aligment, but it is not mandatory.
 #' 
 #' You can perform the aligment after some preprocessing technique as:
 #' baseline correction, or signal smoothing to imporve the performance of the
@@ -125,7 +125,7 @@ setClass("projected", slots = c(loadings = "list", time = "vector",
 
 
 #' Subclass MPCA
-#' \emph{MPCA} subclass for Multiway Principal Component Analysis object
+#' subclass for Multiway Principal Component Analysis object
 #' @slot scores A matrix with the eigenvalues of projected chromatograms
 #'  into principal components space.
 setClass("MPCA", slots = c(scores = "matrix", summary = "list",

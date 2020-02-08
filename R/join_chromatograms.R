@@ -83,7 +83,7 @@ setMethod(f = "method_joinChrom",
           })
 #' @title  Join multiple two-dimensional chromatograms into a single R object
 #' 
-#' @description `join_chromatograms` save the chromatograms in a
+#' @description `join_chromatograms` saves chromatograms in a
 #'  named list slot. Also, it saves information like metadata and 
 #'  retention times.
 #' 

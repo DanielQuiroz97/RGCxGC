@@ -13,7 +13,7 @@ setGeneric(name = "plot",
 #' 
 #' @details  This plot function employs the built-in countour function. As
 #'  mentioned in \insertCite{Reichenbach2004;textual}{RGCxGC}, interpolation
-#'  is usedto display non-native GCxGC data.
+#'  is used to display non-native GCxGC data.
 #' 
 #' @param Object a GCxGC chromatogram, it can be a raw, or preprocessed
 #'   chromatogram.
