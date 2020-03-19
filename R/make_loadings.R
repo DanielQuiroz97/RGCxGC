@@ -10,7 +10,7 @@ setMethod(f = "base_makelds",
             m_loadings <- lapply(data.frame(Object),
                                  function(x, D1_cols, D2_rows){
                                    m_lds <- matrix(x, nrow = D2_rows,
-                                                   ncol = D1_cols, byrow = T)
+                                                   ncol = D1_cols, byrow = TRUE)
                                    m_lds
                                  }, D1_cols = D1_cols, D2_rows = D2_rows)
             m_loadings

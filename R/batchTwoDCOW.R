@@ -99,13 +99,13 @@ setMethod(f = "method_batch_2DCOW",
 #' # Perform batch 2DCOW alignment
 #' # Add the reference chromatogram as another sample
 #' batch_alignment <- batch_2DCOW(MTBLS09, batch_samples,
-#'                                c(10, 40), c(1, 10), add_ref = T)
+#'                                c(10, 40), c(1, 10), add_ref = TRUE)
 #' # Exclude the reference chromatogram in the sample chromatogram set
 #' batch_alignment <- batch_2DCOW(MTBLS09, batch_samples, c(10, 40), c(1, 10))
 #' }
 #' 
 batch_2DCOW <- function(reference, sample_chroms, segments, max_warp,
-                        add_ref = F) {
+                        add_ref = FALSE) {
   if (length(sample_chroms) < 2)
     stop("At least two sample chromatograms are needed")
   if (length(names(sample_chroms)) != length(sample_chroms))

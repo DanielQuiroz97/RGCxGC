@@ -94,7 +94,7 @@ setMethod(f = "method_MPCA",
 #' data(MTBLS579)
 #' \donttest{
 #' # Perform multiway principal component analysis
-#' MTBLS579_mpca <- m_prcomp(MTBLS579)
+#' MTBLS579_mpca <- m_prcomp(MTBLS579, center = TRUE)
 #' # Print MPCA summary
 #' print(MTBLS579_mpca)
 #' # Retrieve MPCA scores

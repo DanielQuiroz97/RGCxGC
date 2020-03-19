@@ -17,7 +17,7 @@ setMethod(f = "base_reference",
             n_row <- nrow( chroms[[1]] )
             # Fold the census chromatogram
             census_chrom <- matrix(mean_chrom, ncol = n_col,
-                                   nrow = n_row, byrow = T)
+                                   nrow = n_row, byrow = TRUE)
             census_chrom
           } )
 

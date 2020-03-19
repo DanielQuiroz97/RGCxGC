@@ -19,7 +19,7 @@ setGeneric(name = "print",
 #' @examples 
 #' 
 #' data(MTBLS579)
-#' MTBLS_mpca <- m_prcomp(MTBLS579)
+#' MTBLS_mpca <- m_prcomp(MTBLS579, center = TRUE)
 #' print(MTBLS_mpca)
 setMethod(f = "print", signature = "MPCA",
           definition = function(Object){

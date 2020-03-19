@@ -60,7 +60,7 @@ setGeneric(name = "import_mixOmics",
 #' list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
 
 #'tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
-#'                           progressBar = T, dist = 'max.dist',
+#'                           progressBar = TRUE, dist = 'max.dist',
 #'                           cpus = 12, # Set cpus according with your pc
 #'                           test.keepX = list.keepX)
 #' # Plot error rates
@@ -93,7 +93,7 @@ setMethod(f = "import_mixOmics", signature = "GCxGC",
               n_col <- ncol(chrom)
               loadings_2d <- lapply(raw_loadings,
                                     FUN = function(lds, n_row, n_col){
-                matrix(lds, ncol = n_col, nrow = n_row, byrow = T)
+                matrix(lds, ncol = n_col, nrow = n_row, byrow = TRUE)
               }, n_row = n_row, n_col = n_col  )
               
             } else{
@@ -102,7 +102,7 @@ setMethod(f = "import_mixOmics", signature = "GCxGC",
               len_2d <- floor(ncol(raw_loadings) / len_1d)
               loadings_2d <- lapply(raw_loadings,
                                     FUN = function(lds, n_row, n_col){
-                matrix(lds,nrow = len_1d, ncol = len_2d, byrow = T)
+                matrix(lds,nrow = len_1d, ncol = len_2d, byrow = TRUE)
               }  )
             }
             mod_time <- chromatogram@mod_time
