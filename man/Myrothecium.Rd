@@ -5,13 +5,15 @@
 \alias{Myrothecium}
 \title{Microbial antagonism between \emph{Curvularia sp.} facultative
 pathogen and the \emph{Myrothecium sp.} antagonist.}
-\format{A joined_chrom object containing four slots:
+\format{
+A joined_chrom object containing four slots:
 \describe{
   \item{chromatograms}{A named list with the two-dimensional chromatograms}
   \item{groups}{The metadata containing two varaibles and six observations}
   \item{time}{The retantion time range of the chromatographic run}
   \item{mod_time}{The modulation time}
-}}
+}
+}
 \usage{
 data(Myrothecium)
 }

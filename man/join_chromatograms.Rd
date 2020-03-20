@@ -15,7 +15,7 @@ named as \emph{Names} to merge with the imported chromatograms.}
 \item{...}{other GCxGC objects to be merged}
 }
 \description{
-`join_chromatograms` save the chromatograms in a
+`join_chromatograms` saves chromatograms in a
  named list slot. Also, it saves information like metadata and 
  retention times.
 }

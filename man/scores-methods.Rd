@@ -25,7 +25,7 @@ This function takes the whole MPCA object and retrieves the score
 
 data(MTBLS579)
 # MPCA with mean-centered and scaled data
-MTBLS579_mpca <- m_prcomp(MTBLS579, center = TRUE, scale = TRUE)
+MTBLS579_mpca <- m_prcomp(MTBLS579, center = TRUE)
 # Export scores matrix
 scores(MTBLS579_mpca)
 }

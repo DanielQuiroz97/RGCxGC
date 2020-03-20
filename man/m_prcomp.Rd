@@ -42,7 +42,7 @@ This algorithm was first presented by \insertCite{Wold1987}{RGCxGC}.
 data(MTBLS579)
 \donttest{
 # Perform multiway principal component analysis
-MTBLS579_mpca <- m_prcomp(MTBLS579)
+MTBLS579_mpca <- m_prcomp(MTBLS579, center = TRUE)
 # Print MPCA summary
 print(MTBLS579_mpca)
 # Retrieve MPCA scores

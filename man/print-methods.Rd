@@ -18,12 +18,13 @@ print(Object)
  analysis.
 }
 \details{
-This plot function employs the built-in print function and a
- precomputed MPCA summary.
+The plot function employs the built-in print function and a
+ precomputed MPCA summary to display the explained and cumulative variance
+ for each principal component.
 }
 \examples{
 
 data(MTBLS579)
-MTBLS_mpca <- m_prcomp(MTBLS579)
+MTBLS_mpca <- m_prcomp(MTBLS579, center = TRUE)
 print(MTBLS_mpca)
 }

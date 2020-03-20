@@ -5,13 +5,15 @@
 \alias{MTBLS579}
 \title{Chromatograms from Dioagnostic Metabolite Biomarkers 
         of Chronic Typhoid Carraige study}
-\format{A joined_chrom object containing four slots:
+\format{
+A joined_chrom object containing four slots:
 \describe{
   \item{chromatograms}{A named list with the two-dimensional chromatograms}
   \item{groups}{The metadata containing two varaibles and six observations}
   \item{time}{The retantion time range of the chromatographic run}
   \item{mod_time}{The modulation time}
-}}
+}
+}
 \source{
 \url{https://www.ebi.ac.uk/metabolights/MTBLS579}
 }

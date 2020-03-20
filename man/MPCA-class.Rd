@@ -4,10 +4,10 @@
 \name{MPCA-class}
 \alias{MPCA-class}
 \title{Subclass MPCA
-\emph{MPCA} subclass for Multiway Principal Component Analysis object}
+subclass for Multiway Principal Component Analysis object}
 \description{
 Subclass MPCA
-\emph{MPCA} subclass for Multiway Principal Component Analysis object
+subclass for Multiway Principal Component Analysis object
 }
 \section{Slots}{
 

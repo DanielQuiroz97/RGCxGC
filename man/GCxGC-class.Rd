@@ -6,18 +6,18 @@
 \title{Class GCxGC}
 \description{
 Class \emph{GCxGC} defines the superclass of two-dimensional comprehensive
-gas chromatography
+gas chromatographic data.
 }
 \details{
 The validity function evaluates if the provided file can be readed as a 
 NetCDF file. The validation function employs the function 
 \code{\link[RNetCDF]{open.nc}} to check if the provided file inherits to
-NetCDF class.
+the NetCDF class.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{name}}{the name of a NetCDF file to where the data will be retrieved.}
+\item{\code{name}}{the name of a NetCDF file where the data will be retrieved from.}
 
 \item{\code{mod_time}}{a integer with the modulation time for the second dimension.}
 }}

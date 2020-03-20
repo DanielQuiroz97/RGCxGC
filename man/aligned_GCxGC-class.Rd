@@ -7,8 +7,8 @@
 \description{
 Subclass \emph{aligned_GCxGC} are contained in \emph{raw_GCxGC} super class.
 It is not contained in the \emph{prepec_GCxGC} due to raw chromatograms can
-be aligned without a previous preproccesing technique Although it can
-improve the performance of the aligment, it is not mandatory.
+be aligned without a previous preproccesing technique. Although, it can
+improve the performance of the aligment, but it is not mandatory.
 }
 \details{
 You can perform the aligment after some preprocessing technique as:

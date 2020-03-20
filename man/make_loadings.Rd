@@ -13,7 +13,7 @@ columns and eigenvalues as rows.}
 \item{time}{a vector of length two with the time range of the
 chromatographic run}
 
-\item{mod_time}{the modulation time}
+\item{mod_time}{the modulation time of the second dimension.}
 
 \item{acq_rate}{the acquisition rate of the mass analyzer. 
 The acquisition rate  is printed when read_chrom function is performed}

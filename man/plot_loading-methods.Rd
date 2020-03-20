@@ -9,8 +9,7 @@
 \usage{
 plot_loading(Object, type = "n", pc = 1, thresh, ...)
 
-\S4method{plot_loading}{projected}(Object, type = "b", pc = 1, thresh,
-  ...)
+\S4method{plot_loading}{projected}(Object, type = "b", pc = 1, thresh, ...)
 }
 \arguments{
 \item{Object}{a MPCA object}

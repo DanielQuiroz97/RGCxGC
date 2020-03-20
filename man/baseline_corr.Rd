@@ -10,11 +10,11 @@ baseline_corr(chromatogram, ...)
 \item{chromatogram}{a \emph{raw_GCxGC} object.}
 
 \item{...}{other parameters passed to asy\code{\link[ptw]{baseline.corr}}
-function in pwt package.}
+function in the pwt package.}
 }
 \description{
 `baseline_corr` provides a two-dimensional baseline correction
-using asymetric least squares algorithm.
+by using the asymetric least squares algorithm.
 }
 \details{
 This function takes a raw two-dimensional chromatogram and performs

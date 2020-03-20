@@ -4,8 +4,15 @@
 \alias{read_chrom}
 \title{Read two-dimensional chromatogram}
 \usage{
-read_chrom(name, mod_time, sam_rate, per_eval = 0.1, x_cut = NULL,
-  y_cut = NULL, verbose = TRUE)
+read_chrom(
+  name,
+  mod_time,
+  sam_rate,
+  per_eval = 0.1,
+  x_cut = NULL,
+  y_cut = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{name}{a name of the NetCDF file where the data is alocated.}
@@ -34,7 +41,7 @@ time, the chromatographic time range and the two-dimensional chromatogram.
 }
 \details{
 This function reads the NetCDF file and retrieves values in the
-\emph{total_intensity} variable. Then, with the provided sampling rate and
+\emph{total_intensity} array. Then, with the provided sampling rate and
 modulation time, the chromatogram is folded into a numerical matrix,
 representing the two-dimensional chromatogram. This function is an
 adaptation of the presented routine by \insertCite{Skov2008;textual}{RGCxGC}.

@@ -1,7 +1,7 @@
 Package: RGCxGC
 Type: Package
 Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
-Version: 1.1.0
+Version: 1.1.01
 Date: 2019-12-05
 Authors@R: c(
     person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
@@ -34,7 +34,7 @@ Depends:
      ptw (>= 1.9-13),
      mixOmics
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Encoding: UTF-8
 Suggests:
     knitr,
