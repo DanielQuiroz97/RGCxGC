@@ -1,0 +1,27 @@
+citHeader("To cite RGCxGC in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "RGCxGC toolbox: an R-package for data processing in comprehensive
+              two-dimensional gas chromatography-mass spectrometry",
+  author   = c(person("Cristian", "Quiroz-Moreno"),
+               person("Mayra Fontes", "Furlan"),
+               person("Joao Raul Belinato", "de Souza"),
+               person("Fabio", "Augusto"),
+               person("Guilherme L", "Alexandrino"),
+               person("Noroska GS", "Mogollon")),
+  journal  = "Microchemical Journal",
+  year     = "2020",
+  volume   = "156",
+  number   = "104830",
+  url      = "https://doi.org/10.1016/j.microc.2020.104830",
+  textVersion = paste("Quiroz-Moreno, C., Furlan, M. F., Belinato, J. R.,",
+                      "Augusto, F., Alexandrino, G. L., & Mogollón, N. G.",
+                      "(2020). RGCxGC toolbox: An R-package for data",
+                      "processing in comprehensive two-dimensional gas",
+                      "chromatography-mass spectrometry. Microchemical",
+                      "Journal, 156, 104830.",
+                      "https://doi.org/10.1016/j.microc.2020.104830"
+
+  )
+)

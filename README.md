@@ -61,6 +61,10 @@ Eilers, P. H. (2003). A Perfect Smoother. Analytical Chemistry, 75(14),
 Eilers, P. H. (2004). Parametric Time Warping. Analytical Chemistry,
 76(2), 404-411. <https://doi.org/10.1021/ac034800e>
 
+Wold, S., Geladi, P., Esbensen, K., & Öhman, J. (1987). Multi-way
+principal components-and PLS-analysis. Journal of Chemometrics, 1(1),
+41-56. <https://doi.org/10.1002/cem.1180010107>
+
 Zhang, D., Huang, X., Regnier, F. E., & Zhang, M. (2008).
 Two-Dimensional Correlation Optimized Warping Algorithm for Aligning
 GC×GC−MS Data. Analytical Chemistry, 80(8), 2664-2671.
