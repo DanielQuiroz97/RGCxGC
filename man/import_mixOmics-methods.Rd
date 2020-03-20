@@ -47,16 +47,17 @@ This function takes a model built through
 # Load libraries
 library(mixOmics)
 library(caret)
+library(snow)
 # Load chromatograms
 data(Myrothecium)
 
 # Unfold chromatograms
-list_chrom <- unfold_chrom(all_chrom)
+list_chrom <- unfold_chrom(Myrothecium)
 unfolded_chrom <- list_chrom$chromatogram
 colnames(unfolded_chrom) <- paste0("RT", seq(dim(unfolded_chrom)[2]))
-metadata <- get_metadata(all_chrom)
+metadata <- get_metadata(Myrothecium)
 
-index <- get_metadata(all_chrom)
+index <- get_metadata(Myrothecium)
 # Create a response variable
 Y <- factor(index$Type)
 
@@ -67,10 +68,8 @@ chrom_dim <- dim(unfolded_chrom)[2]
 list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
 tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
                           progressBar = TRUE, dist = 'max.dist',
-                          cpus = 12, # Set cpus according with your pc
+                          cpus = 1, # Set cpus according with your pc
                           test.keepX = list.keepX)
-# Plot error rates
-graphics::plot(tune.splsda)
 # Number of variables per component
 tune.splsda$choice.keepX
 # Remove zero variance predictor variables

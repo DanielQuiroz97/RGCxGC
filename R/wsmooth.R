@@ -47,6 +47,11 @@ setMethod(f = "method_smooth",
 #'   first (penalty = 1) and second  (penalty = 2) order are allowed. By
 #'   default, the smooth function is performed with first penalty order.
 #' @param lambda smoothing parameter: larger values lead to more smoothing.
+#' @param min_int minimum intensity value. The smoothing routine usually
+#'   creates low intensity artifacts which can obscure other compounds signals.
+#'   The min intensity value replace signals bellow the given value with 0.
+#'   For quadrupole mass detectro this artifacts may range from 0-100, while
+#'   for TOF mass analyzers it can be 0-1e3.
 #' @importFrom methods new is
 #' @export
 #' @examples 
@@ -57,16 +62,30 @@ setMethod(f = "method_smooth",
 #' plot(chrom_smooth, nlevels = 150,
 #'            color.palette = colorRamps::matlab.like,
 #'            main = expression(paste(lambda, "= 10, penalty = 1")) )
-#' 
+#' # Remove intensities bellow 1.75e5 (too high)    
+#' chrom_smooth2 <- wsmooth(chrom_2D, penalty = 1,
+#'                          lambda = 1e1, min_int = 1.75e5)
+#' plot(chrom_smooth2, nlevels = 150,
+#'            color.palette = colorRamps::matlab.like,
+#'            main = expression(paste(lambda,
+#'             "= 10, penalty = 1, min_int = 1.75e5")) )
 #' @references
 #'     \insertAllCited{}
-wsmooth <- function(chromatogram, penalty = 1, lambda = 1) {
+wsmooth <- function(chromatogram, penalty = 1, lambda = 1, min_int = 0) {
   preproc_chrom <- new("preproc_GCxGC", name = chromatogram@name,
                        mod_time = chromatogram@mod_time,
                        time = chromatogram@time)
   smoothed_chrom <- method_smooth(Object = chromatogram,
                                   penalty = penalty,
                                   lambda = lambda)
-  preproc_chrom@chromatogram <- smoothed_chrom@chromatogram
+  if (min_int < 0) {  
+    stop("Please, provide a positive minimun intensity")
+  } else if (min_int > 0){
+    smoothed_chrom@chromatogram[smoothed_chrom@chromatogram < min_int] <- 0
+    preproc_chrom@chromatogram <- smoothed_chrom@chromatogram
+  } else {
+    preproc_chrom@chromatogram <- smoothed_chrom@chromatogram
+  }
+  
   return(preproc_chrom)
 }

@@ -4,7 +4,7 @@
 \alias{wsmooth}
 \title{Two-dimensional smoothing}
 \usage{
-wsmooth(chromatogram, penalty = 1, lambda = 1)
+wsmooth(chromatogram, penalty = 1, lambda = 1, min_int = 0)
 }
 \arguments{
 \item{chromatogram}{\emph{raw_GCxGC} or \emph{preproc_GCxGC} object with
@@ -15,6 +15,12 @@ first (penalty = 1) and second  (penalty = 2) order are allowed. By
 default, the smooth function is performed with first penalty order.}
 
 \item{lambda}{smoothing parameter: larger values lead to more smoothing.}
+
+\item{min_int}{minimum intensity value. The smoothing routine usually
+creates low intensity artifacts which can obscure other compounds signals.
+The min intensity value replace signals bellow the given value with 0.
+For quadrupole mass detectro this artifacts may range from 0-100, while
+for TOF mass analyzers it can be 0-1e3.}
 }
 \description{
 `wsmooth` weighted whittaker  smoothing.
@@ -34,7 +40,13 @@ chrom_smooth <- wsmooth(chrom_2D, penalty = 1, lambda = 1e1)
 plot(chrom_smooth, nlevels = 150,
            color.palette = colorRamps::matlab.like,
            main = expression(paste(lambda, "= 10, penalty = 1")) )
-
+# Remove intensities bellow 1.75e5 (too high)    
+chrom_smooth2 <- wsmooth(chrom_2D, penalty = 1,
+                         lambda = 1e1, min_int = 1.75e5)
+plot(chrom_smooth2, nlevels = 150,
+           color.palette = colorRamps::matlab.like,
+           main = expression(paste(lambda,
+            "= 10, penalty = 1, min_int = 1.75e5")) )
 }
 \references{
 \insertAllCited{}

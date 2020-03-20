@@ -39,6 +39,7 @@ setGeneric(name = "import_mixOmics",
 #' # Load libraries
 #' library(mixOmics)
 #' library(caret)
+#' library(snow)
 #' # Load chromatograms
 #' data(Myrothecium)
 #' 
@@ -60,11 +61,8 @@ setGeneric(name = "import_mixOmics",
 #' list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
 #' tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
 #'                           progressBar = TRUE, dist = 'max.dist',
-#'                           cpus = 12, # Set cpus according with your pc
+#'                           cpus = 1, # Set cpus according with your pc
 #'                           test.keepX = list.keepX)
-#' # Plot error rates
-#' graphics::plot(tune.splsda)
-
 #' # Number of variables per component
 #' tune.splsda$choice.keepX
 #' # Remove zero variance predictor variables
