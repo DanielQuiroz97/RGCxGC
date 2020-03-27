@@ -47,7 +47,6 @@ This function takes a model built through
 # Load libraries
 library(mixOmics)
 library(caret)
-library(snow)
 # Load chromatograms
 data(Myrothecium)
 

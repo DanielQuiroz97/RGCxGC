@@ -6,3 +6,4 @@ R/all_chrom.RData
 all_chrom.RData
 *.RData
 .Rhistory
+inst/doc

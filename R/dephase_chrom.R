@@ -19,7 +19,8 @@ setGeneric(name = "dephase_chrom",
 #' @param rel_dephase a numeric value from 0 to 100 with the relative dephasing
 #'    position.
 #' @export
-#' @examples 
+#' @examples
+#' \donttest{ 
 #'  library(colorRamps)
 #'  GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 #'  GB08 <- read_chrom(GB08_fl, 5L)
@@ -28,6 +29,7 @@ setGeneric(name = "dephase_chrom",
 #'  GB08_d25 <- dephase_chrom(GB08, 25)
 #'  plot(GB08_d25, nlevels = 150, color.palette = matlab.like,
 #'       main = "25% dephased chromatogram")
+#'  }
 setMethod(f = "dephase_chrom",
           signature = c("GCxGC"),
           definition =  function(Object, rel_dephase) {

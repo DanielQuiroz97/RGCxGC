@@ -39,7 +39,6 @@ setGeneric(name = "import_mixOmics",
 #' # Load libraries
 #' library(mixOmics)
 #' library(caret)
-#' library(snow)
 #' # Load chromatograms
 #' data(Myrothecium)
 #' 
