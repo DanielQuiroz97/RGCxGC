@@ -15,7 +15,7 @@ read_chrom(
 )
 }
 \arguments{
-\item{name}{a name of the NetCDF file where the data is alocated.}
+\item{name}{a name of the NetCDF file where the data is allocated.}
 
 \item{mod_time}{a integer, the modulation time of the chromatographic run.}
 

@@ -20,18 +20,18 @@ loading values.}
 
 \item{pc}{the principal component to plot.}
 
-\item{thresh}{numerica value. A threshold to remoe low loading values.}
+\item{thresh}{numerical value. A threshold to remove low loading values.}
 
 \item{...}{Other parameters passes to \code{\link[graphics]{filled.contour}}
 function.}
 }
 \description{
-`plot_loading` plot the loadings of the a MPCA object.
+`plot_loading` plot the loading of the a MPCA object.
 }
 \details{
 This function takes the loadings of MPCA and eval if a certain
   variable was removed previous compute de MPCA and it fills the removed
-  variables with cero. Then, the loadings are plotted considering one
+  variables with zero. Then, the loadings are plotted considering one
   principle component at a time as a two-dimensional chromatogram.
 }
 \examples{

@@ -12,7 +12,7 @@ setGeneric(name = "get_metadata",
 #' @aliases get_metadata,GCxGC-method
 #' @description `get_metadata` retrieves the metadata contained in a
 #' joined_chrom object.
-#' @details This function acceses to the \emph{groups} slot created by the
+#' @details This function accesses to the \emph{groups} slot created by the
 #'  joined_chrom function. The \emph{Names} are the names of the
 #'  chromatograms.
 #'  

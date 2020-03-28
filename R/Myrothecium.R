@@ -29,14 +29,14 @@
 #' electron ionization (70eV).
 #' 
 #' The original study was developed by
-#'  \insertCite{QuirozMoreno2020;textual}{RGCxGC}.
+#' \insertCite{Quiroz-Moreno2020;textual}{RGCxGC}.
 #' 
 #' @docType data
 #' 
 #' @usage data(Myrothecium)
 #' 
 #' @keywords datasets antagonism microbial
-#' 
+#' @importFrom Rdpack reprompt
 #' @format A joined_chrom object containing four slots:
 #' \describe{
 #'   \item{chromatograms}{A named list with the two-dimensional chromatograms}
@@ -44,4 +44,6 @@
 #'   \item{time}{The retantion time range of the chromatographic run}
 #'   \item{mod_time}{The modulation time}
 #' }
+#' @references 
+#'     \insertAllCited{}
 "Myrothecium"

@@ -25,14 +25,14 @@ setMethod(f = "method_baselineCorr",
 #' @title  Two-dimensional baseline correction
 #' 
 #' @description  `baseline_corr` provides a two-dimensional baseline correction
-#' by using the asymetric least squares algorithm.
+#' by using the asymmetric least squares algorithm.
 #' 
 #' @details This function takes a raw two-dimensional chromatogram and performs
 #'  the baseline correction  with the implemented function in
 #'  \code{\link[ptw]{baseline.corr}}  \insertCite{Eilers2004}{RGCxGC}.
 #' 
 #' @param chromatogram a \emph{raw_GCxGC} object.
-#' @param ... other parameters passed to asy\code{\link[ptw]{baseline.corr}}
+#' @param ... other parameters passed to \code{\link[ptw]{baseline.corr}}
 #'  function in the pwt package.
 #'  
 #' @importFrom ptw baseline.corr

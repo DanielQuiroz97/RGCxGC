@@ -7,7 +7,7 @@
 m_prcomp(chrom, center = FALSE, scale = FALSE, npcs = 3, ...)
 }
 \arguments{
-\item{chrom}{Multiple chromatograms readed or batch aligned}
+\item{chrom}{Multiple chromatograms read or batch aligned}
 
 \item{center}{A logical value indicating whether the variables should be
 shifted to be zero centered. FALSE is set by default.}
@@ -17,9 +17,9 @@ be scaled to have unit variance before the analysis takes place. The
 default is FALSE.}
 
 \item{npcs}{an integer indicating how many principals components are
-desired to mantain. The default is 3 principal components.}
+desired to maintain. The default is 3 principal components.}
 
-\item{...}{Other argments passed to \code{\link[stats]{prcomp}}
+\item{...}{Other arguments passed to \code{\link[stats]{prcomp}}
 function.}
 }
 \value{
@@ -29,7 +29,7 @@ MPCA returns a list whit class "MPCA" containing the summary of the
 }
 \description{
 `m_prcomp` Performs a multiway principal components analysis on a given
-two-dimensional chromatograms and returns the rusults as object of class
+two-dimensional chromatograms and returns the results as object of class
 MPCA.
 Before to perform the calculation, each given chromatogramas are unfolded
 to a single dimension. All chromatograms are merged and principal component 

@@ -7,7 +7,7 @@
 batch_2DCOW(reference, sample_chroms, segments, max_warp, add_ref = FALSE)
 }
 \arguments{
-\item{reference}{a GCxGC chromatogram wich will be taken as the reference 
+\item{reference}{a GCxGC chromatogram which will be taken as the reference 
 chromatogram.}
 
 \item{sample_chroms}{a named list with the sample chromatograms which will
@@ -16,7 +16,7 @@ be aligned against to the reference chromatogram.}
 \item{segments}{a two integer vector with the number of segments
 which the first and second dimension will be divided, respectively.}
 
-\item{max_warp}{a two intger vector with the maximum warping parameter for
+\item{max_warp}{a two integer vector with the maximum warping parameter for
 the first and second dimension}
 
 \item{add_ref}{a logical indicating if the reference chromatogram will
@@ -25,18 +25,18 @@ If add_ref is set to T, the provide reference chromatogram will
 be included as another sample chromatogram in the downstream analysis.}
 }
 \description{
-`batch_2DCOW` perform two-dicmensional correlation optimized warping
+`batch_2DCOW` perform two-dimensional correlation optimized warping
 alignment in batch.
 }
 \details{
 The first argument is the reference chromatogram which other chromatograms
 will aligned against to. Then, a named list is needed for the sample_chroms
-argumnet. Each chromatogram in this list will be aligned using the reference
-chromatogram. By default, the ference chromatogram will be not included in
+argument. Each chromatogram in this list will be aligned using the reference
+chromatogram. By default, the reference chromatogram will be not included in
 the subsequent analysis, such as MPCA. If you would like to add the reference
 chromatogram, then add_ref = T.
 
-This is an adaptation of two-dimesional COW alignment, firstly implemented
+This is an adaptation of two-dimensional COW alignment, firstly implemented
 in MATLAB. This function takes a set of samples chromatogram to be aligned 
 against to the reference. The argument [segment] will be used 
 to split the whole chromatogram in \emph{n} and \emph{m} parts in the first

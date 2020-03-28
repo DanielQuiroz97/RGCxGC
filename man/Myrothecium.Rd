@@ -46,7 +46,10 @@ ion source temperature 200 celcius, interface temperature
 electron ionization (70eV).
 
 The original study was developed by
- \insertCite{QuirozMoreno2020;textual}{RGCxGC}.
+\insertCite{Quiroz-Moreno2020;textual}{RGCxGC}.
+}
+\references{
+\insertAllCited{}
 }
 \keyword{antagonism}
 \keyword{datasets}

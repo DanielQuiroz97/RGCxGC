@@ -115,7 +115,7 @@ setMethod(f = "Mread_GCxGC",
 #' representing the two-dimensional chromatogram. This function is an
 #' adaptation of the presented routine by \insertCite{Skov2008;textual}{RGCxGC}.
 #' 
-#' @param name a name of the NetCDF file where the data is alocated.
+#' @param name a name of the NetCDF file where the data is allocated.
 #' @param mod_time a integer, the modulation time of the chromatographic run.
 #' @param sam_rate a integer, the sampling rate of the equipment.
 #'  If sam_rate is missing, the sampling rate is calculated by the dividing 1 by

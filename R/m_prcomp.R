@@ -62,7 +62,7 @@ setMethod(f = "method_MPCA",
 #' Multiway Principal Component Analysis
 #'
 #' `m_prcomp` Performs a multiway principal components analysis on a given
-#' two-dimensional chromatograms and returns the rusults as object of class
+#' two-dimensional chromatograms and returns the results as object of class
 #' MPCA.
 #"
 #' Before to perform the calculation, each given chromatogramas are unfolded
@@ -71,15 +71,15 @@ setMethod(f = "method_MPCA",
 #' The print method for these objects prints the summary of the analysis.
 #' This algorithm was first presented by \insertCite{Wold1987}{RGCxGC}.
 #"
-#' @param chrom Multiple chromatograms readed or batch aligned
+#' @param chrom Multiple chromatograms read or batch aligned
 #' @param center A logical value indicating whether the variables should be
 #'   shifted to be zero centered. FALSE is set by default.
 #' @param scale a logical value indicating whether the variables should
 #'  be scaled to have unit variance before the analysis takes place. The
 #'  default is FALSE.
 #' @param npcs an integer indicating how many principals components are
-#'  desired to mantain. The default is 3 principal components.
-#' @param ... Other argments passed to \code{\link[stats]{prcomp}}
+#'  desired to maintain. The default is 3 principal components.
+#' @param ... Other arguments passed to \code{\link[stats]{prcomp}}
 #'  function.
 #' 
 #' @return MPCA returns a list whit class "MPCA" containing the summary of the

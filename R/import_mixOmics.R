@@ -16,9 +16,9 @@ setGeneric(name = "import_mixOmics",
 #' @details This function takes a model built through
 #'   \code{\link[mixOmics]{plsda}} and \code{\link[mixOmics]{splsda}}, then,
 #'   access to loading values and transform each dimension loading into
-#'   a two-dimensional matrix. This matrix represents a typcial GCxGC
+#'   a two-dimensional matrix. This matrix represents a typical GCxGC
 #'   chromatogram. By default, user can provide a chromatogram where the
-#'   requiered information will be retrieved from. On the other hand,
+#'   required information will be retrieved from. On the other hand,
 #'   user can also provide all the needed information
 #'   (\emph{mod_time}, \emph{time_range}, \emph{sampling_rt})
 #'   to fold eigenvectors into a typical GCxGC chromatogram.

@@ -19,16 +19,16 @@ default, the smooth function is performed with first penalty order.}
 \item{min_int}{minimum intensity value. The smoothing routine usually
 creates low intensity artifacts which can obscure other compounds signals.
 The min intensity value replace signals bellow the given value with 0.
-For quadrupole mass detectro this artifacts may range from 0-100, while
+For quadrupole mass detector this artifacts may range from 0-100, while
 for TOF mass analyzers it can be 0-1e3.}
 }
 \description{
 `wsmooth` weighted whittaker  smoothing.
 }
 \details{
-This function takes a raw bidimensional chromatogram and performs
+This function takes a raw two-dimensional chromatogram and performs
  the weighted wittaker smoothing. It smooths the signal with linear or
- cuadratic penalty, depending on the provided penalty,
+ quadratic penalty, depending on the provided penalty,
  along side the first dimension, based on Whittaker smoother
  \insertCite{Eilers2003}{RGCxGC}.
 }

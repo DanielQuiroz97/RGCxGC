@@ -18,7 +18,7 @@ set_metadata(Object, metadata)
 named as \emph{Names} to merge with the chromatograms.}
 }
 \description{
-`set_metadata` fill metadata slot of a joined chrom object.
+`set_metadata` fill metadata slot of a joined_chrom object.
 }
 \examples{
 

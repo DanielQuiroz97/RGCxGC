@@ -7,7 +7,7 @@ setGeneric(name = "set_metadata",
 
 #' @title  Set the metadata for a joined_chrom
 #' @rdname set_metadata-methods
-#' @description `set_metadata` fill metadata slot of a joined chrom object.
+#' @description `set_metadata` fill metadata slot of a joined_chrom object.
 #' @aliases set_metadata,GCxGC-method
 #' @param Object a joined_chrom object
 #' @param metadata a data.frame containing the metadata. It must have a column

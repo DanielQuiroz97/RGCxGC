@@ -27,7 +27,7 @@ of the \emph{type} argument.}
 `plot` plot the two-dimensional chromatogram as a contour plot.
 }
 \details{
-This plot function employs the built-in countour function. As
+This plot function employs the built-in contour function. As
  mentioned in \insertCite{Reichenbach2004;textual}{RGCxGC}, interpolation
  is used to display non-native GCxGC data.
 }

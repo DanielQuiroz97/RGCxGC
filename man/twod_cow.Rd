@@ -7,7 +7,7 @@
 twod_cow(sample_chrom, ref_chrom, segments, max_warp)
 }
 \arguments{
-\item{sample_chrom}{A GCxGC class cromatogram imported by read_chrom 
+\item{sample_chrom}{A GCxGC class chromatogram imported by read_chrom 
 function or a preprocessed chromatogram.}
 
 \item{ref_chrom}{A representative GCxGC chromatogram chosen to be the 
@@ -19,13 +19,13 @@ which the first and second dimension will be divided, respectively.}
 \item{max_warp}{A two integer vector with the maximum warping parameter.}
 }
 \description{
-This is an adaptation of two-dimesional COW aligment, first implementated 
+This is an adaptation of two-dimesional COW alignment, first implemented 
 in MATLAB \insertCite{Tomasi2004}{RGCxGC}. 
 This functions takes a sample chromatogram to be aligned 
 against a reference. The argument [segment] will be used to split the whole
 chromatogram in \emph{n} and \emph{m} parts the first and the second
-dimension, respectevily. The [max_warp] argument provides de maxium tolerace
-of the signal transformation for the first and the second dimension
+dimension, respectively. The [max_warp] argument provides de maximum
+tolerance of the signal transformation for the first and the second dimension
 \insertCite{DabaoZhang2008}{RGCxGC}.
 }
 \examples{
