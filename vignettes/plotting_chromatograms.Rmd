@@ -24,19 +24,20 @@ body {text-align: justify}
 # Introduction
 The traditional chromatography provides two type of signals, (a) retention
 time and (b) signal intensity. The sampling rate (MHz) defines the number
-of points that the detector is capable to meassure per second. Each discrete
-point contributes to create a continous time signal. A single run can be
-discribed as $A_{i}$ where $i$ is the number of scan points in the
+of points that the detector is capable to measure per second. Each discrete
+point contributes to create a continuous time signal. A single run can be
+described as $A_{i}$ where $i$ is the number of scan points in the
 chromatographic run.
 
 This is not the case of comprehensive chromatography (GCxGC). In the case of
-GCxGC, there is a second column conected with the first column by a modulator.
-The chemistry of the second column is usually different than the first column,
-some authors claims this difference as an ortogonal separation.
-Altough, it can not be always achieved since the chemistry of both columns
+GCxGC, there is a second column connected with the first column
+by a modulator. The chemistry of the second column is usually different
+than the first column, some authors claims this difference as an
+orthogonal separation. 
+Although, it can not be always achieved since the chemistry of both columns
 is not 100% opposite. Therefore, the second column is considered as a
 second chromatographic dimension. Thus, a single two-dimensional chromatogram
-can be discribed as a set of modulations $k$, where each modulation has a
+can be described as a set of modulations $k$, where each modulation has a
 set of scans $i$. Then, a 2D chromatogram can be described as $A_{i,k}$.
 
 The new structure dimensions ($A_{i,k}$) requires a different display
@@ -84,12 +85,12 @@ will use the filled contour approach.
 plot(MTBLS08)
 ```
 
-The color palett of this chromatogram might not be suitable. One of 
+The color palette of this chromatogram might not be suitable. One of 
 the most popular color palette employed in chromatogram visualization comes
 from MATLAB. The `colorRamps` package includes two palettes to overcome this
 issue, the `matlab.like` and `matlab.like2` functions. 
 
-Befote to change the chromatogram color palette, we would like to make emphasis
+Before to change the chromatogram color palette, we would like to make emphasis
 that the back-end function employed in this plot, is the `filled.contour`
 function. To change the palette, we have to provide the function that creates
 the palette.
@@ -105,26 +106,26 @@ plot(MTBLS08, type = "f", color.palette = matlab.like2,
 ```
 
 
-We spot some similarities between this two palettes. Firt of all, the
-palette button and apper limits are very similar. Even though, the
+We spot some similarities between this two palettes. First of all, the
+palette button and upper limits are very similar. Even though, the
 `matlab.like2` function has more color breaks, what in this case,
 makes the chromatogram to look better. For example, in the `matlab.like`
-palette the variation of lower signals intensites is obscured by a blue
+palette the variation of lower signals intensities is obscured by a blue
 degradation. On the other hand, the `matlab.like` palette highlight the
 background variation. Moreover, the color palette
 is highly dependent of the chromatogram as we are going to detail in the
-folowing sections.
+following sections.
 
 # TOF vs. Quadrupole
 The MS detector comes in some flavors, which two of the most common
 mass analyzers are Time of flight and Quadrupole. They are very different about
-how they work. For example, TOF mas analyzer can acquiere
+how they work. For example, TOF mas analyzer can acquire
 spectra in high resolution meanwhile the quadrupole mass analyzer is not
 capable of. Additionally, the sampling rate achieved by TOF is higher than
-quadrupole. Therefore, chromatograms acquiered with TOF mass analyzer are
+quadrupole. Therefore, chromatograms acquired with TOF mass analyzer are
 usually dimensionally higher ($> i$). 
 
-The previous chromatogram was acquiered with TOF mass analyzer, thus
+The previous chromatogram was acquired with TOF mass analyzer, thus
 TIC intensities are about $4x10^5$ and background intensities are
 about $1x10^5$. This is not the case of the quadrupole.
 
@@ -152,7 +153,7 @@ chromatograms. In the second chromatogram there are much more features.
 Additionally, the peaks are traslocated and they are not in the same
 retention time in the second dimension.
 
-We are going to addres this issues in four steps:
+We are going to address this issues in four steps:
 
 - Chromatogram dephasing
 - Changing the type of the plot
@@ -162,9 +163,9 @@ We are going to addres this issues in four steps:
 ## Chromatogram dephasing
 In two-dimensional chromartography, the modulation time may lead a
 peak partition. It is because the modulator does not inject the total
-peak volumen in the modulation $(i)$, and reinjects the remaining peak volumen in the
+peak volume in the modulation $(i)$, and reinjects the remaining peak volume in the
 next modulation $(i+1)$. The first chromatogram that we plot in the section 4
-presents this challange. Therefore, in order to improve the chromatogram
+presents this challenge. Therefore, in order to improve the chromatogram
 visualization and interpretation, the chromatogram is scrolled in the second
 dimension.
 
@@ -178,7 +179,7 @@ In this example, the second retention time has been scrolled 75%. We
 notice that the higher intensities are now in the same retention times.
 
 ## Changing the type of plot
-As aforementioned, the defalt plot type is the filled contour. Even though,
+As aforementioned, the default plot type is the filled contour. Even though,
 compound concentrations is usually uneven in untargeted analysis. Therefore
 compounds in a low concentration are not going to be displayed with the
 current approach. In this case, we can opt for the `contour` plot. The
@@ -190,7 +191,7 @@ that creates those colors, and you have to specify `type = "c"`.
 plot(myl_deph, type = "c",col = matlab.like2(10) )
 ```
 We start noticing that more features came out. This is because low signals
-were obsucred by the backgroud signal.
+were obscured by the background signal.
 
 ## Creating a personalized color palette
 Although the `matlab.like` and `matlab.like2` functions provides a fast
@@ -217,8 +218,8 @@ The number of levels is a critical argument to take into consideration to
 create an effective chromatogram visualization. This argument affect in how
 many breaks the signal will be splitted. For example, if `nlevels = 10` the
 total TIC signal will be splitted in 10 equally spaced breaks. If you
-set this argumnent to a greater value, the total TIC signal will be splitted
-in more braks, which enhance the feature visualization.
+set this argument to a greater value, the total TIC signal will be splitted
+in more breaks, which enhance the feature visualization.
 
 
 ```{r}
