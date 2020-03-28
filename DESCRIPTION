@@ -1,15 +1,20 @@
 Package: RGCxGC
 Type: Package
 Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
-Version: 1.1-1
-Date: 2020-03-24
+Version: 1.1-2
+Date: 2020-03-28
 Authors@R: c(
-    person("Cristian", "Quiroz-Moreno", email = "cristianquirozd1997@gmail.com",
-           role = c("aut", "cre")),
-    person("Guilherme", "L. Alexandrino", email = "Alexandrinogl@gmail.com",
-           role = "aut"),
+    person("Cristian", "Quiroz-Moreno",
+           email = "cristianquirozd1997@gmail.com",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9069-9147")),
+    person("Guilherme", "L. Alexandrino",
+           email = "Alexandrinogl@gmail.com",
+           role = "aut",
+           comment = c(ORCID = "0000-0002-2007-378X")),
     person("Noroska", "G.S. Mogollón", email = "gaby867@gmail.com",
-           role = "aut"))
+           role = "aut",
+           comment = c(ORCID = "0000-0002-0756-6184")))
 Maintainer: Cristian Quiroz-Moreno <cristianquirozd1997@gmail.com>
 Description: Toolbox for chemometrics analysis of bidimensional gas 
     chromatography data. This package import data for common scientific data

@@ -32,9 +32,9 @@ chromatographic run.
 This is not the case of comprehensive chromatography (GCxGC). In the case of
 GCxGC, there is a second column conected with the first column by a modulator.
 The chemistry of the second column is usually different than the first column,
-some authors claims this difference as ortogonal separation.
-Altough, it can not alway be achieved since the chemistry of both columns
-is not opposite 100%. Therefore, the second column is considered as a
+some authors claims this difference as an ortogonal separation.
+Altough, it can not be always achieved since the chemistry of both columns
+is not 100% opposite. Therefore, the second column is considered as a
 second chromatographic dimension. Thus, a single two-dimensional chromatogram
 can be discribed as a set of modulations $k$, where each modulation has a
 set of scans $i$. Then, a 2D chromatogram can be described as $A_{i,k}$.
@@ -84,15 +84,14 @@ will use the filled contour approach.
 plot(MTBLS08)
 ```
 
-The color palett of this chromatogram might be suitable, or the common
-color palette employed in some softwares like MATLAB or GCImage. One of 
+The color palett of this chromatogram might not be suitable. One of 
 the most popular color palette employed in chromatogram visualization comes
 from MATLAB. The `colorRamps` package includes two palettes to overcome this
 issue, the `matlab.like` and `matlab.like2` functions. 
 
 Befote to change the chromatogram color palette, we would like to make emphasis
 that the back-end function employed in this plot, is the `filled.contour`
-function. To change the palete, we have to provide the function that creates
+function. To change the palette, we have to provide the function that creates
 the palette.
 
 
@@ -110,16 +109,16 @@ We spot some similarities between this two palettes. Firt of all, the
 palette button and apper limits are very similar. Even though, the
 `matlab.like2` function has more color breaks, what in this case,
 makes the chromatogram to look better. For example, in the `matlab.like`
-palette the variation lower signals intensites is obscured by a blue
+palette the variation of lower signals intensites is obscured by a blue
 degradation. On the other hand, the `matlab.like` palette highlight the
 background variation. Moreover, the color palette
 is highly dependent of the chromatogram as we are going to detail in the
 folowing sections.
 
 # TOF vs. Quadrupole
-The MS detector comes in some flavors, which two of the most common are the
-Time of flight and Quadrupole mass analyzers. They are very differents about
-how they work and the data quality. For example, TOF mas analyzer can acquiere
+The MS detector comes in some flavors, which two of the most common
+mass analyzers are Time of flight and Quadrupole. They are very different about
+how they work. For example, TOF mas analyzer can acquiere
 spectra in high resolution meanwhile the quadrupole mass analyzer is not
 capable of. Additionally, the sampling rate achieved by TOF is higher than
 quadrupole. Therefore, chromatograms acquiered with TOF mass analyzer are
@@ -132,7 +131,7 @@ about $1x10^5$. This is not the case of the quadrupole.
 The following chromatogram is retrieved from the package
 [article](https://doi.org/10.1016/j.microc.2020.104830). In contrast
 with the previous chromatogram, the next chromatogram was acquired with
-a mas analyzer.
+a quadrupole mas analyzer.
 
 
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
@@ -163,8 +162,8 @@ We are going to addres this issues in four steps:
 ## Chromatogram dephasing
 In two-dimensional chromartography, the modulation time may lead a
 peak partition. It is because the modulator does not inject the total
-peak volumen in the modulation $i$, and reinjects the remaining peak in the
-next modulation $i+1$. The first chromatogram that we plot in the section 4
+peak volumen in the modulation $(i)$, and reinjects the remaining peak volumen in the
+next modulation $(i+1)$. The first chromatogram that we plot in the section 4
 presents this challange. Therefore, in order to improve the chromatogram
 visualization and interpretation, the chromatogram is scrolled in the second
 dimension.
@@ -180,7 +179,7 @@ notice that the higher intensities are now in the same retention times.
 
 ## Changing the type of plot
 As aforementioned, the defalt plot type is the filled contour. Even though,
-compound concentration is usually uneven in untargeted analysis. Therefore
+compound concentrations is usually uneven in untargeted analysis. Therefore
 compounds in a low concentration are not going to be displayed with the
 current approach. In this case, we can opt for the `contour` plot. The
 major difference between these two types of plots is how you provide
@@ -200,7 +199,7 @@ we are going to explain how to create a personalized color palette.
 
 Basically, the `colorRampPalette` function will be use. This function
 create a color palette function with the provided colors. The provided
-colors will be used as changing breaks.
+colors will be used as breaks.
 
 
 ```{r}
