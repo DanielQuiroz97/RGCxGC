@@ -144,7 +144,7 @@ plot(myl, color.palette = matlab.like2 )
 Moreover, the chromatogram included in the paper is very different.
 
 ```{r Fig 1, echo=FALSE, out.width= "60%",message=FALSE, warning=FALSE, paged.print=FALSE, fig.align='center'}
-knitr::include_graphics("images/may_chrom.jpg")
+knitr::include_graphics("/img/post/may_chrom.jpg")
 ```
 
 
