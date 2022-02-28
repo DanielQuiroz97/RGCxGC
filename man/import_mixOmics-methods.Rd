@@ -67,7 +67,6 @@ chrom_dim <- dim(unfolded_chrom)[2]
 list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
 tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
                           progressBar = TRUE, dist = 'max.dist',
-                          cpus = 1, # Set cpus according with your pc
                           test.keepX = list.keepX)
 # Number of variables per component
 tune.splsda$choice.keepX

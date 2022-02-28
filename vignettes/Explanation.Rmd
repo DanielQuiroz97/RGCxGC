@@ -3,7 +3,6 @@ title: "Introduction to RGCxGC package"
 author: "Cristian Quiroz-Moreno"
 date: "`r Sys.Date()`"
 bibliography: REFERENCES.bib
-csl: analitica-chimica-acta.csl
 output:
   prettydoc::html_pretty:
     toc: true
@@ -69,7 +68,7 @@ matrix through **scores** function, or plot the loading matrix with the
 the **print** function. On the other hand, the RGCxGC package can export the
 two-dimensional chromatograms in order to perform supervised models. It can
 be done through **unfold_chrom**. Supervised models can be done with the
-[mixOmics](http://mixomics.org/s) functions.
+[mixOmics](httpS://mixomics.org/sample-page/) functions.
 
 # Detailed workflow
 ## Installation
