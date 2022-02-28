@@ -65,7 +65,7 @@ After signal preprocessing, MPCA can be performed over the dataset by using
 the **m_prcomp** functions. As result of the MPCA, you can access to the score
 matrix through **scores** function, or plot the loading matrix with the
 **plot_loading** function. Finally, the MPCA summary can be retrieved with
-the **print** function. On the other hand, the RGCxGC package can export the
+the **print_mpca** function. On the other hand, the RGCxGC package can export the
 two-dimensional chromatograms in order to perform supervised models. It can
 be done through **unfold_chrom**. Supervised models can be done with the
 [mixOmics](httpS://mixomics.org/sample-page/) functions.
