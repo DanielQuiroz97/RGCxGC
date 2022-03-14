@@ -4,9 +4,8 @@ author: "Cristian Quiroz-Moreno"
 date: "`r Sys.Date()`"
 bibliography: REFERENCES.bib
 output:
-  prettydoc::html_pretty:
+  rmarkdown::html_vignette:
     toc: true
-    theme: cayman
     toc_depth: 3
     number_sections: true
     fig_caption: true
@@ -68,7 +67,7 @@ matrix through **scores** function, or plot the loading matrix with the
 the **print_mpca** function. On the other hand, the RGCxGC package can export the
 two-dimensional chromatograms in order to perform supervised models. It can
 be done through **unfold_chrom**. Supervised models can be done with the
-[mixOmics](httpS://mixomics.org/sample-page/) functions.
+[mixOmics](https://mixomics.org/sample-page/) functions.
 
 # Detailed workflow
 ## Installation
@@ -120,6 +119,9 @@ To visualize chromatograms, you can use the **plot** function.
 It is built from **filled.contour** R base function. Since contour plots
 is a good choice to display non-native GCxGC data [@Reichenbach2004].
 The default function only plots the most intense signals, into a few breaks.
+For a detailed tutorial on 2D chromagram visualization, please
+visit the
+[tutorial web site](https://danielquiroz97.gitlab.io/post/plotting-chromatograms/).
 
 
 Due to the large variety of  metabolite concentrations in a sample,
