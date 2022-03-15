@@ -67,7 +67,7 @@ matrix through **scores** function, or plot the loading matrix with the
 the **print_mpca** function. On the other hand, the RGCxGC package can export the
 two-dimensional chromatograms in order to perform supervised models. It can
 be done through **unfold_chrom**. Supervised models can be done with the
-[mixOmics](https://mixomics.org/sample-page/) functions.
+[mixOmics](https://bioconductor.org/packages/release/bioc/html/mixOmics.html) functions.
 
 # Detailed workflow
 ## Installation
