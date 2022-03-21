@@ -53,12 +53,12 @@ setGeneric(name = "import_mixOmics",
 #' Y <- factor(index$Type)
 #' 
 #' #### Build the PLS-DA model ####
-#' # For reprosucibility
+#' # For reproducibility
 #' set.seed(10)
 #  #Tune pls-da
 #' chrom_dim <- dim(unfolded_chrom)[2]
 #' list.keepX <- seq(chrom_dim/3, chrom_dim, by = 5000)
-#' tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 2, validation = 'loo',
+#' tune.splsda <- tune.splsda(unfolded_chrom, Y, ncomp = 3, validation = 'loo',
 #'                           progressBar = TRUE, dist = 'max.dist',
 #'                           test.keepX = list.keepX)
 #' # Number of variables per component
