@@ -34,10 +34,9 @@ Imports: colorRamps,
 RdMacros: Rdpack
 biocViews:
 Depends:
-     R (>= 3.6.0),
+     R (>= 4.2.1),
      RNetCDF,
-     ptw,
-     mixOmics
+     ptw
 LazyData: true
 RoxygenNote: 7.1.2
 Encoding: UTF-8

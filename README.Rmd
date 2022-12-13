@@ -14,6 +14,7 @@ output: github_document
 [![](http://cranlogs.r-pkg.org/badges/last-week/RGCxGC?color=green)](https://cran.r-project.org/package=RGCxGC)
 <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/DanielQuiroz97/RGCxGC/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download DanielQuiroz97/RGCxGC on GitHub">Download</a>
+[![R-CMD-check](https://github.com/DanielQuiroz97/RGCxGC/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DanielQuiroz97/RGCxGC/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 ```{r setup, include = FALSE}

@@ -13,3 +13,4 @@ README.Rmd
 README.md
 ./R/sticker.R
 ^R/sticker\.R$
+^\.github$
