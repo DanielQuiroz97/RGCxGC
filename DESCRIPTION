@@ -35,7 +35,7 @@ Imports: colorRamps,
 RdMacros: Rdpack
 biocViews:
 Depends:
-     R (>= 4.2.1),
+     R (>= 4.2.0),
      RNetCDF,
      ptw
 LazyData: true
