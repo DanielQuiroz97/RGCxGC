@@ -14,3 +14,6 @@ README.md
 ./R/sticker.R
 ^R/sticker\.R$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
