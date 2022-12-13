@@ -17,4 +17,5 @@ README.md
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
-\zzz$
+\zzz\$
+^zzz$

@@ -46,6 +46,7 @@ second dimension, respectively.
 }
 \examples{
 
+\donttest{
 # Read Sample chromatogram
 GB08_fl <- system.file("extdata", "08GB.cdf", package = "RGCxGC")
 MTBLS08 <- read_chrom(GB08_fl, mod_time = 5)
@@ -59,7 +60,7 @@ MTBLS09 <- read_chrom(GB09_fl, mod_time = 5)
 # Considerer that chromatograms are renamed considering the list names
 batch_samples <- list(Chrom1 = MTBLS08, Chrom2 = MTBLS08)
 
-\donttest{
+
 # Perform batch 2DCOW alignment
 # Add the reference chromatogram as another sample
 batch_alignment <- batch_2DCOW(MTBLS09, batch_samples,
