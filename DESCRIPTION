@@ -1,8 +1,8 @@
 Package: RGCxGC
 Type: Package
 Title: Preprocessing and Multivariate Analysis of Bidimensional Gas Chromatography Data
-Version: 1.1-2.1
-Date: 2022-03-14
+Version: 1.2.0
+Date: 2022-12-13
 Authors@R: c(
     person("Cristian", "Quiroz-Moreno",
            email = "cristianquirozd1997@gmail.com",
@@ -24,7 +24,8 @@ Description: Toolbox for chemometrics analysis of bidimensional gas
     While in multivariate analysis, multiway principal component analysis is
     incorporated.
 License: MIT + file LICENSE
-URL: https://github.com/DanielQuiroz97/RGCxGC
+URL: https://github.com/DanielQuiroz97/RGCxGC,
+    https://danielquiroz97.github.io/RGCxGC/
 BugReports: https://github.com/DanielQuiroz97/RGCxGC/issues
 Imports: colorRamps,
      Rdpack,
@@ -34,18 +35,15 @@ Imports: colorRamps,
 RdMacros: Rdpack
 biocViews:
 Depends:
-     R (>= 3.6.0),
+     R (>= 4.2.0),
      RNetCDF,
-     ptw,
-     mixOmics
+     ptw
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Encoding: UTF-8
 Suggests:
     knitr,
     rmarkdown,
     lattice,
-    MASS,
-    caret,
     prettydoc,
 VignetteBuilder: knitr
