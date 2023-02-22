@@ -33,7 +33,7 @@ Imports: colorRamps,
      methods,
      graphics
 RdMacros: Rdpack
-biocViews:
+biocViews: ChemPhys
 Depends:
      R (>= 4.2.0),
      RNetCDF,
