@@ -2,6 +2,20 @@ url: https://danielquiroz97.github.io/RGCxGC/
 template:
   bootstrap: 5
   bootswatch: flatly
+<<<<<<< Updated upstream
+=======
+  includes:
+    in_header: |
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QY8Y925P0N"></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'G-QY8Y925P0N');
+       </script>
+>>>>>>> Stashed changes
 navbar:
   structure:
     left: [intro, reference, articles, news]
@@ -9,7 +23,11 @@ navbar:
   components:
     github:
       icon: fa-github
+<<<<<<< Updated upstream
       href: https://github.com/CooperstoneLab/MS2extract
+=======
+      href: https://github.com/DanielQuiroz97/RGCxGC
+>>>>>>> Stashed changes
       aria-label: Github
     twitter:
       icon: fa-twitter
@@ -19,4 +37,8 @@ navbar:
       icon: fa-linkedin
       href: https://www.linkedin.com/in/danielquirozmoreno/
       aria-label: Linkedin
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
