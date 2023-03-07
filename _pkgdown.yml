@@ -20,7 +20,6 @@ navbar:
   components:
     github:
       icon: fa-github
-      href: https://github.com/CooperstoneLab/MS2extract
       href: https://github.com/DanielQuiroz97/RGCxGC
       aria-label: Github
     twitter:
