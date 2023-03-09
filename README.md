@@ -1,8 +1,8 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
-<!-- <script async defer src="https://buttons.github.io/buttons.js"></script> -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<img src="vignettes/RGCxGC.png" alt="RGCxGC logo" align="right" width = "25%" height="25%"/>
+<img src="man/figures/RGCxGC.png" alt="RGCxGC logo" align="right" width = "25%" height="25%"/>
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <!-- badges: start -->
@@ -13,6 +13,7 @@ Status](http://www.r-pkg.org/badges/version/RGCxGC?color=yellow)](https://cran.r
 [![](http://cranlogs.r-pkg.org/badges/RGCxGC?color=blue)](https://cran.r-project.org/package=RGCxGC)
 [![](http://cranlogs.r-pkg.org/badges/last-week/RGCxGC?color=green)](https://cran.r-project.org/package=RGCxGC)
 <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/DanielQuiroz97/RGCxGC/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download DanielQuiroz97/RGCxGC on GitHub">Download</a>
 [![R-CMD-check](https://github.com/DanielQuiroz97/RGCxGC/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DanielQuiroz97/RGCxGC/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
